@@ -53,7 +53,7 @@ up_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")
 redd <- redd_raw |>
   mutate(date = as.Date(date)) |>
   select(-c(year, stream, method, depth_m, starting_elevation_ft,
-            redd_id, num_of_fish_on_redd)) |> # empty columns
+            redd_id, num_of_fish_on_redd, latitude, longitude)) |> # empty columns and remove lat/longs
   glimpse()
 
 # TODO keep comments?
@@ -80,5 +80,3 @@ write.csv(up_estimate, here::here("data", "battle_upstream_passage_estimate.csv"
 read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
 read.csv(here::here("data", "battle_upstream_passage.csv")) |> glimpse()
 read.csv(here::here("data", "battle_upstream_passage_estimate.csv")) |> glimpse()
-
-
