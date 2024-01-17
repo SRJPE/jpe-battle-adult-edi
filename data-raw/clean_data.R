@@ -51,9 +51,10 @@ up_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")
 
 # TODO no run information
 redd <- redd_raw |>
-  mutate(date = as.Date(date)) |>
+  mutate(date = as.Date(date),
+         reach = ifelse(reach %in% c("1", "2", "3", "4", "5"), paste0("R", reach), reach)) |>
   select(-c(year, stream, method, depth_m, starting_elevation_ft,
-            redd_id, num_of_fish_on_redd, latitude, longitude)) |> # empty columns and remove lat/longs
+            redd_id, num_of_fish_on_redd, latitude, longitude, species)) |> # empty columns and remove lat/longs
   glimpse()
 
 # TODO keep comments?
