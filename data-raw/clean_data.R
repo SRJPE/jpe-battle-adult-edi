@@ -66,6 +66,7 @@ escapement_raw <- escapement_counts_raw |>
             ladder, flow, temperature, hours, comments, stream)) |>
   glimpse()
 
+# TODO this shows data from 1995 but they only began collecting in 1998?
 escapement_estimates <- escapement_estimates_raw |> # all spring run
   select(-c(stream)) |>
   glimpse()
