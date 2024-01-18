@@ -40,10 +40,10 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
 redd_raw <- read.csv(here::here("data-raw", "standard_daily_redd.csv")) |>
   filter(stream == "battle creek")
 
-up_estimate_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
+escapement_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
   filter(stream == "battle creek")
 
-up_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
+escapement_counts_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
   filter(stream == "Battle Creek")
 
 
@@ -58,7 +58,7 @@ redd <- redd_raw |>
   glimpse()
 
 # TODO keep comments?
-up <- up_raw |>
+escapement_raw <- escapement_counts_raw |>
   mutate(stream = tolower(stream),
          date = as.Date(date)) |>
   filter(run == "spring") |>
@@ -66,18 +66,18 @@ up <- up_raw |>
             ladder, flow, temperature, hours, comments, stream)) |>
   glimpse()
 
-up_estimate <- up_estimate_raw |> # all spring run
+escapement_estimates <- escapement_estimates_raw |> # all spring run
   select(-c(stream)) |>
   glimpse()
 
 
 # write files -------------------------------------------------------------
 write.csv(redd, here::here("data", "battle_redd.csv"), row.names = FALSE)
-write.csv(up, here::here("data", "battle_upstream_passage.csv"), row.names = FALSE)
-write.csv(up_estimate, here::here("data", "battle_upstream_passage_estimate.csv"), row.names = FALSE)
+write.csv(escapement_raw, here::here("data", "battle_escapement_raw.csv"), row.names = FALSE)
+write.csv(escapement_estimates, here::here("data", "battle_escapement_estimates.csv"), row.names = FALSE)
 
 
 # review ------------------------------------------------------------------
 read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
-read.csv(here::here("data", "battle_upstream_passage.csv")) |> glimpse()
-read.csv(here::here("data", "battle_upstream_passage_estimate.csv")) |> glimpse()
+read.csv(here::here("data", "battle_escapement_raw.csv")) |> glimpse()
+read.csv(here::here("data", "battle_escapement_estimates.csv")) |> glimpse()
