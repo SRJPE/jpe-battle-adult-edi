@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2024-01-18</pubDate>
+    <pubDate>2024-01-23</pubDate>
     <abstract>
       <para>
     Abstract
@@ -163,7 +163,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-edi/main/data/battle_redd.csv</url>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_redd.csv</url>
           </online>
         </distribution>
       </physical>
@@ -419,7 +419,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-edi/main/data/battle_escapement_raw.csv</url>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_escapement_raw.csv</url>
           </online>
         </distribution>
       </physical>
@@ -539,7 +539,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-edi/main/data/battle_escapement_estimates.csv</url>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_escapement_estimates.csv</url>
           </online>
         </distribution>
       </physical>

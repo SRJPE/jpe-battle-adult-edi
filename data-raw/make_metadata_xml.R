@@ -14,7 +14,7 @@ datatable_metadata <-
                 datatable_description = c("Daily redd survey data",
                                           "Daily escapement data, raw counts",
                                           "Daily escapement data, interpolated estimates"),
-                datatable_url = paste0("https://raw.githubusercontent.com/SRJPE/jpe-battle-edi/main/data/",
+                datatable_url = paste0("https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/",
                                        c("battle_redd.csv",
                                          "battle_escapement_raw.csv",
                                          "battle_escapement_estimates.csv")))
@@ -43,13 +43,12 @@ dataset <- list() %>%
   add_coverage(metadata$coverage, metadata$taxonomic_coverage) %>%
   add_datatable(datatable_metadata)
 
-# GO through and check on all units
+GO through and check on all units
 custom_units <- data.frame(id = c("count of fish", "year"),
                            unitType = c("dimensionless", "dimensionless"),
                            parentSI = c(NA, NA),
                            multiplierToSI = c(NA, NA),
                            description = c("number of fish counted", "year of annual count"))
-
 
 unitList <- EML::set_unitList(custom_units)
 
