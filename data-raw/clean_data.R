@@ -17,8 +17,6 @@ library(googleCloudStorageR)
 # restrict individual redd locations (simplify to reach level, no lat/longs)
 # start with just adding spring run
 
-# TODO should we use estimates or raw count data for upstream passage?
-
 gcs_auth(json_file = Sys.getenv("GCS_AUTH_FILE"))
 gcs_global_bucket(bucket = Sys.getenv("GCS_DEFAULT_BUCKET"))
 
@@ -49,7 +47,6 @@ escapement_counts_raw <- read.csv(here::here("data-raw", "standard_adult_upstrea
 
 # clean data --------------------------------------------------------------
 
-# TODO no run information
 redd <- redd_raw |>
   mutate(date = as.Date(date),
          reach = ifelse(reach %in% c("1", "2", "3", "4", "5"), paste0("R", reach), reach)) |>
@@ -57,7 +54,6 @@ redd <- redd_raw |>
             redd_id, num_of_fish_on_redd, latitude, longitude, species)) |> # empty columns and remove lat/longs
   glimpse()
 
-# TODO keep comments?
 escapement_raw <- escapement_counts_raw |>
   mutate(stream = tolower(stream),
          date = as.Date(date)) |>
@@ -66,7 +62,6 @@ escapement_raw <- escapement_counts_raw |>
             ladder, flow, temperature, hours, comments, stream)) |>
   glimpse()
 
-# TODO this shows data from 1995 but they only began collecting in 1998?
 escapement_estimates <- escapement_estimates_raw |> # all spring run
   select(-c(stream)) |>
   glimpse()
