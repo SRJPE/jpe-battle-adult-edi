@@ -42,15 +42,14 @@ escapement_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_pass
   filter(stream == "battle creek")
 
 escapement_counts_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
-  filter(stream == "Battle Creek")
+  filter(stream == "battle creek")
 
 
 # clean data --------------------------------------------------------------
 
 redd <- redd_raw |>
-  mutate(date = as.Date(date),
-         reach = ifelse(reach %in% c("1", "2", "3", "4", "5"), paste0("R", reach), reach)) |>
-  select(-c(year, stream, method, depth_m, starting_elevation_ft,
+  mutate(date = as.Date(date)) |>
+  select(-c(year, stream, survey_method, depth_m, starting_elevation_ft,
             redd_id, num_of_fish_on_redd, latitude, longitude, species)) |> # empty columns and remove lat/longs
   glimpse()
 
@@ -59,11 +58,12 @@ escapement_raw <- escapement_counts_raw |>
          date = as.Date(date)) |>
   filter(run == "spring") |>
   select(-c(sex, viewing_condition, spawning_condition, jack_size,
-            ladder, flow, temperature, hours, comments, stream)) |>
+            ladder, flow, temperature, hours, comments, stream,
+            confidence_in_sex, fork_length, status, dead)) |>
   glimpse()
 
 escapement_estimates <- escapement_estimates_raw |> # all spring run
-  select(-c(stream)) |>
+  select(-c(stream, lcl, ucl, confidence_interval, ladder)) |>
   glimpse()
 
 
