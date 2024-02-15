@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2024-01-23</pubDate>
+    <pubDate>2024-02-14</pubDate>
     <abstract>
       <para>
     Abstract
@@ -336,6 +336,25 @@
           </measurementScale>
         </attribute>
         <attribute>
+          <attributeName>redd_count</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Number of redds observed</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>number of redds</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
           <attributeName>run</attributeName>
           <attributeLabel>redd</attributeLabel>
           <attributeDefinition>Run of the fish on the redd. Levels = "not recorded"</attributeDefinition>
@@ -517,6 +536,20 @@
             </nominal>
           </measurementScale>
         </attribute>
+        <attribute>
+          <attributeName>method</attributeName>
+          <attributeLabel>escapement_raw</attributeLabel>
+          <attributeDefinition>Method by which the data were collected. Levels = c("video")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Method by which the data were collected. Levels = c("video")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
       </attributeList>
       <numberOfRecords>4519</numberOfRecords>
     </dataTable>
@@ -618,7 +651,10 @@
           <description>number of fish counted</description>
         </unit>
         <unit id="year" name="year" unitType="dimensionless">
-          <description>year of annual count</description>
+          <description>age of redd in years</description>
+        </unit>
+        <unit id="number of redds" name="number of redds" unitType="dimensionless">
+          <description>number of redds counted</description>
         </unit>
       </unitList>
     </metadata>

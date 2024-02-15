@@ -43,12 +43,12 @@ dataset <- list() %>%
   add_coverage(metadata$coverage, metadata$taxonomic_coverage) %>%
   add_datatable(datatable_metadata)
 
-GO through and check on all units
-custom_units <- data.frame(id = c("count of fish", "year"),
-                           unitType = c("dimensionless", "dimensionless"),
-                           parentSI = c(NA, NA),
-                           multiplierToSI = c(NA, NA),
-                           description = c("number of fish counted", "year of annual count"))
+# GO through and check on all units
+custom_units <- data.frame(id = c("count of fish", "year", "number of redds"),
+                           unitType = c("dimensionless", "dimensionless", "dimensionless"),
+                           parentSI = c(NA, NA, NA),
+                           multiplierToSI = c(NA, NA, NA),
+                           description = c("number of fish counted", "age of redd in years", "number of redds counted"))
 
 unitList <- EML::set_unitList(custom_units)
 
