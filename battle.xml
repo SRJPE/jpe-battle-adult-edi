@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2024-02-14</pubDate>
+    <pubDate>2024-02-22</pubDate>
     <abstract>
       <para>
     Abstract
@@ -126,9 +126,97 @@
     <methods>
       <methodStep>
         <description>
-          <para>
-    Methods
-  </para>
+          <section>
+            <title>Data Types</title>
+            <para>
+      Upstream passage
+    </para>
+            <para>
+      Redd
+    </para>
+          </section>
+          <section>
+            <title>Upstream Passage</title>
+            <para>
+              <emphasis>Objectives:</emphasis>
+            </para>
+            <para><emphasis>Type:</emphasis> Video monitoring and trap
+    </para>
+            <para><emphasis>Location:</emphasis> Coleman National Fish Hatchery
+      Barrier Weir
+    </para>
+            <para><emphasis>Times of operation:</emphasis> March-November
+    </para>
+            <para>
+      Battle Creek collects two types of adult upstream passage data:
+      trap and video monitoring data. The video system and trap are
+      located at the Coleman National Fish Hatchery Barrier Weir and are
+      operated between March and November.
+    </para>
+            <para>
+      Video footage is collected using a video vault and reviewed
+      manually by monitoring crews. Information collected includes date,
+      time, video condition, fish count, species, run, fin clip status,
+      passage direction, and occasional comments are associated with a
+      record. Chinook or rainbow trout footage is reviewed by a second
+      more experienced personnel for quality and accuracy. Total hours
+      of video footage and total hours of fish passage are recorded to
+      understand Video efficiency. Missing data is interpolated using
+      Generalized Additive Models (GAM). Run assignment of chinook
+      salmon is recorded based on date of passage observation. Some
+      limitations of the video system and passage estimates based on the
+      video system include turbidity visibility challenges, run
+      determination by date inaccuracies, video outages in high flow
+      years, and GAM model performance when there are low counts or
+      uneven daily counts. Monitoring crews conduct trapping seven days
+      a week on Battle Creek using a false bottom trap located at the
+      top of the fish ladder. Trapping is only conducted when
+      temperatures are below 60 degrees, and the trap is checked every
+      30 minutes during trapping. The following attributes are collected
+      for any fish caught in the trap: fork length, marks or tags, sex,
+      fish health, adipose fin status. Tags are removed from any CWT
+      hatchery fish to collect information on that fish. All monitoring
+      data is collected manually in the field and entered into a digital
+      format by hand.
+    </para>
+          </section>
+          <section>
+            <title>Redd</title>
+            <para><emphasis>Objectives:</emphasis> Estimate spawning population
+    </para>
+            <para><emphasis>Type:</emphasis> Multiple surveys per year
+    </para>
+            <para><emphasis>Location:</emphasis> 18.6 miles are sampled in each
+      survey. The survey starts at the upstream end of the reach and it
+      typically takes 4 days to survey the entire reach.
+    </para>
+            <para>
+              <emphasis>Times of operation:</emphasis>
+            </para>
+            <para>
+      Snorkel surveys began in 2001 on Battle Creek. Typically three
+      snorkel surveys are performed each year. 18.6 miles are sampled in
+      each survey. The survey starts at the upstream end of the reach
+      and it typically takes 4 days to survey the entire reach. Three
+      snorkelers swim perpendicular to the flow and count holding
+      Chinook, carcasses and redds. Data displayed below are filtered to
+      Spring Run and reaches 6 &amp; 7 are excluded because they
+      primarily contain Fall or Late Fall Run populations. Holding and
+      carcass data are not currently available in this package.
+    </para>
+            <para>
+      When redds are encountered on a snorkel survey, crews collect
+      additional data on the redds: date, latitude, longitude, reach,
+      river mile, fish guarding, year, species, run, redd substrate
+      class, tail substrate class, and pre-redd substrate class. Less
+      consistently, Battle Creek also collects redd width and length as
+      well as velocity. Redd data is used to determine the spawning
+      window. Redd data is considered an accurate count of the spawning
+      population. Redd data most accurately counts total spawning
+      population in years with fewer redds and is a less reliable
+      measure in years with large spawning populations.
+    </para>
+          </section>
         </description>
       </methodStep>
     </methods>
@@ -555,7 +643,7 @@
     </dataTable>
     <dataTable>
       <entityName>battle_escapement_estimates.csv</entityName>
-      <entityDescription>Daily escapement data, interpolated estimates</entityDescription>
+      <entityDescription>Yearly escapement data, interpolated estimates</entityDescription>
       <physical>
         <objectName>battle_escapement_estimates.csv</objectName>
         <size unit="bytes">14</size>

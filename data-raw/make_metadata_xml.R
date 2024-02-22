@@ -13,7 +13,7 @@ datatable_metadata <-
                                    "data-raw/metadata/battle_escapement_estimates_metadata.xlsx"),
                 datatable_description = c("Daily redd survey data",
                                           "Daily escapement data, raw counts",
-                                          "Daily escapement data, interpolated estimates"),
+                                          "Yearly escapement data, interpolated estimates"),
                 datatable_url = paste0("https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/",
                                        c("battle_redd.csv",
                                          "battle_escapement_raw.csv",
@@ -25,7 +25,8 @@ metadata <- lapply(sheets, function(x) readxl::read_excel(excel_path, sheet = x)
 names(metadata) <- sheets
 
 abstract_docx <- "data-raw/metadata/abstract.docx"
-methods_docx <- "data-raw/metadata/methods.docx"
+# methods_docx <- "data-raw/metadata/methods.docx"
+methods_md <- "data-raw/metadata/methods.md"
 
 #edi_number <- reserve_edi_id(user_id = Sys.getenv("EDI_USER_ID"), password = Sys.getenv("EDI_PASSWORD"))
 edi_number <- "battle"
@@ -37,7 +38,8 @@ dataset <- list() %>%
   add_keyword_set(metadata$keyword_set) %>%
   add_abstract(abstract_docx) %>%
   add_license(metadata$license) %>%
-  add_method(methods_docx) %>%
+  # add_method(methods_docx) %>%
+  add_method(methods_md) %>%
   add_maintenance(metadata$maintenance) %>%
   add_project(metadata$funding) %>%
   add_coverage(metadata$coverage, metadata$taxonomic_coverage) %>%
