@@ -33,7 +33,15 @@
     <pubDate>2024-03-22</pubDate>
     <abstract>
       <para>
-    Abstract
+    The U.S. Fish and Wildlife Service (USFWS) collects data on adult
+    salmonids on Battle Creek. Data is collected annually via snorkel
+    surveys; video camera systems collect data on upstream passage 24
+    hours a day, 7 days a week from March to November. Data from this
+    monitoring is used to estimate adult escapement (upstream passage)
+    abundance and timing, spawner abundance, and other important metrics
+    for adult salmonids in the watershed. These data will also be used
+    to inform the development of a juvenile production estimate (JPE)
+    for spring-run Chinook salmon in the Sacramento River Watershed.
   </para>
     </abstract>
     <keywordSet>
@@ -147,6 +155,10 @@
     </para>
             <para><emphasis>Times of operation:</emphasis> March-November
     </para>
+            <para><emphasis>Consistency:</emphasis> Some years are not directly
+      comparable to others. Please contact staff associated with this
+      package for more information.
+    </para>
             <para>
       Battle Creek collects two types of adult upstream passage data:
       trap and video monitoring data. The video system and trap are
@@ -193,6 +205,11 @@
             <para>
               <emphasis>Times of operation:</emphasis>
             </para>
+            <para><emphasis>Consistency:</emphasis> Some years did not survey all
+      reaches and thus are not directly comparable with other years.
+      Please contact staff associated with this package for more
+      information.
+    </para>
             <para>
       Snorkel surveys began in 2001 on Battle Creek. Typically three
       snorkel surveys are performed each year. 18.6 miles are sampled in
@@ -215,6 +232,23 @@
       population. Redd data most accurately counts total spawning
       population in years with fewer redds and is a less reliable
       measure in years with large spawning populations.
+    </para>
+            <para>
+      Redds are assigned a unique redd ID upon observation. If a redd is
+      observed more than once, it may be assigned an age, and that redd
+      ID may have multiple observations in a table.
+    </para>
+            <para>
+      Methods for measuring substrate size has varied over the years and
+      for this package, substrate class was standardized using the
+      Wentworth scale, created by W.C. Krumbein. This scale is what is
+      commonly used in the United States. When the size range fell into
+      two categories, they were rounded down. The scale, in descending
+      size order, is boulder (&gt;256mm), cobble (64-256mm), very coarse
+      gravel (32-64mm), coarse gravel (16-32mm), medium gravel (8-16mm),
+      fine gravel (4-8mm), very fine gravel (2-4mm), very coarse sand
+      (1-2mm), coarse sand (0.5-1mm), medium sand (0.25-0.5mm), fine
+      sand – clay (&lt;0.25mm).
     </para>
           </section>
         </description>

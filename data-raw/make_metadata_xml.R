@@ -31,18 +31,18 @@ methods_md <- "data-raw/metadata/methods.md"
 #edi_number <- reserve_edi_id(user_id = Sys.getenv("EDI_USER_ID"), password = Sys.getenv("EDI_PASSWORD"))
 edi_number <- "battle"
 
-dataset <- list() %>%
-  add_pub_date() %>%
-  add_title(metadata$title) %>%
-  add_personnel(metadata$personnel) %>%
-  add_keyword_set(metadata$keyword_set) %>%
-  add_abstract(abstract_docx) %>%
-  add_license(metadata$license) %>%
-  # add_method(methods_docx) %>%
-  add_method(methods_md) %>%
-  add_maintenance(metadata$maintenance) %>%
-  add_project(metadata$funding) %>%
-  add_coverage(metadata$coverage, metadata$taxonomic_coverage) %>%
+dataset <- list()  |>
+  add_pub_date() |>
+  add_title(metadata$title) |>
+  add_personnel(metadata$personnel) |>
+  add_keyword_set(metadata$keyword_set) |>
+  add_abstract(abstract_docx) |>
+  add_license(metadata$license) |>
+  # add_method(methods_docx) |>
+  add_method(methods_md) |>
+  add_maintenance(metadata$maintenance) |>
+  add_project(metadata$funding) |>
+  add_coverage(metadata$coverage, metadata$taxonomic_coverage) |>
   add_datatable(datatable_metadata)
 
 # GO through and check on all units
