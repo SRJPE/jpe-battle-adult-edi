@@ -1,13 +1,6 @@
 library(tidyverse)
 library(googleCloudStorageR)
 
-# TODO personnel
-# TODO title
-# TODO keyword set
-# TODO funding
-# TODO project
-# TODO coverage
-
 
 # pull in data from google cloud ---------------------------------------------------
 
@@ -20,9 +13,10 @@ library(googleCloudStorageR)
 gcs_auth(json_file = Sys.getenv("GCS_AUTH_FILE"))
 gcs_global_bucket(bucket = Sys.getenv("GCS_DEFAULT_BUCKET"))
 
-gcs_get_object(object_name = "standard-format-data/standard_daily_redd.csv",
+# read in battle creek redd data instead of standard redd data
+gcs_get_object(object_name = "adult-holding-redd-and-carcass-surveys/battle-creek/data/battle_redd.csv",
                bucket = gcs_get_global_bucket(),
-               saveToDisk = here::here("data-raw", "standard_daily_redd.csv"),
+               saveToDisk = here::here("data-raw", "battle_daily_redd.csv"),
                overwrite = TRUE)
 
 gcs_get_object(object_name = "standard-format-data/standard_adult_upstream_passage.csv",
@@ -35,8 +29,8 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
                saveToDisk = here::here("data-raw", "standard_adult_passage_estimate.csv"),
                overwrite = TRUE)
 
-redd_raw <- read.csv(here::here("data-raw", "standard_daily_redd.csv")) |>
-  filter(stream == "battle creek")
+redd_raw <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |>
+  glimpse()
 
 escapement_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
   filter(stream == "battle creek")
@@ -45,14 +39,74 @@ escapement_counts_raw <- read.csv(here::here("data-raw", "standard_adult_upstrea
   filter(stream == "battle creek")
 
 
-# clean data --------------------------------------------------------------
+# redd --------------------------------------------------------------------
+
+# standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
+# when the size range fell into two categories, they were rounded down
+
+# standarized size ranges lookup
+substrate_class = data.frame("standardized_size_range" = c("<0.25",
+                                                           "0.25-0.5",
+                                                           "0.5-1",
+                                                           "1-2",
+                                                           "2-4",
+                                                           "4-8",
+                                                           '8-16',
+                                                           ">16"),
+                             "redd_substrate_class" = c("fine sand",
+                                                        "medium sand",
+                                                        "coarse sand", "very coarse sand",
+                                                        "very fine gravel", "fine gravel",
+                                                        "medium gravel",
+                                                        "coarse gravel to boulder"))
+
+unique(redd_raw$redd_substrate_size)
+
+redd_substrate_size_lookup <-
+  data.frame("redd_substrate_size" = unique(redd_raw$redd_substrate_size),
+             "standardized_size_range" = c(NA, "1-2", "1-2", "2-4", "2-4",
+                                           "0.5-1", "2-4","2-4", "8-16", "4-8",
+                                           "1-2", "1-2", "4-8", "<0.25", "1-2",
+                                           "2-4", "0.5-1", "1-2", "2-4", "2-4",
+                                           "<0.25", "4-8", "4-8")) |>
+  left_join(substrate_class)
+
+# standardize the reaches
+gcs_get_object(
+  object_name = "jpe-model-data/standard_reach_lookup.csv",
+  bucket = gcs_get_global_bucket(),
+  saveToDisk = here::here("data-raw",  "standard-reach-lookup.csv"),
+  overwrite = TRUE
+)
+
+standard_reach_lookup <- read_csv(here::here("data-raw",  "standard-reach-lookup.csv")) |>
+  filter(stream == "battle creek") |>
+  select(reach, standardized_reach) |>
+  mutate(standardized_reach = ifelse(reach == "R1B", "R1B", standardized_reach))
 
 redd <- redd_raw |>
-  mutate(date = as.Date(date)) |>
-  select(-c(year, stream, survey_method, depth_m, starting_elevation_ft,
-            redd_id, num_of_fish_on_redd, latitude, longitude, species)) |> # empty columns and remove lat/longs
-  glimpse()
+  mutate(survey_method = str_to_lower(survey_method),
+         # add redd count for all rows (each row is an observation)
+         # to avoid double counting, you need to take the unique redd_id
+         redd_count = 1) |>
+  left_join(redd_substrate_size_lookup |>
+              select(redd_substrate_size, redd_substrate_class),
+            by = c("redd_substrate_size")) |>
+  left_join(redd_substrate_size_lookup |>
+              select(redd_substrate_size, tail_substrate_class = redd_substrate_class),
+            by = c("tail_substrate_size" = "redd_substrate_size")) |>
+  left_join(redd_substrate_size_lookup |>
+              select(redd_substrate_size, pre_redd_substrate_class = redd_substrate_class),
+            by = c("pre_redd_substrate_size" = "redd_substrate_size")) |>
+  left_join(standard_reach_lookup, by = c("reach")) |>
+  select(date, redd_id = JPE_redd_id, reach = standardized_reach, fish_on_redd = fish_guarding, age, run, redd_count,
+         redd_measured, redd_width, redd_length,
+         pre_redd_depth, redd_pit_depth, redd_tail_depth,
+         redd_substrate_class, tail_substrate_class, pre_redd_substrate_class,
+         velocity = flow_fps)
 
+
+# upstream passage --------------------------------------------------------
 escapement_raw <- escapement_counts_raw |>
   mutate(stream = tolower(stream),
          date = as.Date(date)) |>
