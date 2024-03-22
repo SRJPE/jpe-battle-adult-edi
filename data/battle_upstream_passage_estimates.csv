@@ -1,28 +1,28 @@
-"year","stream","passage_estimate","run","adipose_clipped","ladder","lcl","ucl","confidence_interval"
-1995,"battle creek",66,"spring",FALSE,NA,NA,NA,NA
-1996,"battle creek",35,"spring",FALSE,NA,NA,NA,NA
-1997,"battle creek",107,"spring",FALSE,NA,NA,NA,NA
-1998,"battle creek",178,"spring",FALSE,NA,NA,NA,NA
-1999,"battle creek",73,"spring",FALSE,NA,NA,NA,NA
-2000,"battle creek",78,"spring",FALSE,NA,NA,NA,NA
-2001,"battle creek",111,"spring",FALSE,NA,NA,NA,NA
-2002,"battle creek",222,"spring",FALSE,NA,NA,NA,NA
-2003,"battle creek",221,"spring",FALSE,NA,NA,NA,NA
-2004,"battle creek",90,"spring",FALSE,NA,NA,NA,NA
-2005,"battle creek",73,"spring",FALSE,NA,NA,NA,NA
-2006,"battle creek",221,"spring",FALSE,NA,NA,NA,NA
-2007,"battle creek",291,"spring",FALSE,NA,NA,NA,NA
-2008,"battle creek",105,"spring",FALSE,NA,NA,NA,NA
-2009,"battle creek",194,"spring",FALSE,NA,NA,NA,NA
-2010,"battle creek",174,"spring",FALSE,NA,NA,NA,NA
-2011,"battle creek",159,"spring",FALSE,NA,NA,NA,NA
-2012,"battle creek",799,"spring",FALSE,NA,NA,NA,NA
-2013,"battle creek",608,"spring",FALSE,NA,NA,NA,NA
-2014,"battle creek",429,"spring",FALSE,NA,NA,NA,NA
-2015,"battle creek",181,"spring",FALSE,NA,NA,NA,NA
-2016,"battle creek",180,"spring",FALSE,NA,NA,NA,NA
-2017,"battle creek",30,"spring",FALSE,NA,NA,NA,NA
-2018,"battle creek",82,"spring",FALSE,NA,NA,NA,NA
-2019,"battle creek",47,"spring",FALSE,NA,NA,NA,NA
-2020,"battle creek",47,"spring",FALSE,NA,NA,NA,NA
-2021,"battle creek",233,"spring",FALSE,NA,NA,NA,NA
+"year","passage_estimate","run","adipose_clipped"
+1995,66,"spring",FALSE
+1996,35,"spring",FALSE
+1997,107,"spring",FALSE
+1998,178,"spring",FALSE
+1999,73,"spring",FALSE
+2000,78,"spring",FALSE
+2001,111,"spring",FALSE
+2002,222,"spring",FALSE
+2003,221,"spring",FALSE
+2004,90,"spring",FALSE
+2005,73,"spring",FALSE
+2006,221,"spring",FALSE
+2007,291,"spring",FALSE
+2008,105,"spring",FALSE
+2009,194,"spring",FALSE
+2010,174,"spring",FALSE
+2011,159,"spring",FALSE
+2012,799,"spring",FALSE
+2013,608,"spring",FALSE
+2014,429,"spring",FALSE
+2015,181,"spring",FALSE
+2016,180,"spring",FALSE
+2017,30,"spring",FALSE
+2018,82,"spring",FALSE
+2019,47,"spring",FALSE
+2020,47,"spring",FALSE
+2021,233,"spring",FALSE

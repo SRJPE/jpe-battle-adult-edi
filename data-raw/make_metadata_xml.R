@@ -6,18 +6,18 @@ library(EML)
 
 datatable_metadata <-
   dplyr::tibble(filepath = c("data/battle_redd.csv",
-                             "data/battle_escapement_raw.csv",
-                             "data/battle_escapement_estimates.csv"),
+                             "data/battle_upstream_passage_raw.csv",
+                             "data/battle_upstream_passage_estimates.csv"),
                 attribute_info = c("data-raw/metadata/battle_redd_metadata.xlsx",
-                                   "data-raw/metadata/battle_escapement_raw_metadata.xlsx",
-                                   "data-raw/metadata/battle_escapement_estimates_metadata.xlsx"),
+                                   "data-raw/metadata/battle_upstream_passage_raw_metadata.xlsx",
+                                   "data-raw/metadata/battle_upstream_passage_estimates_metadata.xlsx"),
                 datatable_description = c("Daily redd survey data",
-                                          "Daily escapement data, raw counts",
-                                          "Yearly escapement data, interpolated estimates"),
+                                          "Daily upstream passage data, raw counts",
+                                          "Yearly upstream passage data, interpolated estimates"),
                 datatable_url = paste0("https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/",
                                        c("battle_redd.csv",
-                                         "battle_escapement_raw.csv",
-                                         "battle_escapement_estimates.csv")))
+                                         "battle_upstream_passage_raw.csv",
+                                         "battle_upstream_passage_estimates.csv")))
 # save cleaned data to `data/`
 excel_path <- "data-raw/metadata/battle_adult_metadata.xlsx"
 sheets <- readxl::excel_sheets(excel_path)

@@ -109,11 +109,11 @@ redd <- redd_raw |>
 # upstream passage --------------------------------------------------------
 upstream <- upstream_raw |>
   mutate(date = as.Date(date)) |>
-  filter(run %in% c("spring", "not recorded", "unknown"))
+  filter(run %in% c("spring", "not recorded", "unknown")) |>
   select(date, time, count, run, adipose_clipped, passage_direction, method) |>
   glimpse()
 
-upstream_estimates <- upstream_estimates_raw |> # all spring run
+upstream_estimates <- upstream_estimates_raw |>  # all spring run
   select(-c(stream, lcl, ucl, confidence_interval, ladder)) |>
   glimpse()
 
@@ -126,5 +126,5 @@ write.csv(upstream_estimates, here::here("data", "battle_upstream_passage_estima
 
 # review ------------------------------------------------------------------
 read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
-read.csv(here::here("data", "battle_escapement_raw.csv")) |> glimpse()
-read.csv(here::here("data", "battle_escapement_estimates.csv")) |> glimpse()
+read.csv(here::here("data", "battle_upstream_passage_raw.csv")) |> glimpse()
+read.csv(here::here("data", "battle_upstream_passage_estimates.csv")) |> glimpse()
