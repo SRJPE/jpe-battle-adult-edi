@@ -32,10 +32,10 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
 redd_raw <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |>
   glimpse()
 
-escapement_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
+upstream_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
   filter(stream == "battle creek")
 
-escapement_counts_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
+upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
   filter(stream == "battle creek")
 
 
@@ -107,24 +107,21 @@ redd <- redd_raw |>
 
 
 # upstream passage --------------------------------------------------------
-escapement_raw <- escapement_counts_raw |>
-  mutate(stream = tolower(stream),
-         date = as.Date(date)) |>
-  filter(run == "spring") |>
-  select(-c(sex, viewing_condition, spawning_condition, jack_size,
-            ladder, flow, temperature, hours, comments, stream,
-            confidence_in_sex, fork_length, status, dead)) |>
+upstream <- upstream_raw |>
+  mutate(date = as.Date(date)) |>
+  filter(run %in% c("spring", "not recorded", "unknown"))
+  select(date, time, count, run, adipose_clipped, passage_direction, method) |>
   glimpse()
 
-escapement_estimates <- escapement_estimates_raw |> # all spring run
+upstream_estimates <- upstream_estimates_raw |> # all spring run
   select(-c(stream, lcl, ucl, confidence_interval, ladder)) |>
   glimpse()
 
 
 # write files -------------------------------------------------------------
 write.csv(redd, here::here("data", "battle_redd.csv"), row.names = FALSE)
-write.csv(escapement_raw, here::here("data", "battle_escapement_raw.csv"), row.names = FALSE)
-write.csv(escapement_estimates, here::here("data", "battle_escapement_estimates.csv"), row.names = FALSE)
+write.csv(upstream, here::here("data", "battle_upstream_passage_raw.csv"), row.names = FALSE)
+write.csv(upstream_estimates, here::here("data", "battle_upstream_passage_estimates.csv"), row.names = FALSE)
 
 
 # review ------------------------------------------------------------------

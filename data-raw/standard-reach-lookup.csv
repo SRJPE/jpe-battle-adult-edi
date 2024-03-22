@@ -1,0 +1,304 @@
+reach,standardized_reach,reach_description,stream,sub_reach,standardized_sub_reach,sub_reach_descriptions,categorization,CAMP_description
+NA,NA,not recorded,battle creek,NA,NA,NA,NA,NA
+CNFH,R7,Coleman NFH to LBC (Lower Battle Creek),battle creek,NA,NA,NA,NA,NA
+R3,R3,Coleman Dam to Confluence,battle creek,NA,NA,NA,NA,NA
+R4,R4,Confluence to Barnbeat,battle creek,NA,NA,NA,NA,NA
+R6,R6,Springbranch to Coleman NFH,battle creek,NA,NA,NA,NA,NA
+R7,R7,Coleman NFH to LBC (Lower Battle Creek),battle creek,NA,NA,NA,NA,NA
+R2,R2,Wildcat Dam to Conflence,battle creek,NA,NA,NA,NA,NA
+R1,R1,Assumes encompasses R1A and R1B: Eagle Canyon Dam to Wildcat Dam. Moving forward will be using sub-reaches,battle creek,NA,NA,NA,NA,NA
+R5,R5,Barnbeat to Springbranch,battle creek,NA,NA,NA,NA,NA
+Nevis Creek,R6,Springbranch to Coleman NFH,battle creek,NA,NA,NA,NA,NA
+Tailrace,R7,Coleman NFH to LBC (Lower Battle Creek),battle creek,NA,NA,NA,NA,NA
+4,R4,Confluence to Barnbeat,battle creek,NA,NA,NA,NA,NA
+1,R1,Assumes encompasses R1A and R1B: Eagle Canyon Dam to Wildcat Dam. Moving forward will be using sub-reaches,battle creek,NA,NA,NA,NA,NA
+2,R2,Wildcat Dam to Conflence,battle creek,NA,NA,NA,NA,NA
+5,R5,Barnbeat to Springbranch,battle creek,NA,NA,NA,NA,NA
+3,R3,Coleman Dam to Confluence,battle creek,NA,NA,NA,NA,NA
+R1B,R1,Assumes encompasses R1A and R1B: Eagle Canyon Dam to Wildcat Dam. Moving forward will be using sub-reaches,battle creek,NA,NA,NA,NA,NA
+R12,R1,Assumes encompasses R1A and R1B: Eagle Canyon Dam to Wildcat Dam. Moving forward will be using sub-reaches,battle creek,NA,NA,NA,NA,NA
+R3,R3,Kanaka Creek Confluence to Placer Rd. Bridge,clear creek,NA,NA,NA,NA,NA
+R2,R2,NEED Camp Bridge to Kanaka Creek Confluence,clear creek,NA,NA,NA,NA,NA
+R4,R4,Placer Rd. Bridge to Clear Creek Rd. Bridge,clear creek,NA,NA,NA,NA,NA
+R5A,R5,Clear Creek Rd. Bridge to Clear Creek Gorge,clear creek,NA,NA,NA,NA,NA
+R1,R1,Whiskeytown Dam to NEED Camp Bridge,clear creek,NA,NA,NA,NA,NA
+R5B,R5,Clear Creek Rd. Bridge to Clear Creek Gorge,clear creek,NA,NA,NA,NA,NA
+R6,R6A,Clear Creek Gorge to Gold Dredge BLM Recreation Area,clear creek,NA,NA,NA,NA,NA
+R5C,R5,Clear Creek Rd. Bridge to Clear Creek Gorge,clear creek,NA,NA,NA,NA,NA
+R7,R7,China Garden BLM Recreation Area to Clear Creek Video Station,clear creek,NA,NA,NA,NA,NA
+R6A,R6A,Clear Creek Gorge to Gold Dredge BLM Recreation Area,clear creek,NA,NA,NA,NA,NA
+R5,R5,Clear Creek Rd. Bridge to Clear Creek Gorge,clear creek,NA,NA,NA,NA,NA
+A,NA,Quartz Bowl Pool to Whiskey Flat,butte creek,A1,A1,Quartz Pool 1,NA,NA
+A,NA,Quartz Bowl Pool to Whiskey Flat,butte creek,A2,A2,Quartz Pool 2,NA,NA
+A,NA,Quartz Bowl Pool to Whiskey Flat,butte creek,A3,A3,Quartz Pool 3,NA,NA
+A,NA,Quartz Bowl Pool to Whiskey Flat,butte creek,A5,A5,NA,NA,NA
+B,NA,Whiskey Flat to Helltown,butte creek,B1,B1,NA,NA,NA
+B,NA,Whiskey Flat to Helltown,butte creek,B2,B2,NA,NA,NA
+B,NA,Whiskey Flat to Helltown,butte creek,B3,B3,NA,NA,NA
+B,NA,Whiskey Flat to Helltown,butte creek,B6,B6,NA,NA,NA
+B,NA,Whiskey Flat to Helltown,butte creek,B7,B7,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C1,C1,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C11,C11,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C2,C2,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C4,C4,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C9,C9,NA,NA,NA
+A,NA,Quartz Bowl Pool to Whiskey Flat,butte creek,A4,A4,Chimney (Pool in Quartz Bowl),NA,NA
+B,NA,Whiskey Flat to Helltown,butte creek,B4,B4,NA,NA,NA
+B,NA,Whiskey Flat to Helltown,butte creek,B5,B5,NA,NA,NA
+B,NA,Whiskey Flat to Helltown,butte creek,B8,B8,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C10,C10,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C12,C12,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C3,C3,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C5,C5,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C6,C6,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C7,C7,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C8,C8,NA,NA,NA
+D,NA,Quail Run Bridge to Cable Bridge,butte creek,D2,D2,NA,NA,NA
+D,NA,Quail Run Bridge to Cable Bridge,butte creek,D3,D3,NA,NA,NA
+D,NA,Quail Run Bridge to Cable Bridge,butte creek,D4,D4,NA,NA,NA
+D,NA,Quail Run Bridge to Cable Bridge,butte creek,D7,D7,NA,NA,NA
+E,NA,Cable Bridge to Covered Bridge,butte creek,E3,E3,NA,NA,NA
+E,NA,Cable Bridge to Covered Bridge,butte creek,E4,E4,NA,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,COV-BLK,COV-BCK,Covered bridge to USGS BCK gage,NA,NA
+D,NA,Quail Run Bridge to Cable Bridge,butte creek,D8,D8,NA,NA,NA
+E,NA,Cable Bridge to Covered Bridge,butte creek,E5,E5,NA,NA,NA
+E,NA,Cable Bridge to Covered Bridge,butte creek,E7,E7,NA,NA,NA
+E,NA,Cable Bridge to Covered Bridge,butte creek,E1,E1,NA,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,COV-BCK,COV-BCK,Covered bridge to USGS BCK gage,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,BCK-PWL,BCK-PWL,USGS BCK gage to power lines,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,PWL-OKIE,PWL-PPD,Power lines to Parrot-Phelan Diversion,NA,NA
+E,NA,Cable Bridge to Covered Bridge,butte creek,E2,E2,NA,NA,NA
+D,NA,Quail Run Bridge to Cable Bridge,butte creek,D1,D1,NA,NA,NA
+D,NA,Quail Run Bridge to Cable Bridge,butte creek,D5,D5,NA,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,C-B,COV-BCK,Covered bridge to USGS BCK gage,NA,NA
+D,NA,Quail Run Bridge to Cable Bridge,butte creek,D6,D6,NA,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,B-P,BCK-PWL,USGS BCK gage to power lines,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,P-O,PWL-PPD,Power lines to Parrot-Phelan Diversion,NA,NA
+E,NA,Cable Bridge to Covered Bridge,butte creek,E6,E6,NA,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,COV-OKIE,Covered bridge to Parrot-Phelan Diversion,Covered bridge to Parrot-Phelan Diversion (full sub-reach),NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,BCK-PL,BCK-PWL,USGS BCK gage to power lines,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,BCK-PWR,BCK-PWL,USGS BCK gage to power lines,NA,NA
+NA,NA,not recorded,butte creek,NA,NA,NA,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,BLK-PL,BCK-PWL,USGS BCK gage to power lines,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,COVER-PTR,Covered bridge to Parrot-Phelan Diversion,Covered bridge to Parrot-Phelan Diversion (full sub-reach),NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,PH-PWL,PH-PWL,Centreville powerhouse to power lines,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,PWR-OKI,PWL-PPD,Power lines to Parrot-Phelan Diversion,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,CO1,C1,NA,NA,NA
+A,NA,Quartz Bowl Pool to Whiskey Flat,butte creek,Chimney,A4,Chimney (Pool in Quartz Bowl),NA,NA
+A,NA,Quartz Bowl Pool to Whiskey Flat,butte creek,Quartz,A1,Quartz Pool 1,NA,NA
+A,NA,Quartz Bowl Pool to Whiskey Flat,butte creek,Quartz 2,A2,Quartz Pool 2,NA,NA
+A,NA,Quartz Bowl Pool to Whiskey Flat,butte creek,Quartz 3,A3,Quartz Pool 3,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C5-C12,C5,NA,NA,NA
+D,NA,Quail Run Bridge to Cable Bridge,butte creek,D1-D4,D1,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C5b,C5,NA,NA,NA
+C,NA,Helltown to Quail Run Bridge,butte creek,C5a,C5,NA,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,Cov-BCK,COV-BCK,Covered bridge to USGS BCK gage,NA,NA
+Covered bridge to Parrot-Phelan Diversion,NA,Covered bridge to Parrot-Phelan Diversion,butte creek,PL-OKIE,PWL-PPD,Power lines to Parrot-Phelan Diversion,NA,NA
+F,NA,Parrot-Phelan Diversion to Hwy 99 Bridge,butte creek,Below PPD,F,NA,NA,NA
+G,NA,Hwy 99 Bridge to Durham-Dayton Rd,butte creek,HWY 99 -OROCHICO,G,NA,NA,NA
+G,NA,Hwy 99 Bridge to Durham-Dayton Rd,butte creek,below Skyway-99,G,NA,NA,NA
+Table Mountain,1,Table Mountain Riffle and Cottonwood Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 1: most upstream in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Cottonwood,1,Table Mountain Riffle and Cottonwood Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 1: most upstream in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Moes Ditch,5,Moes S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 5 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Hatchery Riffle,4,Hatchery Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 4 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Auditorium,6,Upper Auditorium and Lower Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 6 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Bedrock,10,"Bedrock Riffle, Highway 70, Riverbend Park, and Highway 162",feather river,NA,NA,NA,HFC - high flow channel,"Section 10 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Trailer Park,11,Trailer Park Riffle and Mathews Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 11 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Mathews,12,Mathews,feather river,NA,NA,NA,HFC - high flow channel,"Section 12 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Aleck,14,Aleck Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 14 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Robinson,16,Upper Robinson Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 16 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Robinson,17,Lower Robinson Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 17 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Steep,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Eye,20,Eye Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 20 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Gateway,21,Gateway Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 21 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Hatchery Ditch,17,Lower Robinson Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 17 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Hatchery Pipe,17,Lower Robinson Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 17 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Auditorium,6,Upper Auditorium and Lower Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 6 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Mid Auditorium,6,Upper Auditorium and Lower Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 6 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Weir,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Top Of Auditorium,3,Top of Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 3 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Moes Side Channel,5,Moes S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 5 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Below Lower Auditorium,8,Below Lower Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 8 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Eye Riffle,20,Eye Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 20 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Weir Riffle,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Steep Side Channel,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Steep Riffle,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Auditorium,6,Upper Auditorium and Lower Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 6 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Robinson,16,Upper Robinson Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 16 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Below Auditorium,8,Below Lower Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 8 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Bedrock,10,"Bedrock Riffle, Highway 70, Riverbend Park, and Highway 162",feather river,NA,NA,NA,HFC - high flow channel,"Section 10 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Bedrock,10,"Bedrock Riffle, Highway 70, Riverbend Park, and Highway 162",feather river,NA,NA,NA,HFC - high flow channel,"Section 10 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Mathews,11,Trailer Park Riffle and Mathews Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 11 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Aleck,14,Aleck Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 14 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Middle Robinson,16,Upper Robinson Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 16 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Top Of Steep,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Vance West,22,Vance West (Evens),feather river,NA,NA,NA,LFC - low flow channel,"Section 22: most upstream in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Vance East,23,Vance East (Odds),feather river,NA,NA,NA,LFC - low flow channel,"Section 23 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Big Hole East,25,Big Hole,feather river,NA,NA,NA,LFC - low flow channel,"Section 25 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 Side Channel,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 East Side Channel Top,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 Main Bottom,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Upper Hour,29,Hour Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 29 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Lower Hour,29,Hour Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 29 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Keister Riffle,32,Keister Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 32 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Goose Riffle,33,Goose Riffle and Gaging Station/SWP Boundary,feather river,NA,NA,NA,LFC - low flow channel,"Section 33 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Big Riffle,34,Big Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 34 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Big Bar,35,Big Bar,feather river,NA,NA,NA,LFC - low flow channel,"Section 35 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Upper McFarland,36,Upper McFarland and Lower McFarland,feather river,NA,NA,NA,LFC - low flow channel,"Section 36 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Upper Vance East,23,Vance East (Odds),feather river,NA,NA,NA,LFC - low flow channel,"Section 23 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Lower Table Mountain,1,Table Mountain Riffle and Cottonwood Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 1: most upstream in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Moes Side Channel,5,Moes S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 5 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Moes Channel,5,Moes S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 5 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Hatchery,4,Hatchery Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 4 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Hatchery,4,Hatchery Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 4 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Gateway,21,Gateway Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 21 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Eye Side Channel,19,Eye Side Channel,feather river,NA,NA,NA,HFC - high flow channel,"Section 19 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Vance,24,Vance Ave/Big Hole Launch,feather river,NA,NA,NA,LFC - low flow channel,"Section 24 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Big Hole West,25,Big Hole,feather river,NA,NA,NA,LFC - low flow channel,"Section 25 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Below Big Hole East,25,Big Hole,feather river,NA,NA,NA,LFC - low flow channel,"Section 25 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 West Side Channel,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Top Of Hour,29,Hour Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 29 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Mid Hour,29,Hour Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 29 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Palm,31,Palm Ave. Boat Launch,feather river,NA,NA,NA,LFC - low flow channel,"Section 31 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Keister,32,Keister Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 32 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Goose,33,Goose Riffle and Gaging Station/SWP Boundary,feather river,NA,NA,NA,LFC - low flow channel,"Section 33 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Big,25,Big Hole,feather river,NA,NA,NA,LFC - low flow channel,"Section 25 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Below Big Bar,35,Big Bar,feather river,NA,NA,NA,LFC - low flow channel,"Section 35 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Lower McFarland,36,Upper McFarland and Lower McFarland,feather river,NA,NA,NA,LFC - low flow channel,"Section 36 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Developing,37,Developing Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 37 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 East Side Channel Bottom,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Lower Vance East,23,Vance East (Odds),feather river,NA,NA,NA,LFC - low flow channel,"Section 23 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Mid Vance East,23,Vance East (Odds),feather river,NA,NA,NA,LFC - low flow channel,"Section 23 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Top Vance East,23,Vance East (Odds),feather river,NA,NA,NA,LFC - low flow channel,"Section 23 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Upper Steep,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Top of Mathews,12,Mathews,feather river,NA,NA,NA,HFC - high flow channel,"Section 12 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Below Weir,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+G95 Main,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 East Side Channel,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Lower Hatchery Ditch,7,Hatchery S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 7 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Hatchery Riffle,4,Hatchery Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 4 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Top Of Moes Ditch,5,Moes S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 5 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Moes Ditch,5,Moes S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 5 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Steep Side Channel,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Hatchery Riffle,4,Hatchery Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 4 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Moes Ditch,5,Moes S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 5 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Hatchery Ditch,7,Hatchery S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 7 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Trailer Park,11,Trailer Park Riffle and Mathews Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 11 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Trailer Park,11,Trailer Park Riffle and Mathews Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 11 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Thermalito,historical reach - no description,Across from Outlet,feather river,NA,NA,NA,HFC - high flow channel,NA
+Top Big Hole East,25,Big Hole,feather river,NA,NA,NA,LFC - low flow channel,"Section 25 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 West Side Channel Top,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 Main Top,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 East Side Channel Mid,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Top Vance West,22,Vance West (Evens),feather river,NA,NA,NA,LFC - low flow channel,"Section 22: most upstream in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Below Big Hole,25,Big Hole,feather river,NA,NA,NA,LFC - low flow channel,"Section 25 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Top Keister,32,Keister Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 32 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Top Big River Right,historical reach - no description,Big Riffle RR,feather river,NA,NA,NA,HFC - high flow channel,NA
+Big River Left,historical reach - no description,Big Riffle RL,feather river,NA,NA,NA,HFC - high flow channel,NA
+Lower Big Bar,35,Big Bar,feather river,NA,NA,NA,LFC - low flow channel,"Section 35 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Mid McFarland,36,Upper McFarland and Lower McFarland,feather river,NA,NA,NA,LFC - low flow channel,"Section 36 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Developing Riffle,37,Developing Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 37 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Hour Glide,29,Hour Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 29 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Keister Top,32,Keister Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 32 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Upper Cottonwood,1,Table Mountain Riffle and Cottonwood Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 1: most upstream in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Upper Hour East,29,Hour Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 29 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Hatchery,4,Hatchery Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 4 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Hatchery Side Channel,7,Hatchery S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 7 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Hour,29,Hour Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 29 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+G95 West Side Channel Bottom,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+Great Western,15,River Reflections RV Park Boat Launch and Great Western,feather river,NA,NA,NA,HFC - high flow channel,"Section 15 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Top Of Hatchery,4,Hatchery Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 4 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Lower Big Riffle,34,Big Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 34 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+NA,NA,NA,feather river,NA,NA,NA,NA,NA
+High Flow,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,unknown,NA
+Bedrock Riffle,10,"Bedrock Riffle, Highway 70, Riverbend Park, and Highway 162",feather river,NA,NA,NA,HFC - high flow channel,"Section 10 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Aleck Riffle,14,Aleck Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 14 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Gateway Side Channel,21,Gateway Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 21 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Gateway Main Channel,21,Gateway Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 21 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+Palm Riffle,31,Palm Ave. Boat Launch,feather river,NA,NA,NA,LFC - low flow channel,"Section 31 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+1,1,Table Mountain Riffle and Cottonwood Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 1: most upstream in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+2,2,no named riffles,feather river,NA,NA,NA,HFC - high flow channel,"Section 2 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+3,3,Top of Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 3 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+4,4,Hatchery Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 4 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+8,8,Below Lower Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 8 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+7,7,Hatchery S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 7 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+6,6,Upper Auditorium and Lower Auditorium,feather river,NA,NA,NA,HFC - high flow channel,"Section 6 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+5,5,Moes S.C.,feather river,NA,NA,NA,HFC - high flow channel,"Section 5 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+10,10,"Bedrock Riffle, Highway 70, Riverbend Park, and Highway 162",feather river,NA,NA,NA,HFC - high flow channel,"Section 10 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+13,13,no named riffles,feather river,NA,NA,NA,HFC - high flow channel,"Section 13 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+14,14,Aleck Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 14 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+15,15,River Reflections RV Park Boat Launch and Great Western,feather river,NA,NA,NA,HFC - high flow channel,"Section 15 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+17,17,Lower Robinson Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 17 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+18,18,"Steep Riffle, Steep Side Channel, and Weir",feather river,NA,NA,NA,HFC - high flow channel,"Section 18 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+19,19,Eye Side Channel,feather river,NA,NA,NA,HFC - high flow channel,"Section 19 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+20,20,Eye Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 20 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+43,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+45,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+42,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+9,9,no named riffles,feather river,NA,NA,NA,HFC - high flow channel,"Section 9 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+11,11,Trailer Park Riffle and Mathews Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 11 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+12,12,Mathews,feather river,NA,NA,NA,HFC - high flow channel,"Section 12 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+16,16,Upper Robinson Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 16 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+25,25,Big Hole,feather river,NA,NA,NA,LFC - low flow channel,"Section 25 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+29,29,Hour Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 29 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+33,33,Goose Riffle and Gaging Station/SWP Boundary,feather river,NA,NA,NA,LFC - low flow channel,"Section 33 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+32,32,Keister Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 32 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+39,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+40,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+41,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+26,26,no named riffles,feather river,NA,NA,NA,LFC - low flow channel,"Section 26 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+38,38,Swampy Bend,feather river,NA,NA,NA,LFC - low flow channel,"Section 38 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+30,30,Hour Bars,feather river,NA,NA,NA,LFC - low flow channel,"Section 30 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+36,36,Upper McFarland and Lower McFarland,feather river,NA,NA,NA,LFC - low flow channel,"Section 36 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+22,22,Vance West (Evens),feather river,NA,NA,NA,LFC - low flow channel,"Section 22: most upstream in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+23,23,Vance East (Odds),feather river,NA,NA,NA,LFC - low flow channel,"Section 23 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+24,24,Vance Ave/Big Hole Launch,feather river,NA,NA,NA,LFC - low flow channel,"Section 24 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+28,28,no named riffles,feather river,NA,NA,NA,LFC - low flow channel,"Section 28 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+37,37,Developing Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 37 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+46,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+27,27,G-95 Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 27 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+31,31,Palm Ave. Boat Launch,feather river,NA,NA,NA,LFC - low flow channel,"Section 31 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+47,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+44,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+35,35,Big Bar,feather river,NA,NA,NA,LFC - low flow channel,"Section 35 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+48,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+34,34,Big Riffle,feather river,NA,NA,NA,LFC - low flow channel,"Section 34 in the High Flow Channel, HFC Thermalito Afterbay Outlet downstream to Gridley Bridge"
+21,21,Gateway Riffle,feather river,NA,NA,NA,HFC - high flow channel,"Section 21 in the Low Flow Channel, LFC Fish barrier Dam downstream to Thermalito Afterbay Outlet"
+50,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,HFC - high flow channel,NA
+0,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,unknown,NA
+53,historical reach - no description,historical reach - no description in data/source,feather river,NA,NA,NA,unknown,NA
+Hwy 32 To A Line,Highway 32 (Red Bridge) to Lower Falls,Highway 32 (Red Bridge) to Lower Falls. Sometimes combined into one survey reach Potato Patch Camp to Lower Falls.,deer creek,NA,NA,NA,NA,NA
+Lower Falls To A Line,Lower Falls to A Line,Lower Falls to A Line,deer creek,NA,NA,NA,NA,NA
+Upper Falls To Potato Patch,Upper Falls to Potato Patch Camp,Upper Falls to Potato Patch Camp,deer creek,NA,NA,NA,NA,NA
+Potato Patch To Hwy 32,Potato Patch Camp to Highway 32 (Red Bridge),Potato Patch Camp to Highway 32 (Red Bridge). Sometimes combined into one survey reach Potato Patch Camp to Lower Falls.,deer creek,NA,NA,NA,NA,NA
+Hwy 32 To Lower Falls,Highway 32 (Red Bridge) to Lower Falls,Highway 32 (Red Bridge) to Lower Falls. Sometimes combined into one survey reach Potato Patch Camp to Lower Falls.,deer creek,NA,NA,NA,NA,NA
+A Line To Wilson,A Line to Wilson Cove,A Line to Wilson Cove,deer creek,NA,NA,NA,NA,NA
+Wilson To Polk Springs,Wilson Cove to Polk Springs,Wilson Cove to Polk Springs,deer creek,NA,NA,NA,NA,NA
+Polk Springs To Murphy,Polk Springs to Murphy Trail,Polk Springs to Murphy Trail,deer creek,NA,NA,NA,NA,NA
+Murphy To Beaver,Murphy Trail to Ponderosa Way,Murphy Trail to Ponderosa Way. Contains historical survey reaches Murphy Trail to Beaver Creek and Beaver Creek to Ponderosa Way,deer creek,NA,NA,NA,NA,NA
+Beaver To Ponderosa,Murphy Trail to Ponderosa Way,Murphy Trail to Ponderosa Way. Contains historical survey reaches Murphy Trail to Beaver Creek and Beaver Creek to Ponderosa Way,deer creek,NA,NA,NA,NA,NA
+Ponderosa To Homestead,Ponderosa Way to Moak Cove,Ponderosa Way to Homstead at Moak Cove. Historical and rarely surveyed.,deer creek,NA,NA,NA,NA,NA
+Homestead To 2e17,Ponderosa Way to Trail 2E17,Ponderosa Way to Trail 2E17,deer creek,NA,NA,NA,NA,NA
+Potato Patch To Lower Falls,Potato Patch Camp to Highway 32 (Red Bridge),Potato Patch Camp to Highway 32 (Red Bridge). Sometimes combined into one survey reach Potato Patch Camp to Lower Falls.,deer creek,NA,NA,NA,NA,NA
+A Line To Wilson Cove,A Line to Wilson Cove,A Line to Wilson Cove,deer creek,NA,NA,NA,NA,NA
+Wilson Cove To Polk Springs,Wilson Cove to Polk Springs,Wilson Cove to Polk Springs,deer creek,NA,NA,NA,NA,NA
+Polk Springs To Murphy Trail,Polk Springs to Murphy Trail,Polk Springs to Murphy Trail,deer creek,NA,NA,NA,NA,NA
+Murphy Trail To Ponderosa Way,Murphy Trail to Ponderosa Way,Murphy Trail to Ponderosa Way. Contains historical survey reaches Murphy Trail to Beaver Creek and Beaver Creek to Ponderosa Way,deer creek,NA,NA,NA,NA,NA
+Ponderosa Way To Trail 2e17,Ponderosa Way to Trail 2E17,Ponderosa Way to Trail 2E17,deer creek,NA,NA,NA,NA,NA
+Trail 2e17 To Dillon Cove,Trail 2E17 to Dillon Cove,Trail 2E17 to Dillon Cove,deer creek,NA,NA,NA,NA,NA
+Above Hwy 36,Above Hwy 36,Above Hwy 36,mill creek,NA,NA,NA,NA,NA
+Hwy 36 To Little Hole In Ground,Hwy 36 To Little Hole In Ground,Hwy 36 To Little Hole In Ground,mill creek,NA,NA,NA,NA,NA
+Litte Hole In Ground To Hole In Ground,Litte Hole In Ground To Hole In Ground,Litte Hole In Ground To Hole In Ground,mill creek,NA,NA,NA,NA,NA
+Hole In Ground To Ishi Trail Head,Hole In Ground To Ishi Trail Head,Hole In Ground To Ishi Trail Head,mill creek,NA,NA,NA,NA,NA
+Ishi Trail Head To Big Bend,Ishi Trail Head To Big Bend,Ishi Trail Head To Big Bend,mill creek,NA,NA,NA,NA,NA
+Big Bend To Canyon Camp,Big Bend To Canyon Camp,Big Bend To Canyon Camp,mill creek,NA,NA,NA,NA,NA
+Canyon Camp To Sooner Place,Canyon Camp To Sooner Place,Canyon Camp To Sooner Place,mill creek,NA,NA,NA,NA,NA
+Sooner Place To Mccarthy Place,Sooner Place To Mccarthy Place,Sooner Place To Mccarthy Place,mill creek,NA,NA,NA,NA,NA
+Mccarthy Place To Savercool Place,Mccarthy Place To Savercool Place,Mccarthy Place To Savercool Place,mill creek,NA,NA,NA,NA,NA
+Savercool Place  To Black Rock,Savercool Place  To Black Rock,Savercool Place  To Black Rock,mill creek,NA,NA,NA,NA,NA
+Black Rock To Below Ranch House,Black Rock To Below Ranch House,Black Rock To Below Ranch House,mill creek,NA,NA,NA,NA,NA
+Below Ranch House To Above Avery,Below Ranch House To Above Avery,Below Ranch House To Above Avery,mill creek,NA,NA,NA,NA,NA
+Above Avery To Pape Place,Above Avery To Pape Place,Above Avery To Pape Place,mill creek,NA,NA,NA,NA,NA
+Pape Place To Buckhorn Gulch,Pape Place To Buckhorn Gulch,Pape Place To Buckhorn Gulch,mill creek,NA,NA,NA,NA,NA
+Buckhorn Gulch To Upper Dam,Buckhorn Gulch To Upper Dam,Buckhorn Gulch To Upper Dam,mill creek,NA,NA,NA,NA,NA
