@@ -18,7 +18,7 @@
         <givenName>Moreno</givenName>
         <surName>Gabriella</surName>
       </individualName>
-      <organizationName>U.S. Fisheries and Wildlife Service</organizationName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
       <electronicMailAddress>gabriella_moreno@fws.gov</electronicMailAddress>
     </creator>
     <associatedParty>
@@ -26,7 +26,7 @@
         <givenName>Wingerter</givenName>
         <surName>Natasha</surName>
       </individualName>
-      <organizationName>U.S. Fisheries and Wildlife Service</organizationName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
@@ -128,7 +128,7 @@
         <givenName>Moreno</givenName>
         <surName>Gabriella</surName>
       </individualName>
-      <organizationName>U.S. Fisheries and Wildlife Service</organizationName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
       <electronicMailAddress>gabriella_moreno@fws.gov</electronicMailAddress>
     </contact>
     <methods>
@@ -261,7 +261,7 @@
           <givenName>Moreno</givenName>
           <surName>Gabriella</surName>
         </individualName>
-        <organizationName>U.S. Fisheries and Wildlife Service</organizationName>
+        <organizationName>U.S. Fish and Wildlife Service</organizationName>
         <electronicMailAddress>gabriella_moreno@fws.gov</electronicMailAddress>
         <role>Project Lead</role>
       </personnel>
