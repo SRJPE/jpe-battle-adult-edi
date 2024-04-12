@@ -93,8 +93,8 @@ redd <- redd_raw |>
                            reach == "R12" ~ "R1",
                            TRUE ~ reach),
          # Reach 1B began being surveyed in 2021 due to private land concerns
-         reach = ifelse(year(date) >= 2021 & reach == "R1", "R1B", reach)) |> glimpse()
-  select(date, redd_id = JPE_redd_id, reach = standardized_reach, fish_on_redd = fish_guarding, age, run, redd_count,
+         reach = ifelse(year(date) >= 2021 & reach == "R1", "R1B", reach)) |>
+  select(date, redd_id = JPE_redd_id, reach, fish_on_redd = fish_guarding, age, run, redd_count,
          redd_measured, redd_width, redd_length,
          pre_redd_depth, redd_pit_depth, redd_tail_depth,
          redd_substrate_class, tail_substrate_class, pre_redd_substrate_class,
