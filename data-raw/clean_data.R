@@ -71,19 +71,6 @@ redd_substrate_size_lookup <-
                                            "<0.25", "4-8", "4-8")) |>
   left_join(substrate_class)
 
-# standardize the reaches
-gcs_get_object(
-  object_name = "jpe-model-data/standard_reach_lookup.csv",
-  bucket = gcs_get_global_bucket(),
-  saveToDisk = here::here("data-raw",  "standard-reach-lookup.csv"),
-  overwrite = TRUE
-)
-
-standard_reach_lookup <- read_csv(here::here("data-raw",  "standard-reach-lookup.csv")) |>
-  filter(stream == "battle creek") |>
-  select(reach, standardized_reach) |>
-  mutate(standardized_reach = ifelse(reach == "R1B", "R1B", standardized_reach))
-
 redd <- redd_raw |>
   mutate(survey_method = str_to_lower(survey_method),
          # add redd count for all rows (each row is an observation)
@@ -98,13 +85,20 @@ redd <- redd_raw |>
   left_join(redd_substrate_size_lookup |>
               select(redd_substrate_size, pre_redd_substrate_class = redd_substrate_class),
             by = c("pre_redd_substrate_size" = "redd_substrate_size")) |>
-  left_join(standard_reach_lookup, by = c("reach")) |>
+  mutate(reach = case_when(reach == "4" ~ "R4",
+                           reach == "1" ~ "R1",
+                           reach == "2" ~ "R2",
+                           reach == "5" ~ "R5",
+                           reach == "3" ~ "R3",
+                           reach == "R12" ~ "R1",
+                           TRUE ~ reach),
+         # Reach 1B began being surveyed in 2021 due to private land concerns
+         reach = ifelse(year(date) >= 2021 & reach == "R1", "R1B", reach)) |> glimpse()
   select(date, redd_id = JPE_redd_id, reach = standardized_reach, fish_on_redd = fish_guarding, age, run, redd_count,
          redd_measured, redd_width, redd_length,
          pre_redd_depth, redd_pit_depth, redd_tail_depth,
          redd_substrate_class, tail_substrate_class, pre_redd_substrate_class,
          velocity = flow_fps)
-
 
 # upstream passage --------------------------------------------------------
 upstream <- upstream_raw |>
