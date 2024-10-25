@@ -100,6 +100,14 @@ redd <- redd_raw |>
          redd_substrate_class, tail_substrate_class, pre_redd_substrate_class,
          velocity = flow_fps)
 
+redd_summary <- redd |>
+  mutate(year = year(date)) |>
+  group_by(year) |>
+  distinct(redd_id, .keep_all = T) |>
+  summarize(total_annual_redd_count = sum(redd_count),
+            number_reaches_surveyed = length(unique(reach)))
+
+
 # upstream passage --------------------------------------------------------
 upstream <- upstream_raw |>
   mutate(date = as.Date(date)) |>
@@ -113,12 +121,13 @@ upstream_estimates <- upstream_estimates_raw |>  # all spring run
 
 
 # write files -------------------------------------------------------------
-write.csv(redd, here::here("data", "battle_redd.csv"), row.names = FALSE)
-write.csv(upstream, here::here("data", "battle_upstream_passage_raw.csv"), row.names = FALSE)
-write.csv(upstream_estimates, here::here("data", "battle_upstream_passage_estimates.csv"), row.names = FALSE)
+write_csv(redd, here::here("data", "battle_redd.csv"))
+write_csv(redd_summary, here::here("data", "battle_redd_summary.csv"))
+write_csv(upstream, here::here("data", "battle_upstream_passage_raw.csv"))
+write_csv(upstream_estimates, here::here("data", "battle_upstream_passage_estimates.csv"))
 
 
 # review ------------------------------------------------------------------
-read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
-read.csv(here::here("data", "battle_upstream_passage_raw.csv")) |> glimpse()
-read.csv(here::here("data", "battle_upstream_passage_estimates.csv")) |> glimpse()
+# read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
+# read.csv(here::here("data", "battle_upstream_passage_raw.csv")) |> glimpse()
+# read.csv(here::here("data", "battle_upstream_passage_estimates.csv")) |> glimpse()

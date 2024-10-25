@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2024-04-12</pubDate>
+    <pubDate>2024-10-25</pubDate>
     <abstract>
       <para>
     The U.S. Fish and Wildlife Service (USFWS) collects data on adult
@@ -281,11 +281,11 @@
     </project>
     <dataTable>
       <entityName>battle_redd.csv</entityName>
-      <entityDescription>Daily redd survey data</entityDescription>
+      <entityDescription>Daily repeated observation redd survey data</entityDescription>
       <physical>
         <objectName>battle_redd.csv</objectName>
-        <size unit="bytes">14</size>
-        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <size unit="bytes">290937</size>
+        <authentication method="MD5">516c74abe14316d3f17139910ff7c0bd</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -593,12 +593,96 @@
       <numberOfRecords>2496</numberOfRecords>
     </dataTable>
     <dataTable>
+      <entityName>battle_redd_summary.csv</entityName>
+      <entityDescription>Annual redd summary</entityDescription>
+      <physical>
+        <objectName>battle_redd_summary.csv</objectName>
+        <size unit="bytes">14</size>
+        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_redd_summary.csv</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>year</attributeName>
+          <attributeLabel>redd_summary</attributeLabel>
+          <attributeDefinition>Year of redd survey</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>year</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">2001</minimum>
+                  <maximum exclusive="false">2022</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>total_annual_redd_count</attributeName>
+          <attributeLabel>redd_summary</attributeLabel>
+          <attributeDefinition>Total annual count of unique redds. Redd surveys are conducted as repeat observations where a given redd may be recorded multiple times. This field counts only unique redds.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>number of redds</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">5</minimum>
+                  <maximum exclusive="false">320</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>number_reaches_surveyed</attributeName>
+          <attributeLabel>redd_summary</attributeLabel>
+          <attributeDefinition>There are six survey reaches though not all reaches are surveyed every year due to resource constraints. This field summarizes the number of reaches surveyed.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>number of reaches</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">2</minimum>
+                  <maximum exclusive="false">6</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>22</numberOfRecords>
+    </dataTable>
+    <dataTable>
       <entityName>battle_upstream_passage_raw.csv</entityName>
       <entityDescription>Daily upstream passage data, raw counts</entityDescription>
       <physical>
         <objectName>battle_upstream_passage_raw.csv</objectName>
-        <size unit="bytes">14</size>
-        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <size unit="bytes">336247</size>
+        <authentication method="MD5">08eeadb0d84d7c1e6b19e12bf5252d01</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -731,8 +815,8 @@
       <entityDescription>Yearly upstream passage data, interpolated estimates</entityDescription>
       <physical>
         <objectName>battle_upstream_passage_estimates.csv</objectName>
-        <size unit="bytes">14</size>
-        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <size unit="bytes">688</size>
+        <authentication method="MD5">05d9f66ad771ed92ff24e590cc469561</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -828,6 +912,9 @@
         </unit>
         <unit id="number of redds" name="number of redds" unitType="dimensionless">
           <description>number of redds counted</description>
+        </unit>
+        <unit id="number of reaches" name="number of reaches" unitType="dimensionless">
+          <description>number of reaches</description>
         </unit>
       </unitList>
     </metadata>
