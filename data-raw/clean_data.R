@@ -1,6 +1,6 @@
 library(tidyverse)
 library(googleCloudStorageR)
-
+library(janitor)
 
 # pull in data from google cloud ---------------------------------------------------
 
@@ -32,14 +32,70 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
 redd_raw <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |>
   glimpse()
 
+redd_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 3) |>
+  clean_names() |>
+  glimpse()
+
+redd_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 4) |>
+  clean_names() |>
+  glimpse()
+
 upstream_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
   filter(stream == "battle creek")
 
 upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
   filter(stream == "battle creek")
 
+upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
+  filter(stream == "battle creek")
 
 # redd --------------------------------------------------------------------
+
+# 2022 data
+redd_2022_clean <- redd_2022 |>
+  rename(
+    JPE_redd_id = redd_id,
+    longitude = point_x,
+    latitude = point_y,
+    pre_redd_substrate_size = pre_sub,
+    tail_substrate_size = tail_sub,
+    fish_guarding = fish_on_redd,
+    redd_measured = measure,
+    why_not_measured = why_not_measure,
+    redd_length = length_in,
+    redd_width = width_in,
+    flow_fps = water_velo,
+    start_number_flow_meter = bomb_start,
+    end_number_flow_meter = bomb_end,
+    flow_meter_time = bomb_secon,
+    start_number_flow_meter_80 = start_80,
+    end_number_flow_meter_80 = end_80,
+    flow_meter_time_80 = secs_80) |>
+  select(-c(comments, age_2, date_2, age_3, date_3, age_4,date_4, age_5, date_5)) |>
+  glimpse()
+
+#2023 data
+redd_2023_clean <- redd_2023 |>
+  rename(JPE_redd_id = redd,
+         date = date,
+         longitude = x_3,
+         latitude = y_4,
+         pre_redd_substrate_size = pre_redd_substrate_in,
+         redd_substrate_size = side_substrate_in,
+         tail_substrate_size = tailspill_substrate_in,
+         fish_guarding = fish_on_redd,
+         redd_measured = pre_redd_depth_in,
+         why_not_measured = pit_depth_in,
+         pre_redd_depth = tailspill_depth_in,
+         redd_pit_depth = ,
+         redd_tail_depth = ,
+         redd_length = length_in,
+         redd_width = width_in,
+         start_number_flow_meter = flowmeter_80_percent_start,
+         end_number_flow_meter = flowmeter_80_percent_end,
+         flow_meter_time = flowmeter_time_s,
+         age = age_comments) |>
+  glimpse()
 
 # standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
 # when the size range fell into two categories, they were rounded down
