@@ -63,6 +63,18 @@ environmental_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xls
 
 environmental_raw <- bind_rows(environmental_raw_2022, environmental_raw_2023)
 
+# Adult data
+adult_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 2) |> #TODO do we know which fields we want to keep?
+  clean_names() |>
+  glimpse()
+adult_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 2) |> #TODO do we know which fields we want to keep?
+  clean_names() |>
+  rename(total_fish = live_adult, #is this a fair assumption of what this field is? it is inconsistent across years
+         number_of_jacks = subset_that_are_jacks,
+         point_x = x,
+         point_y = y) |>
+  glimpse()
+
 # redd --------------------------------------------------------------------
 
 # 2022 data
