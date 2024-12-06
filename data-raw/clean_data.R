@@ -49,6 +49,20 @@ upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage
 upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
   filter(stream == "battle creek")
 
+carcass_raw <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 4) |> #TODO do we know which fields we want to keep?
+  clean_names() |>
+  glimpse()
+
+environmental_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 1) |> #TODO do we know which fields we want to keep?
+  clean_names() |>
+  glimpse()
+
+environmental_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 1) |> #TODO do we know which fields we want to keep?
+  clean_names() |>
+  glimpse()
+
+environmental_raw <- bind_rows(environmental_raw_2022, environmental_raw_2023)
+
 # redd --------------------------------------------------------------------
 
 # 2022 data
