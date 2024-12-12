@@ -13,7 +13,13 @@ library(janitor)
 gcs_auth(json_file = Sys.getenv("GCS_AUTH_FILE"))
 gcs_global_bucket(bucket = Sys.getenv("GCS_DEFAULT_BUCKET"))
 
-# read in battle creek redd data instead of standard redd data
+# read in battle creek redd data instead of standard redd data - this data was already manipulated
+
+#TODOs
+# look into JPE-datasets to review processing of raw data. Link to repo: (https://github.com/SRJPE/JPE-datasets/blob/main/data-raw/qc-markdowns/adult-holding-redd-and-carcass-surveys/battle-creek/battle_creek_redd_qc.Rmd)
+# process new data the same way
+# if there is an overlap on 2022 data, go with the newest version
+# add a note on not pulling carcass, adult, and environmental data
 gcs_get_object(object_name = "adult-holding-redd-and-carcass-surveys/battle-creek/data/battle_redd.csv",
                bucket = gcs_get_global_bucket(),
                saveToDisk = here::here("data-raw", "battle_daily_redd.csv"),
@@ -217,6 +223,7 @@ redd <- redd_raw |>
          redd_substrate_class, tail_substrate_class, pre_redd_substrate_class,
          velocity = flow_fps)
 
+# the goal of this summary is that we show data without changing to pivot longer
 redd_summary <- redd |>
   mutate(year = year(date)) |>
   group_by(year) |>
