@@ -36,14 +36,14 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
                overwrite = TRUE)
 
 # redd raw
-redd_raw <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |>
+redd_raw_2001_2022 <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |>
   glimpse()
 
-redd_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 3) |>
+redd_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 3) |>
   clean_names() |>
   glimpse()
 
-redd_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 4) |>
+redd_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 4) |>
   clean_names() |>
   glimpse()
 
@@ -54,46 +54,46 @@ upstream_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passag
 upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
   filter(stream == "battle creek")
 
-# carcass raw
-carcass_raw <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 4) |> #TODO do we know which fields we want to keep?
-  clean_names() |>
-  glimpse()
-
-# environmental raw
-environmental_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 1) |> #TODO do we know which fields we want to keep?
-  clean_names() |>
-  glimpse()
-
-environmental_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 1) |> #TODO do we know which fields we want to keep?
-  clean_names() |>
-  glimpse()
-
-environmental_raw <- bind_rows(environmental_raw_2022, environmental_raw_2023)
-
-# Adult data
-adult_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 2) |> #TODO do we know which fields we want to keep?
-  clean_names() |>
-  glimpse()
-adult_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 2) |> #TODO do we know which fields we want to keep?
-  clean_names() |>
-  rename(total_fish = live_adult, #is this a fair assumption of what this field is? it is inconsistent across years
-         number_of_jacks = subset_that_are_jacks,
-         point_x = x,
-         point_y = y) |>
-  glimpse()
+# # carcass raw
+# carcass_raw <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 4) |> #TODO do we know which fields we want to keep?
+#   clean_names() |>
+#   glimpse()
+#
+# # environmental raw
+# environmental_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 1) |> #TODO do we know which fields we want to keep?
+#   clean_names() |>
+#   glimpse()
+#
+# environmental_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 1) |> #TODO do we know which fields we want to keep?
+#   clean_names() |>
+#   glimpse()
+#
+# environmental_raw <- bind_rows(environmental_raw_2022, environmental_raw_2023)
+#
+# # Adult data
+# adult_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 2) |> #TODO do we know which fields we want to keep?
+#   clean_names() |>
+#   glimpse()
+# adult_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 2) |> #TODO do we know which fields we want to keep?
+#   clean_names() |>
+#   rename(total_fish = live_adult, #is this a fair assumption of what this field is? it is inconsistent across years
+#          number_of_jacks = subset_that_are_jacks,
+#          point_x = x,
+#          point_y = y) |>
+#   glimpse()
 
 # CLEANING DATA
 # redd --------------------------------------------------------------------
 
 # 2022 data
-clean_2022_data <- redd_2022 |>
+clean_2022_data <- redd_raw_2022 |>
   janitor::clean_names() |>
   mutate(year = year(date),
          JPE_redd_id = paste0(year, "_", row_number())) |>
   glimpse()
 
 # clean_2021_2022_data <- bind_rows(clean_2021_data, clean_2022_data) |>
-clean_2022_data |>
+redd_2022 <- clean_2022_data |>
   # clean up dates
   mutate(date_1 = as.Date(date, format = "%m/%d/%Y"), # assign date to date_a (for first redd encounter)
          date_2 = as.Date(date_2, format = "%m/%d/%Y"), # second redd encounter (if happens)
@@ -136,45 +136,45 @@ clean_2022_data |>
 
 
 #2023 data
-redd_2023_renamed <- redd_2023 |>
-  rename(longitude = x_3,
-         latitude = y_4,
-         pre_redd_substrate_size = pre_redd_substrate_in,
-         redd_substrate_size = side_substrate_in, # unsure match
-         tail_substrate_size = tailspill_substrate_in,
-         redd_measured = fish_on_redd,
-         pre_redd_depth = pre_redd_depth_in,
-         redd_pit_depth = pit_depth_in,
-         redd_tail_depth = tailspill_depth_in,
-         redd_length = length_in,
-         redd_width = width_in,
-         start_number_flow_meter = flowmeter_start,
-         end_number_flow_meter = flowmeter_end,
-         flow_meter_time = flowmeter_time_s,
-         start_number_flow_meter_80 = flowmeter_80_percent_start,
-         end_number_flow_meter_80 = flowmeter_80_percent_end,
-         flow_meter_time_80 = flowmeter_80_percent_time,
-         age = redd_age) |>
-  mutate(JPE_redd_id = NA,
-         survey_method = NA,
-         reach_sub_unit = NA,
-         redd_loc = NA,
-         fish_guarding = NA,
-         why_not_measured = NA,
-         survey = NA,
-         run = NA,
-         age_index = NA,
-         date_measured = NA,
-         tailspill = NA,
-         fork = NA) |>
-  select(-c(redd, gravel_type, comments, date_visit_2, age_visit_2, date_visit_3, age_visit_3,
-            date_visit_4, age_visit_4, date_visit_5, age_visit_5, age_comments, x_35, y_36)) |>  #removing these fields for now - TODO ask meaning
+# redd_2023_renamed <- redd_2023 |>
+redd_2023 <- redd_raw_2023 |>
+  mutate(date_1 = as.Date(date, format = "%m/%d/%Y"), # assign date to date_a (for first redd encounter)
+         date_2 = as.Date(date_visit_2, format = "%m/%d/%Y"), # second redd encounter (if happens)
+         date_3 = as.Date(date_visit_3, format = "%m/%d/%Y"), # etc.
+         date_4 = as.Date(date_visit_4, format = "%m/%d/%Y"),
+         date_5 = as.Date(date_visit_5, format = "%m/%d/%Y"),
+         # age_1 = age, # is there a "age_1" value for age of first redd encounter age???
+         age_2 = age_visit_2,
+         age_3 = age_visit_3,
+         age_4 = age_visit_4,
+         age_5 = age_visit_5) |>
+  # select(-c(age)) |> # don't need anymore
+  pivot_longer(cols = c(age_2, age_3, age_4, age_5), # pivot all aging instances to age column
+               values_to = "new_age",
+               names_to = "age_index") |>
+  # # for all aging instances, take the date where that aging occurred.
+  # # check for what aging instance it was and pull that date (if present)
+  mutate(new_date = case_when(age_index == "age_2" & !is.na(date_2) ~ date_2,
+                              age_index == "age_3" & !is.na(date_3) ~ date_3,
+                              age_index == "age_4" & !is.na(date_4) ~ date_4,
+                              age_index == "age_5" & !is.na(date_5) ~ date_5,
+                              TRUE ~ NA),
+         age_index = case_when(age_index == "age_2" ~ 2,
+                               age_index == "age_3" ~ 3,
+                               age_index == "age_4" ~ 4,
+                               age_index == "age_5" ~ 5),
+         age_index = ifelse(is.na(new_age) & age_index == 1, 0, age_index)) |>
+  filter(!is.na(new_date)) |>
+  select(-c(date, date_1, date_2, date_3, date_4, date_5)) |>
+  rename(age = new_age, date = new_date) |>
+  # relocate(date, .before = point_x) |>
+  # relocate(JPE_redd_id, .before = date) |>
+  mutate(run = ifelse(species == "Chinook", "spring", NA),
+         species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
   glimpse()
 
-redd_raw_cleaned <- redd_raw |>
-  mutate(redd_measured = as.character(redd_measured))
 
-redd_raw <- bind_rows(redd_raw_cleaned, redd_2022_renamed,redd_2023_renamed)
+redd_raw_ <- bind_rows(redd_raw_2001_2022, redd_2022 ,redd_2023)
 # standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
 # when the size range fell into two categories, they were rounded down
 
