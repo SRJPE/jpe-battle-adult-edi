@@ -86,40 +86,52 @@ adult_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", shee
 # redd --------------------------------------------------------------------
 
 # 2022 data
-redd_2022_renamed <- redd_2022 |>
-  rename(JPE_redd_id = redd_id,
-         longitude = point_x,
-         latitude = point_y,
-         reach_sub_unit = reach,
-         pre_redd_substrate_size = pre_sub, # unsure match
-         tail_substrate_size = tail_sub,
-         redd_measured = measure,
-         why_not_measured = why_not_measure,
-         pre_redd_depth = pre_redd, #unsure
-         redd_pit_depth = pit_in, #unsure match
-         redd_length = length_in,
-         redd_width = width_in,
-         flow_fps = water_velo,
-         start_number_flow_meter = bomb_start,
-         end_number_flow_meter = bomb_end,
-         flow_meter_time = bomb_secon,
-         start_number_flow_meter_80 = start_80,
-         end_number_flow_meter_80 = end_80,
-         flow_meter_time_80 = secs_80) |>
-  mutate(survey_method = NA,
-         reach_sub_unit = NA,
-         redd_loc = NA,
-         redd_substrate_size = NA,
-         fish_guarding = NA,
-         redd_tail_depth = NA,
-         flow_meter = NA,
-         survey = NA,
-         run = NA,
-         age_index = NA,
-         date_measured = NA) |>
-  select(-c(qa_qc, qa_qc_date, side_sub, fish_on_redd, comments, age_2, date_2, age_3,
-          date_3, age_4, date_4, age_5, date_5)) |>  #removing these fields for now - TODO ask meaning
+clean_2022_data <- redd_2022 |>
+  janitor::clean_names() |>
+  mutate(year = year(date),
+         JPE_redd_id = paste0(year, "_", row_number())) |>
   glimpse()
+
+# clean_2021_2022_data <- bind_rows(clean_2021_data, clean_2022_data) |>
+clean_2022_data |>
+  # clean up dates
+  mutate(date_1 = as.Date(date, format = "%m/%d/%Y"), # assign date to date_a (for first redd encounter)
+         date_2 = as.Date(date_2, format = "%m/%d/%Y"), # second redd encounter (if happens)
+         date_3 = as.Date(date_3, format = "%m/%d/%Y"), # etc.
+         date_4 = as.Date(date_4, format = "%m/%d/%Y"),
+         date_5 = as.Date(date_5, format = "%m/%d/%Y"),
+         age_1 = age, # assign age_1 the value for age (they record first redd encounter age in "age")
+         age_2 = age_2,
+         age_3 = age_3,
+         age_4 = age_4,
+         age_5 = age_5) |>
+  select(-c(age)) |> # don't need anymore
+  pivot_longer(cols = c(age_1, age_2, age_3, age_4, age_5), # pivot all aging instances to age column
+               values_to = "new_age",
+               names_to = "age_index") |>
+  # # for all aging instances, take the date where that aging occurred.
+  # # check for what aging instance it was and pull that date (if present)
+  mutate(new_date = case_when(age_index == "age_2" & !is.na(date_2) ~ date_2,
+                              age_index == "age_3" & !is.na(date_3) ~ date_3,
+                              age_index == "age_4" & !is.na(date_4) ~ date_4,
+                              age_index == "age_5" & !is.na(date_5) ~ date_5,
+                              age_index == "age_1" ~ date_1,
+                              TRUE ~ NA),
+         age_index = case_when(age_index == "age_1" ~ 1,
+                               age_index == "age_2" ~ 2,
+                               age_index == "age_3" ~ 3,
+                               age_index == "age_4" ~ 4,
+                               age_index == "age_5" ~ 5),
+         age_index = ifelse(is.na(new_age) & age_index == 1, 0, age_index)) |>
+  filter(!is.na(new_date)) |>
+  select(-c(date, date_1, date_2, date_3, date_4, date_5, qa_qc, qa_qc_date, redd_id)) |>
+  rename(age = new_age, date = new_date) |>
+  relocate(date, .before = point_x) |>
+  relocate(JPE_redd_id, .before = date) |>
+  mutate(run = ifelse(species == "Chinook", "spring", NA),
+         species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
+  glimpse()
+
 
 
 
