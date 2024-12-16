@@ -6,7 +6,7 @@ library(janitor)
 
 # notes for EDI package from adult data meeting
 # prioritize redd and upstream passage data
-# can add holding and carcass later
+# we are not reading carcass, environmental or adult data for now
 # restrict individual redd locations (simplify to reach level, no lat/longs)
 # start with just adding spring run
 
@@ -19,7 +19,6 @@ gcs_global_bucket(bucket = Sys.getenv("GCS_DEFAULT_BUCKET"))
 # look into JPE-datasets to review processing of raw data. Link to repo: (https://github.com/SRJPE/JPE-datasets/blob/main/data-raw/qc-markdowns/adult-holding-redd-and-carcass-surveys/battle-creek/battle_creek_redd_qc.Rmd)
 # process new data the same way
 # if there is an overlap on 2022 data, go with the newest version
-# add a note on not pulling carcass, adult, and environmental data
 gcs_get_object(object_name = "adult-holding-redd-and-carcass-surveys/battle-creek/data/battle_redd.csv",
                bucket = gcs_get_global_bucket(),
                saveToDisk = here::here("data-raw", "battle_daily_redd.csv"),
@@ -54,38 +53,11 @@ upstream_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passag
 upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
   filter(stream == "battle creek")
 
-# # carcass raw
-# carcass_raw <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 4) |> #TODO do we know which fields we want to keep?
-#   clean_names() |>
-#   glimpse()
-#
-# # environmental raw
-# environmental_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 1) |> #TODO do we know which fields we want to keep?
-#   clean_names() |>
-#   glimpse()
-#
-# environmental_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 1) |> #TODO do we know which fields we want to keep?
-#   clean_names() |>
-#   glimpse()
-#
-# environmental_raw <- bind_rows(environmental_raw_2022, environmental_raw_2023)
-#
-# # Adult data
-# adult_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 2) |> #TODO do we know which fields we want to keep?
-#   clean_names() |>
-#   glimpse()
-# adult_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 2) |> #TODO do we know which fields we want to keep?
-#   clean_names() |>
-#   rename(total_fish = live_adult, #is this a fair assumption of what this field is? it is inconsistent across years
-#          number_of_jacks = subset_that_are_jacks,
-#          point_x = x,
-#          point_y = y) |>
-#   glimpse()
-
 # CLEANING DATA
 # redd --------------------------------------------------------------------
 
 # 2022 data
+# compared to previous 2022 data, this data is missing "date_mea", "Corr_Type" and "Horz_Prec"
 clean_2022_data <- redd_raw_2022 |>
   janitor::clean_names() |>
   mutate(year = year(date),
@@ -109,8 +81,8 @@ redd_2022 <- clean_2022_data |>
   pivot_longer(cols = c(age_1, age_2, age_3, age_4, age_5), # pivot all aging instances to age column
                values_to = "new_age",
                names_to = "age_index") |>
-  # # for all aging instances, take the date where that aging occurred.
-  # # check for what aging instance it was and pull that date (if present)
+  # for all aging instances, take the date where that aging occurred.
+  # check for what aging instance it was and pull that date (if present)
   mutate(new_date = case_when(age_index == "age_2" & !is.na(date_2) ~ date_2,
                               age_index == "age_3" & !is.na(date_3) ~ date_3,
                               age_index == "age_4" & !is.na(date_4) ~ date_4,
@@ -131,8 +103,6 @@ redd_2022 <- clean_2022_data |>
   mutate(run = ifelse(species == "Chinook", "spring", NA),
          species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
   glimpse()
-
-
 
 
 #2023 data
@@ -173,8 +143,28 @@ redd_2023 <- redd_raw_2023 |>
          species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
   glimpse()
 
+#TODO change cols of 2022 nad 2023 to be consistent
+clean_redd_data <- bind_rows(redd_2022, redd_2023) |>
+  # select(-c(year, corr_type, horz_prec, redd_call, redd_id, comments,
+  #           survey_id, gravel, inj_site)) |> # use JPE_redd_id
+  # rename(latitude = point_y, longitude = point_x,
+  #        pre_redd_substrate_size = pre_sub,
+  #        tail_substrate_size = tail_sub, fish_guarding = fish_on_re,
+  #        redd_measured = measure,
+  #        why_not_measured = why_not_me,
+  #        date_measured = date_mea, pre_redd_depth = pre_redd,
+  #        redd_pit_depth = pit_in, redd_length = length_in,
+  #        redd_width = width_in,
+  #        start_number_flow_meter_80 = start_80,
+  #        end_number_flow_meter_80 = end_80,
+  #        flow_meter_time_80 = secs_80,
+  #        flow_fps = water_velo,
+  #        start_number_flow_meter = bomb_start,
+  #        end_number_flow_meter = bomb_end,
+  #        flow_meter_time = bomb_secon,
+  #        redd_substrate_size = side_sub) |>
+  # mutate(redd_measured = ifelse(redd_measured == "y", TRUE, redd_measured))
 
-redd_raw_ <- bind_rows(redd_raw_2001_2022, redd_2022 ,redd_2023)
 # standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
 # when the size range fell into two categories, they were rounded down
 
