@@ -67,12 +67,12 @@ clean_2022_data <- redd_raw_2022 |>
 # clean_2021_2022_data <- bind_rows(clean_2021_data, clean_2022_data) |>
 redd_2022 <- clean_2022_data |>
   # clean up dates
-  mutate(date_1 = as.Date(date, format = "%m/%d/%Y"), # assign date to date_a (for first redd encounter)
-         date_2 = as.Date(date_2, format = "%m/%d/%Y"), # second redd encounter (if happens)
-         date_3 = as.Date(date_3, format = "%m/%d/%Y"), # etc.
+  mutate(date_1 = as.Date(date, format = "%m/%d/%Y"),
+         date_2 = as.Date(date_2, format = "%m/%d/%Y"),
+         date_3 = as.Date(date_3, format = "%m/%d/%Y"),
          date_4 = as.Date(date_4, format = "%m/%d/%Y"),
          date_5 = as.Date(date_5, format = "%m/%d/%Y"),
-         age_1 = age, # assign age_1 the value for age (they record first redd encounter age in "age")
+         age_1 = age,
          age_2 = age_2,
          age_3 = age_3,
          age_4 = age_4,
@@ -143,7 +143,8 @@ redd_2023 <- redd_raw_2023 |>
          species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
   glimpse()
 
-#TODO change cols of 2022 nad 2023 to be consistent
+#TODO step 1 change cols of 2022 and 2023 to be consistent with previous data. 2 filter out 2022 data on original data
+# 3 test/apply substrate class table below, 4 bind data
 clean_redd_data <- bind_rows(redd_2022, redd_2023) |>
   # select(-c(year, corr_type, horz_prec, redd_call, redd_id, comments,
   #           survey_id, gravel, inj_site)) |> # use JPE_redd_id
@@ -183,10 +184,11 @@ substrate_class = data.frame("standardized_size_range" = c("<0.25",
                                                         "very fine gravel", "fine gravel",
                                                         "medium gravel",
                                                         "coarse gravel to boulder"))
-
+# fit current substrate size to categories above. As we do transformation do checks
+#for NAs. Before joining, filter out 2022 from original data
 unique(redd_raw$redd_substrate_size)
 
- # TODO it looks like this table is not working, therefore code below is broken
+ # TODO check if ranges are the same
 redd_substrate_size_lookup <-
   data.frame("redd_substrate_size" = unique(redd_raw$redd_substrate_size),
              "standardized_size_range" = c(NA, "1-2", "1-2", "2-4", "2-4",
