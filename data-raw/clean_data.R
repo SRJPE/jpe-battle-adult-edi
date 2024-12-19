@@ -240,7 +240,8 @@ redd_2001_2021 <- redd_raw_2001_2022 |>
 # Binding all redd data ----
 clean_2022_2023_data <- bind_rows(redd_2022, redd_2023, redd_2001_2021) |>
   glimpse()
-
+# TODO note to self. I left off here, I have combined all years of redd data. next steps - check that no NA's were introduced.
+# then run substrate categorization below (checking that ranges are the same)
 # standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
 # when the size range fell into two categories, they were rounded down
 
