@@ -58,14 +58,14 @@ upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage
 
 # 2022 data
 # compared to previous 2022 data, this data is missing "date_mea", "Corr_Type" and "Horz_Prec"
-clean_2022_data <- redd_raw_2022 |>
+redd_raw_2022_clean_1 <- redd_raw_2022 |>
   janitor::clean_names() |>
   mutate(year = year(date),
          JPE_redd_id = paste0(year, "_", row_number())) |>
   glimpse()
 
 # clean_2021_2022_data <- bind_rows(clean_2021_data, clean_2022_data) |>
-redd_2022 <- clean_2022_data |>
+redd_raw_2022_clean_2 <- redd_raw_2022_clean_1 |>
   # clean up dates
   mutate(date_1 = as.Date(date, format = "%m/%d/%Y"),
          date_2 = as.Date(date_2, format = "%m/%d/%Y"),
@@ -104,10 +104,50 @@ redd_2022 <- clean_2022_data |>
          species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
   glimpse()
 
+#TODO step 1 change cols of 2022 and 2023 to be consistent with previous data. 2 filter out 2022 data on original data
+# 3 test/apply substrate class table below, 4 bind data
+# clean_redd_data <- bind_rows(redd_2022, redd_2023) |>
+redd_2022 <- redd_raw_2022_clean_2 |>
+  select(-c(year, comments)) |> # use JPE_redd_id
+  rename(latitude = point_y, longitude = point_x,
+         pre_redd_substrate_size = pre_sub,
+         tail_substrate_size = tail_sub, fish_guarding = fish_on_redd,
+         redd_measured = measure,
+         why_not_measured = why_not_measure,
+         # date_measured = date, # there is not date_measured
+         pre_redd_depth = pre_redd,
+         redd_pit_depth = pit_in, redd_length = length_in,
+         redd_width = width_in,
+         start_number_flow_meter_80 = start_80,
+         end_number_flow_meter_80 = end_80,
+         flow_meter_time_80 = secs_80,
+         flow_fps = water_velo,
+         start_number_flow_meter = bomb_start,
+         end_number_flow_meter = bomb_end,
+         flow_meter_time = bomb_secon,
+         redd_substrate_size = side_sub) |>
+  mutate(redd_measured = ifelse(redd_measured == "y", TRUE, redd_measured),
+         date_measured = NA,
+         redd_loc = NA,
+         survey = NA) |> #adding it to match previous data
+  select(c("JPE_redd_id", "longitude", "latitude", "river_mile", "date",
+           "reach", "species", "age", "redd_loc", "pre_redd_substrate_size",
+           "redd_substrate_size", "tail_substrate_size", "fish_guarding", "redd_measured", "why_not_measured",
+           "date_measured", "pre_redd_depth", "redd_pit_depth", "tailspill", "redd_length",
+           "redd_width", "start_number_flow_meter", "end_number_flow_meter", "flow_meter_time", "start_number_flow_meter_80",
+           "end_number_flow_meter_80", "flow_meter_time_80", "flow_fps", "survey", "run",
+           "fork", "age_index")) |>
+  glimpse()
 
-#2023 data
+#2023 data ----
 # redd_2023_renamed <- redd_2023 |>
-redd_2023 <- redd_raw_2023 |>
+redd_raw_2023_clean_1 <- redd_raw_2023 |>
+  janitor::clean_names() |>
+  mutate(year = year(date),
+         JPE_redd_id = paste0(year, "_", row_number())) |>
+  glimpse()
+
+redd_raw_2023_clean_2 <- redd_raw_2023_clean_1|>
   mutate(date_1 = as.Date(date, format = "%m/%d/%Y"), # assign date to date_a (for first redd encounter)
          date_2 = as.Date(date_visit_2, format = "%m/%d/%Y"), # second redd encounter (if happens)
          date_3 = as.Date(date_visit_3, format = "%m/%d/%Y"), # etc.
@@ -118,7 +158,6 @@ redd_2023 <- redd_raw_2023 |>
          age_3 = age_visit_3,
          age_4 = age_visit_4,
          age_5 = age_visit_5) |>
-  # select(-c(age)) |> # don't need anymore
   pivot_longer(cols = c(age_2, age_3, age_4, age_5), # pivot all aging instances to age column
                values_to = "new_age",
                names_to = "age_index") |>
@@ -143,28 +182,46 @@ redd_2023 <- redd_raw_2023 |>
          species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
   glimpse()
 
-#TODO step 1 change cols of 2022 and 2023 to be consistent with previous data. 2 filter out 2022 data on original data
-# 3 test/apply substrate class table below, 4 bind data
-clean_redd_data <- bind_rows(redd_2022, redd_2023) |>
+redd_2023 <- redd_raw_2023_clean_2|>
   # select(-c(year, corr_type, horz_prec, redd_call, redd_id, comments,
   #           survey_id, gravel, inj_site)) |> # use JPE_redd_id
-  # rename(latitude = point_y, longitude = point_x,
-  #        pre_redd_substrate_size = pre_sub,
-  #        tail_substrate_size = tail_sub, fish_guarding = fish_on_re,
-  #        redd_measured = measure,
-  #        why_not_measured = why_not_me,
-  #        date_measured = date_mea, pre_redd_depth = pre_redd,
-  #        redd_pit_depth = pit_in, redd_length = length_in,
-  #        redd_width = width_in,
-  #        start_number_flow_meter_80 = start_80,
-  #        end_number_flow_meter_80 = end_80,
-  #        flow_meter_time_80 = secs_80,
-  #        flow_fps = water_velo,
-  #        start_number_flow_meter = bomb_start,
-  #        end_number_flow_meter = bomb_end,
-  #        flow_meter_time = bomb_secon,
-  #        redd_substrate_size = side_sub) |>
-  # mutate(redd_measured = ifelse(redd_measured == "y", TRUE, redd_measured))
+  rename(latitude = y_4, longitude = x_3,
+         pre_redd_substrate_size = pre_redd_substrate_in,
+         tail_substrate_size = tailspill_substrate_in, fish_guarding = fish_on_redd,
+         # redd_measured = measure,
+         # why_not_measured = why_not_me, # fileld not included, check if all NAs on other data, if so we can mutate
+         pre_redd_depth = pre_redd_depth_in,
+         redd_pit_depth = pre_redd_depth_in,
+         tailspill = tailspill_depth_in,
+         redd_length = length_in,
+         redd_width = width_in,
+         start_number_flow_meter_80 = flowmeter_80_percent_start,
+         end_number_flow_meter_80 = flowmeter_80_percent_end,
+         flow_meter_time_80 = flowmeter_80_percent_time,
+         # flow_fps = water_velo,
+         start_number_flow_meter = flowmeter_start,
+         end_number_flow_meter = flowmeter_end,
+         flow_meter_time = flowmeter_time_s,
+         redd_substrate_size = side_substrate_in) |>
+  mutate(redd_loc = NA,
+         redd_measured = NA,
+         why_not_measured = NA,
+         date_measured = NA, #unsure?
+         flow_fps = NA,
+         survey = NA,
+         fork = NA,
+         pre_redd_depth = NA) |> #these are all NA in data anyway
+  select(-c(age_comments, x_35, y_36, gravel_type, pit_depth_in, comments, redd)) |> # these do't appear on previous data
+  select(c("JPE_redd_id", "longitude", "latitude", "river_mile", "date",
+    "reach", "species", "age", "redd_loc", "pre_redd_substrate_size",
+    "redd_substrate_size", "tail_substrate_size", "fish_guarding", "redd_measured", "why_not_measured",
+    "date_measured", "pre_redd_depth", "redd_pit_depth", "tailspill", "redd_length",
+    "redd_width", "start_number_flow_meter", "end_number_flow_meter", "flow_meter_time", "start_number_flow_meter_80",
+    "end_number_flow_meter_80", "flow_meter_time_80", "flow_fps", "survey", "run",
+    "fork", "age_index")) |>
+  glimpse()
+
+
 
 # standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
 # when the size range fell into two categories, they were rounded down
