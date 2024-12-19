@@ -56,7 +56,7 @@ upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage
 # CLEANING DATA
 # redd --------------------------------------------------------------------
 
-# 2022 data
+# 2022 data ----
 # compared to previous 2022 data, this data is missing "date_mea", "Corr_Type" and "Horz_Prec"
 redd_raw_2022_clean_1 <- redd_raw_2022 |>
   janitor::clean_names() |>
@@ -126,15 +126,21 @@ redd_2022 <- redd_raw_2022_clean_2 |>
          end_number_flow_meter = bomb_end,
          flow_meter_time = bomb_secon,
          redd_substrate_size = side_sub) |>
-  mutate(redd_measured = ifelse(redd_measured == "y", TRUE, redd_measured),
-         date_measured = NA,
+  mutate(redd_measured = ifelse(redd_measured == "Y", TRUE, redd_measured),
+         date_measured = NA, #adding it to match previous data
          redd_loc = NA,
-         survey = NA) |> #adding it to match previous data
-  select(c("JPE_redd_id", "longitude", "latitude", "river_mile", "date",
-           "reach", "species", "age", "redd_loc", "pre_redd_substrate_size",
+         survey = NA,
+         reach_sub_unit = NA,
+         redd_tail_depth = NA,
+         flow_meter = NA,
+         survey_method = NA,
+         fish_guarding = case_when(fish_guarding == "N" ~ FALSE,
+                                   fish_guarding == "Y" ~ TRUE)) |>
+  select(c("JPE_redd_id", "longitude", "latitude", "river_mile", "date", "survey_method",
+           "reach", "reach_sub_unit", "species", "age", "redd_loc", "pre_redd_substrate_size",
            "redd_substrate_size", "tail_substrate_size", "fish_guarding", "redd_measured", "why_not_measured",
-           "date_measured", "pre_redd_depth", "redd_pit_depth", "tailspill", "redd_length",
-           "redd_width", "start_number_flow_meter", "end_number_flow_meter", "flow_meter_time", "start_number_flow_meter_80",
+           "date_measured", "pre_redd_depth", "redd_pit_depth", "redd_tail_depth", "tailspill", "redd_length",
+           "redd_width", "flow_meter", "start_number_flow_meter", "end_number_flow_meter", "flow_meter_time", "start_number_flow_meter_80",
            "end_number_flow_meter_80", "flow_meter_time_80", "flow_fps", "survey", "run",
            "fork", "age_index")) |>
   glimpse()
@@ -208,20 +214,32 @@ redd_2023 <- redd_raw_2023_clean_2|>
          why_not_measured = NA,
          date_measured = NA, #unsure?
          flow_fps = NA,
-         survey = NA,
+         survey = NA, #these are all NA in data anyway
          fork = NA,
-         pre_redd_depth = NA) |> #these are all NA in data anyway
+         pre_redd_depth = NA,
+         reach_sub_unit = NA,
+         redd_tail_depth = NA,
+         flow_meter = NA,
+         survey_method = NA,
+         fish_guarding = case_when(fish_guarding == "No" ~ FALSE)) |>
   select(-c(age_comments, x_35, y_36, gravel_type, pit_depth_in, comments, redd)) |> # these do't appear on previous data
-  select(c("JPE_redd_id", "longitude", "latitude", "river_mile", "date",
-    "reach", "species", "age", "redd_loc", "pre_redd_substrate_size",
+  select(c("JPE_redd_id", "longitude", "latitude", "river_mile", "date", "survey_method",
+    "reach", "reach_sub_unit", "species", "age", "redd_loc", "pre_redd_substrate_size",
     "redd_substrate_size", "tail_substrate_size", "fish_guarding", "redd_measured", "why_not_measured",
-    "date_measured", "pre_redd_depth", "redd_pit_depth", "tailspill", "redd_length",
-    "redd_width", "start_number_flow_meter", "end_number_flow_meter", "flow_meter_time", "start_number_flow_meter_80",
+    "date_measured", "pre_redd_depth", "redd_pit_depth", "redd_tail_depth", "tailspill", "redd_length",
+    "redd_width", "flow_meter", "start_number_flow_meter", "end_number_flow_meter", "flow_meter_time", "start_number_flow_meter_80",
     "end_number_flow_meter_80", "flow_meter_time_80", "flow_fps", "survey", "run",
     "fork", "age_index")) |>
   glimpse()
 
+# removing 2022 data from redd_raw_2001_2022
+redd_2001_2021 <- redd_raw_2001_2022 |>
+  filter(year(date) != 2022) |>
+  glimpse()
 
+# Binding all redd data ----
+clean_2022_2023_data <- bind_rows(redd_2022, redd_2023, redd_2001_2021) |>
+  glimpse()
 
 # standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
 # when the size range fell into two categories, they were rounded down
