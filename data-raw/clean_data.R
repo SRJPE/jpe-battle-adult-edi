@@ -240,6 +240,28 @@ redd_2001_2021 <- redd_raw_2001_2022 |>
 # Binding all redd data ----
 clean_2022_2023_data <- bind_rows(redd_2022, redd_2023, redd_2001_2021) |>
   glimpse()
+
+unique(clean_2022_2023_data$redd_substrate_size)
+# Cleaning substrate size
+clean_2022_2023_data$redd_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2023_data$redd_substrate_size)
+redd_2022_2023_data <- clean_2022_2023_data |>
+  mutate(redd_substrate_size = str_replace_all(redd_substrate_size, "\\s*-\\s*", "-"),
+         redd_substrate_size = str_replace_all(redd_substrate_size, "^'|'$", ""),
+         redd_substrate_size= case_when(
+           redd_substrate_size %in% c("< 0.1", "<0.1") ~ "<0.25",
+           redd_substrate_size %in% c("0.1 to 1", "0.1-1", "0.1 - 1") ~ "0.5-1",
+           redd_substrate_size == "1" ~ "0.5-1",
+           redd_substrate_size %in% c("1-2", "1 - 2", "'1-2", "'1 - 2") ~ "1-2",
+           redd_substrate_size %in% c("1-3", "2-3", "2 - 3", "'2-3", "'2 - 3") ~ "2-4",
+           redd_substrate_size %in% c("3-4", "'3-4") ~ "2-4",
+           redd_substrate_size %in% c("3-5", "4-5", "4-6", "5-6") ~ "4-8",
+           redd_substrate_size == ">12" ~ "8-16",
+           redd_substrate_size %in% c("8-16", ">16") ~ "8-16",
+           redd_substrate_size %in% c("1-5") ~ "2-4",
+           redd_substrate_size %in% c("2-4") ~ "2-4",
+           TRUE ~ NA))
+
+# checked for NA's. None were introduced while binding
 # TODO note to self. I left off here, I have combined all years of redd data. next steps - check that no NA's were introduced.
 # then run substrate categorization below (checking that ranges are the same)
 # standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
@@ -262,11 +284,11 @@ substrate_class = data.frame("standardized_size_range" = c("<0.25",
                                                         "coarse gravel to boulder"))
 # fit current substrate size to categories above. As we do transformation do checks
 #for NAs. Before joining, filter out 2022 from original data
-unique(redd_raw$redd_substrate_size)
+unique(redd_2022_2023_data$redd_substrate_size)
 
- # TODO check if ranges are the same
+ # TODO check ranges
 redd_substrate_size_lookup <-
-  data.frame("redd_substrate_size" = unique(redd_raw$redd_substrate_size),
+  data.frame("redd_substrate_size" = unique(redd_2022_2023_data$redd_substrate_size),
              "standardized_size_range" = c(NA, "1-2", "1-2", "2-4", "2-4",
                                            "0.5-1", "2-4","2-4", "8-16", "4-8",
                                            "1-2", "1-2", "4-8", "<0.25", "1-2",
