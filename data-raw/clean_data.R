@@ -4,21 +4,17 @@ library(janitor)
 
 # pull in data from google cloud ---------------------------------------------------
 
-# notes for EDI package from adult data meeting
-# prioritize redd and upstream passage data
+
 # we are not reading carcass, environmental or adult data for now
-# restrict individual redd locations (simplify to reach level, no lat/longs)
-# start with just adding spring run
 
 gcs_auth(json_file = Sys.getenv("GCS_AUTH_FILE"))
 gcs_global_bucket(bucket = Sys.getenv("GCS_DEFAULT_BUCKET"))
 
-# read in battle creek redd data instead of standard redd data - this data was already manipulated
 
-#TODOs
-# look into JPE-datasets to review processing of raw data. Link to repo: (https://github.com/SRJPE/JPE-datasets/blob/main/data-raw/qc-markdowns/adult-holding-redd-and-carcass-surveys/battle-creek/battle_creek_redd_qc.Rmd)
-# process new data the same way
-# if there is an overlap on 2022 data, go with the newest version
+# Notes for context on work. Processing of new data has been done using JPE-datasets as guide:
+# JPE-datasets to review processing of raw data. Link to repo: (https://github.com/SRJPE/JPE-datasets/blob/main/data-raw/qc-markdowns/adult-holding-redd-and-carcass-surveys/battle-creek/battle_creek_redd_qc.Rmd)
+# the goal is to process new data the same way
+# there is an overlap on 2022 data, old data covered some 2022, we are using the newest version of 2022 data (new data added)
 gcs_get_object(object_name = "adult-holding-redd-and-carcass-surveys/battle-creek/data/battle_redd.csv",
                bucket = gcs_get_global_bucket(),
                saveToDisk = here::here("data-raw", "battle_daily_redd.csv"),
@@ -35,14 +31,14 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
                overwrite = TRUE)
 
 # redd raw
-redd_raw_2001_2022 <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |>
+redd_raw_2001_2022 <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |> # from last update
   glimpse()
 
-redd_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 3) |>
+redd_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 3) |> # this data was added for this update
   clean_names() |>
   glimpse()
 
-redd_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 4) |>
+redd_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 4) |> # this data was added for this update
   clean_names() |>
   glimpse()
 
@@ -104,9 +100,7 @@ redd_raw_2022_clean_2 <- redd_raw_2022_clean_1 |>
          species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
   glimpse()
 
-#TODO step 1 change cols of 2022 and 2023 to be consistent with previous data. 2 filter out 2022 data on original data
-# 3 test/apply substrate class table below, 4 bind data
-# clean_redd_data <- bind_rows(redd_2022, redd_2023) |>
+
 redd_2022 <- redd_raw_2022_clean_2 |>
   select(-c(year, comments)) |> # use JPE_redd_id
   rename(latitude = point_y, longitude = point_x,
@@ -271,7 +265,8 @@ redd_2022_2023_data <- clean_2022_2023_data |>
 # aka standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
 # note: when the size range fell into two categories, they were rounded down
 
-# code below was already here from last update (keeping for reference)---
+# ---- NOTE: ALL code below was already here from last update (keeping for reference, and as a goal to clean all data the same way)---
+
 # standarized size ranges lookup
 substrate_class = data.frame("standardized_size_range" = c("<0.25",
                                                            "0.25-0.5",
