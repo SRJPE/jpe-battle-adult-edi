@@ -57,7 +57,7 @@ upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage
 redd_raw_2022_clean_1 <- redd_raw_2022 |>
   janitor::clean_names() |>
   mutate(year = year(date),
-         JPE_redd_id = paste0(year, "_", row_number())) |>
+         JPE_redd_id = paste0(as_date(date), "_", reach, "_", redd_id)) |>
   glimpse()
 
 # clean_2021_2022_data <- bind_rows(clean_2021_data, clean_2022_data) |>
@@ -130,13 +130,11 @@ redd_2022 <- redd_raw_2022_clean_2 |>
          survey_method = NA,
          fish_guarding = case_when(fish_guarding == "N" ~ FALSE,
                                    fish_guarding == "Y" ~ TRUE)) |>
-  select(c("JPE_redd_id", "longitude", "latitude", "river_mile", "date", "survey_method",
-           "reach", "reach_sub_unit", "species", "age", "redd_loc", "pre_redd_substrate_size",
-           "redd_substrate_size", "tail_substrate_size", "fish_guarding", "redd_measured", "why_not_measured",
-           "date_measured", "pre_redd_depth", "redd_pit_depth", "redd_tail_depth", "tailspill", "redd_length",
-           "redd_width", "flow_meter", "start_number_flow_meter", "end_number_flow_meter", "flow_meter_time", "start_number_flow_meter_80",
-           "end_number_flow_meter_80", "flow_meter_time_80", "flow_fps", "survey", "run",
-           "fork", "age_index")) |>
+  select(c("JPE_redd_id", "date", "survey_method", "longitude", "latitude", "reach", "reach_sub_unit", "river_mile",
+           "redd_loc","pre_redd_substrate_size","redd_substrate_size","tail_substrate_size", "fish_guarding","redd_measured",
+           "why_not_measured","pre_redd_depth", "redd_pit_depth", "redd_tail_depth", "redd_length", "redd_width",
+           "flow_meter","flow_fps","start_number_flow_meter", "end_number_flow_meter", "flow_meter_time", "start_number_flow_meter_80",
+           "end_number_flow_meter_80","flow_meter_time_80","survey", "run","species", "age_index","age", "date_measured", "tailspill","fork")) |>
   glimpse()
 
 #2023 data ----
@@ -144,7 +142,7 @@ redd_2022 <- redd_raw_2022_clean_2 |>
 redd_raw_2023_clean_1 <- redd_raw_2023 |>
   janitor::clean_names() |>
   mutate(year = year(date),
-         JPE_redd_id = paste0(year, "_", row_number())) |>
+         JPE_redd_id = paste0(as_date(date), "_", reach, "_", redd)) |>
   glimpse()
 
 redd_raw_2023_clean_2 <- redd_raw_2023_clean_1|>
@@ -238,23 +236,57 @@ clean_2022_2023_data <- bind_rows(redd_2022, redd_2023, redd_2001_2021) |>
 unique(clean_2022_2023_data$redd_substrate_size)
 # Cleaning substrate size
 clean_2022_2023_data$redd_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2023_data$redd_substrate_size)
+clean_2022_2023_data$pre_redd_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2023_data$pre_redd_substrate_size)
+clean_2022_2023_data$tail_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2023_data$tail_substrate_size)
 redd_2022_2023_data <- clean_2022_2023_data |>
   mutate(redd_substrate_size = str_replace_all(redd_substrate_size, "\\s*-\\s*", "-"),
          redd_substrate_size = str_replace_all(redd_substrate_size, "^'|'$", ""),
-         redd_substrate_size= case_when(
+         redd_substrate_size = case_when(
            redd_substrate_size %in% c("< 0.1", "<0.1") ~ "<0.25",
            redd_substrate_size %in% c("0.1 to 1", "0.1-1", "0.1 - 1") ~ "0.5-1",
            redd_substrate_size == "1" ~ "0.5-1",
            redd_substrate_size %in% c("1-2", "1 - 2", "'1-2", "'1 - 2") ~ "1-2",
            redd_substrate_size %in% c("1-3", "2-3", "2 - 3", "'2-3", "'2 - 3") ~ "2-4",
            redd_substrate_size %in% c("3-4", "'3-4") ~ "2-4",
-           redd_substrate_size %in% c("3-5", "4-5", "4-6", "5-6") ~ "4-8",
+           redd_substrate_size %in% c("3-5", "4-5", "4-6", "5-6", "6-7") ~ "4-8",
            redd_substrate_size == ">12" ~ "8-16",
-           redd_substrate_size %in% c("8-16", ">16") ~ "8-16",
+           redd_substrate_size %in% c("8-16") ~ "8-16",
+           redd_substrate_size == ">16" ~ ">16",
            redd_substrate_size %in% c("1-5") ~ "2-4",
            redd_substrate_size %in% c("2-4") ~ "2-4",
+           TRUE ~ NA),
+         pre_redd_substrate_size = str_replace_all(pre_redd_substrate_size, "\\s*-\\s*", "-"),
+         pre_redd_substrate_size = str_replace_all(pre_redd_substrate_size, "^'|'$", ""),
+         pre_redd_substrate_size = case_when(
+           pre_redd_substrate_size %in% c("< 0.1", "<0.1") ~ "<0.25",
+           pre_redd_substrate_size %in% c("0.1 to 1", "0.1-1", "0.1 - 1") ~ "0.5-1",
+           pre_redd_substrate_size == "1" ~ "0.5-1",
+           pre_redd_substrate_size %in% c("1-2", "1 - 2", "'1-2", "'1 - 2") ~ "1-2",
+           pre_redd_substrate_size %in% c("1-3", "2-3", "2 - 3", "'2-3", "'2 - 3") ~ "2-4",
+           pre_redd_substrate_size %in% c("3-4", "'3-4") ~ "2-4",
+           pre_redd_substrate_size %in% c("3-5", "4-5", "4-6", "5-6", "6-7") ~ "4-8",
+           pre_redd_substrate_size == ">12" ~ "8-16",
+           pre_redd_substrate_size %in% c("8-16") ~ "8-16",
+           pre_redd_substrate_size == ">16" ~ ">16",
+           pre_redd_substrate_size %in% c("2-4") ~ "2-4",
+           TRUE ~ NA),
+         tail_substrate_size = str_replace_all(tail_substrate_size, "\\s*-\\s*", "-"),
+         tail_substrate_size = str_replace_all(tail_substrate_size, "^'|'$", ""),
+         tail_substrate_size = case_when(
+           tail_substrate_size %in% c("< 0.1", "<0.1") ~ "<0.25",
+           tail_substrate_size %in% c("0.1 to 1", "0.1-1", "0.1 - 1") ~ "0.5-1",
+           tail_substrate_size == "1" ~ "0.5-1",
+           tail_substrate_size %in% c("1-2", "1 - 2", "'1-2", "'1 - 2") ~ "1-2",
+           tail_substrate_size %in% c("1-3", "2-3", "2 - 3", "'2-3", "'2 - 3") ~ "2-4",
+           tail_substrate_size %in% c("3-4", "'3-4") ~ "2-4",
+           tail_substrate_size %in% c("3-5", "4-5", "4-6", "5-6", "6-7") ~ "4-8",
+           tail_substrate_size == ">12" ~ "8-16",
+           tail_substrate_size %in% c("8-16") ~ "8-16",
+           tail_substrate_size == ">16" ~ ">16",
+           tail_substrate_size %in% c("1-5") ~ "2-4",
+           tail_substrate_size %in% c("2-4") ~ "2-4",
            TRUE ~ NA))
-
+unique(redd_2022_2023_data$redd_substrate_size)
 # checked for NA's. None were introduced while binding
 # TODO note to self. I left off here, up until this point data is clean:
 
@@ -288,49 +320,43 @@ unique(redd_2022_2023_data$redd_substrate_size)
 
 redd_substrate_size_lookup <-
   data.frame("redd_substrate_size" = unique(redd_2022_2023_data$redd_substrate_size),
-             "standardized_size_range" = c(NA, "1-2", "1-2", "2-4", "2-4",
-                                           "0.5-1", "2-4","2-4", "8-16", "4-8",
-                                           "1-2", "1-2", "4-8", "<0.25", "1-2",
-                                           "2-4", "0.5-1", "1-2", "2-4", "2-4",
-                                           "<0.25", "4-8", "4-8")) |>
+             "standardized_size_range" = c("1-2","2-4","0.5-1",NA,"<0.25","4-8","8-16")) |>
   left_join(substrate_class) # currently getting an error here
 
-# redd <- redd_raw |>
-#   mutate(survey_method = str_to_lower(survey_method),
-#          # add redd count for all rows (each row is an observation)
-#          # to avoid double counting, you need to take the unique redd_id
-#          redd_count = 1) |>
-#   left_join(redd_substrate_size_lookup |>
-#               select(redd_substrate_size, redd_substrate_class),
-#             by = c("redd_substrate_size")) |>
-#   left_join(redd_substrate_size_lookup |>
-#               select(redd_substrate_size, tail_substrate_class = redd_substrate_class),
-#             by = c("tail_substrate_size" = "redd_substrate_size")) |>
-#   left_join(redd_substrate_size_lookup |>
-#               select(redd_substrate_size, pre_redd_substrate_class = redd_substrate_class),
-#             by = c("pre_redd_substrate_size" = "redd_substrate_size")) |>
-#   mutate(reach = case_when(reach == "4" ~ "R4",
-#                            reach == "1" ~ "R1",
-#                            reach == "2" ~ "R2",
-#                            reach == "5" ~ "R5",
-#                            reach == "3" ~ "R3",
-#                            reach == "R12" ~ "R1",
-#                            TRUE ~ reach),
-#          # Reach 1B began being surveyed in 2021 due to private land concerns
-#          reach = ifelse(year(date) >= 2021 & reach == "R1", "R1B", reach)) |>
-#   select(date, redd_id = JPE_redd_id, reach, fish_on_redd = fish_guarding, age, run, redd_count,
-#          redd_measured, redd_width, redd_length,
-#          pre_redd_depth, redd_pit_depth, redd_tail_depth,
-#          redd_substrate_class, tail_substrate_class, pre_redd_substrate_class,
-#          velocity = flow_fps)
+redd <- redd_2022_2023_data |>
+  mutate(survey_method = str_to_lower(survey_method)) |>
+  left_join(redd_substrate_size_lookup |>
+              select(redd_substrate_size, redd_substrate_class),
+            by = c("redd_substrate_size")) |>
+  left_join(redd_substrate_size_lookup |>
+              select(redd_substrate_size, tail_substrate_class = redd_substrate_class),
+            by = c("tail_substrate_size" = "redd_substrate_size")) |>
+  left_join(redd_substrate_size_lookup |>
+              select(redd_substrate_size, pre_redd_substrate_class = redd_substrate_class),
+            by = c("pre_redd_substrate_size" = "redd_substrate_size")) |>
+  mutate(reach = case_when(reach == "4" ~ "R4",
+                           reach == "1" ~ "R1",
+                           reach == "2" ~ "R2",
+                           reach == "5" ~ "R5",
+                           reach == "3" ~ "R3",
+                           reach == "R12" ~ "R1",
+                           TRUE ~ reach),
+         # Reach 1B began being surveyed in 2021 due to private land concerns
+         reach = ifelse(year(date) >= 2021 & reach == "R1", "R1B", reach)) |>
+  select(date, redd_id = JPE_redd_id, reach, fish_on_redd = fish_guarding, age, run,
+         redd_measured, redd_width, redd_length,
+         pre_redd_depth, redd_pit_depth, redd_tail_depth,
+         redd_substrate_class, tail_substrate_class, pre_redd_substrate_class,
+         velocity = flow_fps)
 
 # the goal of this summary is that we show data without changing to pivot longer
-# redd_summary <- redd |>
-#   mutate(year = year(date)) |>
-#   group_by(year) |>
-#   distinct(redd_id, .keep_all = T) |>
-#   summarize(total_annual_redd_count = sum(redd_count),
-#             number_reaches_surveyed = length(unique(reach)))
+redd_summary <- redd |>
+  mutate(year = year(date)) |>
+  group_by(year) |>
+  distinct(redd_id, .keep_all = T) |>
+  mutate(redd_count = 1) |> # after selecting for distinct redd_id add redd_count
+  summarize(total_annual_redd_count = sum(redd_count),
+            number_reaches_surveyed = length(unique(reach)))
 
 
 # upstream passage --------------------------------------------------------
