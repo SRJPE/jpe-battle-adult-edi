@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2024-10-25</pubDate>
+    <pubDate>2024-12-27</pubDate>
     <abstract>
       <para>
     The U.S. Fish and Wildlife Service (USFWS) collects data on adult
@@ -84,7 +84,7 @@
             <calendarDate>1998-06-01</calendarDate>
           </beginDate>
           <endDate>
-            <calendarDate>2022-11-04</calendarDate>
+            <calendarDate>2023-11-01</calendarDate>
           </endDate>
         </rangeOfDates>
       </temporalCoverage>
@@ -395,25 +395,6 @@
           </measurementScale>
         </attribute>
         <attribute>
-          <attributeName>redd_count</attributeName>
-          <attributeLabel>redd</attributeLabel>
-          <attributeDefinition>Number of redds sampled.</attributeDefinition>
-          <measurementScale>
-            <ratio>
-              <unit>
-                <customUnit>number of redds</customUnit>
-              </unit>
-              <numericDomain>
-                <numberType>integer</numberType>
-                <bounds>
-                  <minimum exclusive="false">1</minimum>
-                  <maximum exclusive="false">1</maximum>
-                </bounds>
-              </numericDomain>
-            </ratio>
-          </measurementScale>
-        </attribute>
-        <attribute>
           <attributeName>redd_measured</attributeName>
           <attributeLabel>redd</attributeLabel>
           <attributeDefinition>Whether or not the redd was measured at time of observation.</attributeDefinition>
@@ -590,7 +571,7 @@
           </measurementScale>
         </attribute>
       </attributeList>
-      <numberOfRecords>2496</numberOfRecords>
+      <numberOfRecords>2500</numberOfRecords>
     </dataTable>
     <dataTable>
       <entityName>battle_redd_summary.csv</entityName>
@@ -674,7 +655,7 @@
           </measurementScale>
         </attribute>
       </attributeList>
-      <numberOfRecords>22</numberOfRecords>
+      <numberOfRecords>23</numberOfRecords>
     </dataTable>
     <dataTable>
       <entityName>battle_upstream_passage_raw.csv</entityName>
