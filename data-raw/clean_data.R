@@ -288,13 +288,7 @@ redd_2022_2023_data <- clean_2022_2023_data |>
            TRUE ~ NA))
 unique(redd_2022_2023_data$redd_substrate_size)
 # checked for NA's. None were introduced while binding
-# TODO note to self. I left off here, up until this point data is clean:
-
-# I have combined all years of redd data. checked that no NA's were introduced.
-# substrate size ranges were cleaned.
-
-# Next steps: figure out how to fit into run substrate categorization below, that criteria was used in past data (ranges are not the same in this new data)
-# aka standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
+# standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
 # note: when the size range fell into two categories, they were rounded down
 
 # ---- NOTE: ALL code below was already here from last update (keeping for reference, and as a goal to clean all data the same way)---
@@ -358,6 +352,11 @@ redd_summary <- redd |>
   summarize(total_annual_redd_count = sum(redd_count),
             number_reaches_surveyed = length(unique(reach)))
 
+
+### NOTES from Badhia while checking field names and values
+# redd_width ranged from 0 - 6.68 (2001-2021 data), newer data from 2022 and 2023 introduced much higher values (>100), range is now 0-206
+# same with redd_length (0-351), pre_redd_depth (0-28), redd_pit_depth (0-39), just want to confirm that these values make sense
+# I did not update these values yet until we confirm this is fine
 
 # upstream passage --------------------------------------------------------
 upstream <- upstream_raw |>
