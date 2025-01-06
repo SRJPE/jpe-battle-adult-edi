@@ -1,17 +1,22 @@
 # JPE Battle Adutl EDI Upload Workflow
 
-This guide provides step-by-step instructions to update the Battle Creek Adult EDI package with new data.
+This guide provides step-by-step instructions to update the Battle Creek Adult EDI package with new data. (question: will this be for redd data only?)
 
 ## Navigating to the Repository
 All data processing and EDI uploads are managed in the same repository.  
 1. Navigate to the [project repository](https://github.com/FlowWest/jpe-battle-adult-edi) and clone it to your local machine.
 
 ## Adding Data
-1. 
-
+2. Assuming data was entered following the structure established on [Data Entry Template for Battle Creek Redd Survey Data](https://github.com/SRJPE/jpe-battle-adult-edi/blob/dec-2024-updates/data-raw/data_input_instructions.md), save the xlsx document on the [data-raw](https://github.com/SRJPE/jpe-battle-adult-edi/tree/main/data-raw) folder using `redd_yyyy_data.xlsx` naming convention (e.g redd_2024_data.xlsx).
 
 ## Processing Data
-
+3. Update the new data file name from line 31 of `clean_data_for_updates.R` (located [here](https://github.com/SRJPE/jpe-battle-adult-edi/blob/dec-2024-updates/data-raw/clean_data_for_updates.R)) to match name set on step 2.
+  
+4. Run the code
+ - This script cleans and consolidates data to ensure consistency and accuracy across different years.
+ - The cleaned data and metadata are saved as CSV files in the project repository’s `data` folder:
+     - `battle_redd.csv`
+     - `battle_redd_summary.csv`
 
 ### Summary of CSVs Generated for EDI Upload
 - `battle_redd.csv`
