@@ -3,13 +3,10 @@ library(googleCloudStorageR)
 library(janitor)
 
 # pull in data from google cloud ---------------------------------------------------
-
-
 # we are not reading carcass, environmental or adult data for now
 
 gcs_auth(json_file = Sys.getenv("GCS_AUTH_FILE"))
 gcs_global_bucket(bucket = Sys.getenv("GCS_DEFAULT_BUCKET"))
-
 
 # Notes for context on work. Processing of new data has been done using JPE-datasets as guide:
 # JPE-datasets to review processing of raw data. Link to repo: (https://github.com/SRJPE/JPE-datasets/blob/main/data-raw/qc-markdowns/adult-holding-redd-and-carcass-surveys/battle-creek/battle_creek_redd_qc.Rmd)
@@ -30,7 +27,7 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
                saveToDisk = here::here("data-raw", "standard_adult_passage_estimate.csv"),
                overwrite = TRUE)
 
-# redd raw
+### redd raw ### ----
 redd_raw_2001_2022 <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |> # from last update
   glimpse()
 
@@ -42,14 +39,15 @@ redd_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet
   clean_names() |>
   glimpse()
 
-# upstream estimates raw / upstream_raw
+### upstream estimates raw / upstream_raw ### ----
 upstream_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
   filter(stream == "battle creek")
 
 upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage.csv")) |>
   filter(stream == "battle creek")
 
-# CLEANING DATA
+### ---- CLEANING DATA ---- ###
+
 # redd --------------------------------------------------------------------
 
 # 2022 data ----
@@ -57,12 +55,9 @@ upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage
 redd_raw_2022_clean_1 <- redd_raw_2022 |>
   janitor::clean_names() |>
   mutate(year = year(date),
-         JPE_redd_id = paste0(as_date(date), "_", reach, "_", redd_id)) |>
-  glimpse()
+         JPE_redd_id = paste0(as_date(date), "_", reach, "_", redd_id))
 
-# clean_2021_2022_data <- bind_rows(clean_2021_data, clean_2022_data) |>
 redd_raw_2022_clean_2 <- redd_raw_2022_clean_1 |>
-  # clean up dates
   mutate(date_1 = as.Date(date, format = "%m/%d/%Y"),
          date_2 = as.Date(date_2, format = "%m/%d/%Y"),
          date_3 = as.Date(date_3, format = "%m/%d/%Y"),
@@ -138,7 +133,6 @@ redd_2022 <- redd_raw_2022_clean_2 |>
   glimpse()
 
 #2023 data ----
-# redd_2023_renamed <- redd_2023 |>
 redd_raw_2023_clean_1 <- redd_raw_2023 |>
   janitor::clean_names() |>
   mutate(year = year(date),
@@ -174,15 +168,11 @@ redd_raw_2023_clean_2 <- redd_raw_2023_clean_1|>
   filter(!is.na(new_date)) |>
   select(-c(date, date_1, date_2, date_3, date_4, date_5)) |>
   rename(age = new_age, date = new_date) |>
-  # relocate(date, .before = point_x) |>
-  # relocate(JPE_redd_id, .before = date) |>
   mutate(run = ifelse(species == "Chinook", "spring", NA),
          species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
   glimpse()
 
 redd_2023 <- redd_raw_2023_clean_2|>
-  # select(-c(year, corr_type, horz_prec, redd_call, redd_id, comments,
-  #           survey_id, gravel, inj_site)) |> # use JPE_redd_id
   rename(latitude = y_4, longitude = x_3,
          pre_redd_substrate_size = pre_redd_substrate_in,
          tail_substrate_size = tailspill_substrate_in, fish_guarding = fish_on_redd,
