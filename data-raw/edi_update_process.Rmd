@@ -1,0 +1,25 @@
+# JPE Battle Adutl EDI Upload Workflow
+
+This guide provides step-by-step instructions to update the Battle Creek Adult EDI package with new data.
+
+## Navigating to the Repository
+All data processing and EDI uploads are managed in the same repository.  
+1. Navigate to the [project repository](https://github.com/FlowWest/jpe-battle-adult-edi) and clone it to your local machine.
+
+## Adding Data
+1. 
+
+
+## Processing Data
+
+
+### Summary of CSVs Generated for EDI Upload
+- `battle_redd.csv`
+- `battle_redd_summary.csv`
+- `battle_upstream_passage_raw.csv`
+- `battle_upstream_passage_estimates.csv`
+
+## EDI Update/Upload
+
+## EDI Upload Check
+To verify the new package upload, navigate to the [EDI repository portal](https://portal.edirepository.org/nis/home.jsp) and search for the updated package.
