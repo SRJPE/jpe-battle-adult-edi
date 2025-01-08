@@ -397,13 +397,52 @@ repository’s <code>data</code> folder:
 <ul>
 <li><code>battle_redd.csv</code></li>
 <li><code>battle_redd_summary.csv</code></li>
-<li><code>battle_upstream_passage_raw.csv</code></li>
-<li><code>battle_upstream_passage_estimates.csv</code></li>
+<li><code>battle_upstream_passage_raw.csv</code> (this will not
+change)</li>
+<li><code>battle_upstream_passage_estimates.csv</code> (thill will not
+change)</li>
 </ul>
 </div>
 </div>
 <div id="edi-updateupload" class="section level2">
 <h2>EDI Update/Upload</h2>
+<ul>
+<li>Before starting this process, make sure you have an EDI account
+setup</li>
+<li>Create or edit your .Renviron file to incluse your EDI username and
+password. To do this, enter the following code:
+<code>usethis::edit_r_environ()</code>. This will open your .Renviron
+file. Add a line for<code>edi_user_id = [enter your user name]</code>,
+and <code>edi_password = [enter your password]</code></li>
+</ul>
+<p>The data upload to EDI is handled in the
+<code>make_metadata_xml.R</code> script. The necessary modifications
+include:</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Change the EDI package number at line 36
+(<code>edi_number &lt;- &quot;edi.0000.1&quot;</code>) to the new version number.
+For example, if the current version is <code>edi.0000.1</code>, change
+it to <code>edi.0000.2</code>.</li>
+<li>After successfully running the script, manually evaluate the package
+by logging in to the <a href="https://portal.edirepository.org/nis/login.jsp">EDI website</a>
+portal, and navigating to the Tools tab and click on Evaluate/Upload
+Data Packages.</li>
+<li>Add .xml file under EML Metadata File, select “manually upload data”
+under Data Upload Options. Click “Evaluate” button.</li>
+<li>Attach corresponding csv file and click “Evaluate”. Check for any
+errors, warning messages are generally okay.</li>
+<li>After evaluating the package without any errors, return back to
+<code>make_metadata_xml</code> script and update line 75 to the version
+number that will be updated. On this example, package version 0000.1
+will be updated. For the next update, this code will have the next most
+recent package version number (i.e 0000.2, 0000.3, 0000.4, etc):
+<code>EMLaide::update_edi_package(Sys.getenv(&quot;edi_user_id&quot;), Sys.getenv(&quot;edi_password&quot;), &quot;edi.0000.1&quot;, paste0(edi_number, &quot;.xml&quot;))</code></li>
+<li>Uncomment this code line, and run it (note: running this code will
+automatically upload the EDI package. Packages can not be overwritten,
+so if any changes are needed, both (1) new edi number on line 36 and (2)
+update_edi_package on line 75 will have to be updated, and script has to
+be ran again)</li>
+</ol>
 </div>
 <div id="edi-upload-check" class="section level2">
 <h2>EDI Upload Check</h2>
