@@ -1,6 +1,6 @@
 # JPE Battle Adutl EDI Upload Workflow
 
-This guide provides step-by-step instructions to update the Battle Creek Adult EDI package with new data. (question: will this be for redd data only?)
+This guide provides step-by-step instructions to update the Battle Creek Adult EDI package with new redd data. 
 
 ## Navigating to the Repository
 All data processing and EDI uploads are managed in the same repository.  
@@ -22,7 +22,7 @@ All data processing and EDI uploads are managed in the same repository.
 - `battle_redd.csv`
 - `battle_redd_summary.csv`
 - `battle_upstream_passage_raw.csv` (this will not change)
-- `battle_upstream_passage_estimates.csv` (thill will not change)
+- `battle_upstream_passage_estimates.csv` (this will not change)
 
 ## EDI Update/Upload
   - Before starting this process, make sure you have an EDI account setup
