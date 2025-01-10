@@ -343,10 +343,10 @@ redd_summary <- redd |>
             number_reaches_surveyed = length(unique(reach)))
 
 
-### NOTES from Badhia while checking field names and values
+### NOTES
 # redd_width ranged from 0 - 6.68 (2001-2021 data), newer data from 2022 and 2023 introduced much higher values (>100), range is now 0-206
-# same with redd_length (0-351), pre_redd_depth (0-28), redd_pit_depth (0-39), just want to confirm that these values make sense
-# I did not update these values yet until we confirm this is fine
+# same with redd_length (0-351), pre_redd_depth (0-28), redd_pit_depth (0-39), we might just want to confirm that these values make sense
+# metadata was updated with these values
 
 # upstream passage --------------------------------------------------------
 upstream <- upstream_raw |>
