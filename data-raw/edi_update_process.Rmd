@@ -1,4 +1,7 @@
-# JPE Battle Adutl EDI Upload Workflow
+---
+title: "JPE Battle Adutl EDI Upload Workflow"
+output: rmarkdown::github_document
+---
 
 This guide provides step-by-step instructions to update the Battle Creek Adult EDI package with new redd data. 
 
