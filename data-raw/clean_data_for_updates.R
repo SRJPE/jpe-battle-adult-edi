@@ -28,7 +28,7 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
 redd_raw_2001_2023 <- read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
 
 # This is where the new data gets read in
-# redd_raw_yyyy <- read_csv(here::here("data-raw", "name_of_redd_csv.csv"))
+# redd_raw_yyyy <- read_csv(here::here("data-raw", "redd_yyyy_data.xlsx")) #TODO update here
 
 ### upstream estimates raw / upstream_raw ### ----
 upstream_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
@@ -51,7 +51,7 @@ redd_raw_yyyy_clean_2 <- redd_raw_yyyy_clean_1|>
          date_3 = as.Date(date_visit_3, format = "%m/%d/%Y"), # etc.
          date_4 = as.Date(date_visit_4, format = "%m/%d/%Y"),
          date_5 = as.Date(date_visit_5, format = "%m/%d/%Y"),
-         # age_1 = age, # is there a "age_1" value for age of first redd encounter age???
+         age_1 = age,
          age_2 = age_visit_2,
          age_3 = age_visit_3,
          age_4 = age_visit_4,
@@ -151,6 +151,7 @@ upstream_estimates <- upstream_estimates_raw |>  # all spring run
   glimpse()
 
 
+### ---- SAVE CLEAN DATA --- ##
 # write files -------------------------------------------------------------
 write_csv(redd, here::here("data", "battle_redd.csv"))
 write_csv(redd_summary, here::here("data", "battle_redd_summary.csv"))
@@ -163,4 +164,4 @@ write_csv(upstream_estimates, here::here("data", "battle_upstream_passage_estima
 # read.csv(here::here("data", "battle_upstream_passage_raw.csv")) |> glimpse()
 # read.csv(here::here("data", "battle_upstream_passage_estimates.csv")) |> glimpse()
 
-### ---- SAVE CLEAN DATA --- ##
+
