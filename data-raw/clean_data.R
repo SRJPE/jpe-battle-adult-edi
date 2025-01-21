@@ -31,7 +31,11 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
 redd_raw_2001_2022 <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |> # from last update
   glimpse()
 
-redd_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 3) |> # this data was added for this update
+# redd_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 3) |> # this data was added previously but we got an updated version
+#   clean_names() |>
+#   glimpse()
+
+redd_raw_2022_new <- readxl::read_excel("data-raw/2022_BC_flowwest data_new.xlsx", sheet = 2) |> # this data was added for this update
   clean_names() |>
   glimpse()
 
@@ -39,6 +43,9 @@ redd_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet
   clean_names() |>
   glimpse()
 
+redd_raw_2024 <- readxl::read_excel("data-raw/2024_BC_flowwest data.xlsx", sheet = 2) |> # this data was added for this update
+  clean_names() |>
+  glimpse()
 ### upstream estimates raw / upstream_raw ### ----
 upstream_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
   filter(stream == "battle creek")
@@ -52,7 +59,7 @@ upstream_raw <- read.csv(here::here("data-raw", "standard_adult_upstream_passage
 
 # 2022 data ----
 # compared to previous 2022 data, this data is missing "date_mea", "Corr_Type" and "Horz_Prec"
-redd_raw_2022_clean_1 <- redd_raw_2022 |>
+redd_raw_2022_clean_1 <- redd_raw_2022_new |>
   janitor::clean_names() |>
   mutate(year = year(date),
          JPE_redd_id = paste0(as_date(date), "_", reach, "_", redd_id))
@@ -87,7 +94,7 @@ redd_raw_2022_clean_2 <- redd_raw_2022_clean_1 |>
                                age_index == "age_5" ~ 5),
          age_index = ifelse(is.na(new_age) & age_index == 1, 0, age_index)) |>
   filter(!is.na(new_date)) |>
-  select(-c(date, date_1, date_2, date_3, date_4, date_5, qa_qc, qa_qc_date, redd_id)) |>
+  select(-c(date, date_1, date_2, date_3, date_4, date_5, redd_id)) |>
   rename(age = new_age, date = new_date) |>
   relocate(date, .before = point_x) |>
   relocate(JPE_redd_id, .before = date) |>
