@@ -46,6 +46,7 @@ redd_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet
 redd_raw_2024 <- readxl::read_excel("data-raw/2024_BC_flowwest data.xlsx", sheet = 2) |> # this data was added for this update
   clean_names() |>
   glimpse()
+
 ### upstream estimates raw / upstream_raw ### ----
 upstream_estimates_raw <- read.csv(here::here("data-raw", "standard_adult_passage_estimate.csv")) |>
   filter(stream == "battle creek")
@@ -226,16 +227,101 @@ redd_2001_2021 <- redd_raw_2001_2022 |>
   filter(year(date) != 2022) |>
   glimpse()
 
-# Binding all redd data ----
-clean_2022_2023_data <- bind_rows(redd_2022, redd_2023, redd_2001_2021) |>
+#2024 data ----
+redd_raw_2024_clean_1 <- redd_raw_2024 |>
+  janitor::clean_names() |>
+  mutate(year = year(date),
+         JPE_redd_id = paste0(as_date(date), "_", reach, "_", redd)) |>
   glimpse()
 
-unique(clean_2022_2023_data$redd_substrate_size)
+redd_raw_2024_clean_2 <- redd_raw_2024_clean_1|>
+  mutate(date_1 = as.Date(date, format = "%m/%d/%Y"), # assign date to date_a (for first redd encounter)
+         date_2 = as.Date(date_visit_2, format = "%m/%d/%Y"), # second redd encounter (if happens)
+         date_3 = as.Date(date_visit_3, format = "%m/%d/%Y"), # etc.
+         date_4 = as.Date(date_visit_4, format = "%m/%d/%Y"),
+         date_5 = as.Date(date_visit_5, format = "%m/%d/%Y"),
+         # age_1 = age, # is there a "age_1" value for age of first redd encounter age???
+         age_2 = age_visit_2,
+         age_3 = age_visit_3,
+         age_4 = age_visit_4,
+         age_5 = age_visit_5) |>
+  pivot_longer(cols = c(age_2, age_3, age_4, age_5), # pivot all aging instances to age column
+               values_to = "new_age",
+               names_to = "age_index") |>
+  # # for all aging instances, take the date where that aging occurred.
+  # # check for what aging instance it was and pull that date (if present)
+  mutate(new_date = case_when(age_index == "age_2" & !is.na(date_2) ~ date_2,
+                              age_index == "age_3" & !is.na(date_3) ~ date_3,
+                              age_index == "age_4" & !is.na(date_4) ~ date_4,
+                              age_index == "age_5" & !is.na(date_5) ~ date_5,
+                              TRUE ~ NA),
+         age_index = case_when(age_index == "age_2" ~ 2,
+                               age_index == "age_3" ~ 3,
+                               age_index == "age_4" ~ 4,
+                               age_index == "age_5" ~ 5),
+         age_index = ifelse(is.na(new_age) & age_index == 1, 0, age_index)) |>
+  filter(!is.na(new_date)) |>
+  select(-c(date, date_1, date_2, date_3, date_4, date_5)) |>
+  rename(age = new_age, date = new_date) |>
+  mutate(run = ifelse(species == "Chinook", "spring", NA),
+         species = ifelse(species == "O.mykiss", "O. mykiss", species)) |>
+  glimpse()
+
+redd_2024 <- redd_raw_2024_clean_2|>
+  rename(latitude = y, longitude = x,
+         pre_redd_substrate_size = pre_redd_substrate,
+         tail_substrate_size = tailspill_substrate,
+         fish_guarding = fish_on_redd,
+         # redd_measured = measure,
+         # why_not_measured = why_not_me, # fileld not included, check if all NAs on other data, if so we can mutate
+         pre_redd_depth = pre_redd_depth_in,
+         redd_pit_depth = pit_depth_in,
+         tailspill = tailspill_depth_in,
+         redd_length = length_in,
+         redd_width = width_in,
+         start_number_flow_meter_80 = flowmeter_80_percent_start,
+         end_number_flow_meter_80 = flowmeter_80_percent_end,
+         # flow_fps = water_velo,
+         start_number_flow_meter = flowmeter_start,
+         end_number_flow_meter = flowmeter_end,
+         flow_meter_time = flowmeter_time_s,
+         redd_substrate_size = side_substrate) |>
+  mutate(river_mile = NA,
+  redd_loc = NA,
+         redd_measured = NA,
+         why_not_measured = NA,
+         date_measured = NA, #unsure?
+         flow_fps = NA,
+         survey = NA, #these are all NA in data anyway
+         fork = NA,
+         reach_sub_unit = NA,
+         redd_tail_depth = NA,
+         flow_meter = NA,
+         survey_method = NA,
+         fish_guarding = case_when(fish_guarding == "No" ~ FALSE),
+  flow_meter_time_80 =  as.numeric(gsub(" seconds", "", flowmeter_80_percent_time))
+  ) |>
+  # select(-c(age_comments, x_35, y_36, gravel_type, pit_depth_in, comments, redd)) |> # these do't appear on previous data
+  select(c("JPE_redd_id", "longitude", "latitude", "river_mile", "date", "survey_method",
+           "reach", "reach_sub_unit", "species", "age", "redd_loc", "pre_redd_substrate_size",
+           "redd_substrate_size", "tail_substrate_size", "fish_guarding", "redd_measured", "why_not_measured",
+           "date_measured", "pre_redd_depth", "redd_pit_depth", "redd_tail_depth", "tailspill", "redd_length",
+           "redd_width", "flow_meter", "start_number_flow_meter", "end_number_flow_meter", "flow_meter_time", "start_number_flow_meter_80",
+           "end_number_flow_meter_80", "flow_meter_time_80", "flow_fps", "survey", "run",
+           "fork", "age_index")) |>
+  glimpse()
+
+
+# Binding all redd data ----
+clean_2022_2024_data <- bind_rows(redd_2022, redd_2023, redd_2001_2021, redd_2024) |>
+  glimpse()
+
+unique(clean_2022_2024_data$redd_substrate_size)
 # Cleaning substrate size
-clean_2022_2023_data$redd_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2023_data$redd_substrate_size)
-clean_2022_2023_data$pre_redd_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2023_data$pre_redd_substrate_size)
-clean_2022_2023_data$tail_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2023_data$tail_substrate_size)
-redd_2022_2023_data <- clean_2022_2023_data |>
+clean_2022_2024_data$redd_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2024_data$redd_substrate_size)
+clean_2022_2024_data$pre_redd_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2024_data$pre_redd_substrate_size)
+clean_2022_2024_data$tail_substrate_size <- gsub("^'|\\s*'$", "", clean_2022_2024_data$tail_substrate_size)
+redd_2022_2024_data <- clean_2022_2024_data |>
   mutate(redd_substrate_size = str_replace_all(redd_substrate_size, "\\s*-\\s*", "-"),
          redd_substrate_size = str_replace_all(redd_substrate_size, "^'|'$", ""),
          redd_substrate_size = case_when(
@@ -283,7 +369,7 @@ redd_2022_2023_data <- clean_2022_2023_data |>
            tail_substrate_size %in% c("1-5") ~ "2-4",
            tail_substrate_size %in% c("2-4") ~ "2-4",
            TRUE ~ NA))
-unique(redd_2022_2023_data$redd_substrate_size)
+unique(redd_2022_2024_data$redd_substrate_size)
 # checked for NA's. None were introduced while binding
 # standardize substrate sizes for redd using the Wentworth Scale, created by W.C Krumbein
 # note: when the size range fell into two categories, they were rounded down
@@ -307,14 +393,14 @@ substrate_class = data.frame("standardized_size_range" = c("<0.25",
                                                         "coarse gravel to boulder"))
 # fit current substrate size to categories above. As we do transformation do checks
 #for NAs. Before joining, filter out 2022 from original data
-unique(redd_2022_2023_data$redd_substrate_size)
+unique(redd_2022_2024_data$redd_substrate_size)
 
 redd_substrate_size_lookup <-
-  data.frame("redd_substrate_size" = unique(redd_2022_2023_data$redd_substrate_size),
+  data.frame("redd_substrate_size" = unique(redd_2022_2024_data$redd_substrate_size),
              "standardized_size_range" = c("1-2","2-4","0.5-1",NA,"<0.25","4-8","8-16")) |>
   left_join(substrate_class) # currently getting an error here
 
-redd <- redd_2022_2023_data |>
+redd <- redd_2022_2024_data |>
   mutate(survey_method = str_to_lower(survey_method)) |>
   left_join(redd_substrate_size_lookup |>
               select(redd_substrate_size, redd_substrate_class),
