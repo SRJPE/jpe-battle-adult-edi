@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="edi.1862.1" system="EDI" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd">
+  <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+    <allow>
+      <principal>cvpia</principal>
+      <permission>write</permission>
+    </allow>
+  </access>
+  <dataset>
+    <shortName>Battle Creek Adult Chinook Monitoring</shortName>
+    <title>Monitoring adult spring-run Chinook salmon throughout the adult lifespan on Battle Creek</title>
+    <creator>
+      <individualName>
+        <givenName>Moreno</givenName>
+        <surName>Gabriella</surName>
+      </individualName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
+      <electronicMailAddress>gabriella_moreno@fws.gov</electronicMailAddress>
+    </creator>
+    <associatedParty>
+      <individualName>
+        <givenName>Wingerter</givenName>
+        <surName>Natasha</surName>
+      </individualName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
+      <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
+      <role>principal investigator</role>
+    </associatedParty>
+    <pubDate>2025-01-21</pubDate>
+    <abstract>
+      <para>
+    The U.S. Fish and Wildlife Service (USFWS) collects data on adult
+    salmonids on Battle Creek. Data are collected via snorkel surveys,
+    video camera systems, and a trap at the spawning building. Snorkel
+    surveys are conducted annually, and video camera systems operate 24
+    hours a day, 7 days a week when the trap is not operating due to
+    temperature constraints. Data from this monitoring are used to
+    estimate adult escapement (upstream passage) abundance and timing,
+    spawner abundance, and other important metrics for adult salmonids
+    in the watershed. These data will also be used to inform the
+    development of a juvenile production estimate (JPE) for spring-run
+    Chinook salmon in the Sacramento River Watershed.
+  </para>
+    </abstract>
+    <keywordSet>
+      <keyword>spring run</keyword>
+      <keyword>juvenile production estimate</keyword>
+      <keyword>Oncorhynchus tshawytscha</keyword>
+      <keyword>Snorkel survey</keyword>
+      <keyword>California</keyword>
+      <keyword>Central Valley</keyword>
+      <keyword>SRJPE</keyword>
+      <keyword>Chinook salmon</keyword>
+      <keyword>VAKI Riverwatcher</keyword>
+      <keyword>Escapement</keyword>
+      <keyword>Redd</keyword>
+      <keyword>Upstream Passage</keyword>
+    </keywordSet>
+    <intellectualRights>
+      <para>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.</para>
+    </intellectualRights>
+    <licensed>
+      <licenseName>Creative Commons Attribution 4.0 International</licenseName>
+      <url>https://spdx.org/licenses/CC-BY-4.0.html</url>
+      <identifier>CC-BY-4.0</identifier>
+    </licensed>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>Battle Creek adult spring-run chinook surveys</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-122.1872</westBoundingCoordinate>
+          <eastBoundingCoordinate>-121.9163</eastBoundingCoordinate>
+          <northBoundingCoordinate>40.43</northBoundingCoordinate>
+          <southBoundingCoordinate>40.3874</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>1998-06-01</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2024-10-28</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+      <taxonomicCoverage>
+        <taxonomicClassification>
+          <taxonRankName>kingdom</taxonRankName>
+          <taxonRankValue>Animalia</taxonRankValue>
+          <taxonomicClassification>
+            <taxonRankName>phylum</taxonRankName>
+            <taxonRankValue>Chordata</taxonRankValue>
+            <taxonomicClassification>
+              <taxonRankName>class</taxonRankName>
+              <taxonRankValue>Teleostei</taxonRankValue>
+              <taxonomicClassification>
+                <taxonRankName>order</taxonRankName>
+                <taxonRankValue>Salmoniformes</taxonRankValue>
+                <taxonomicClassification>
+                  <taxonRankName>family</taxonRankName>
+                  <taxonRankValue>Salmonidae</taxonRankValue>
+                  <taxonomicClassification>
+                    <taxonRankName>genus</taxonRankName>
+                    <taxonRankValue>Oncorhynchus</taxonRankValue>
+                    <taxonomicClassification>
+                      <taxonRankName>species</taxonRankName>
+                      <taxonRankValue>Oncorhynchus tshawytscha</taxonRankValue>
+                      <commonName>Chinook Salmon</commonName>
+                      <taxonId provider="https://itis.gov">161980</taxonId>
+                    </taxonomicClassification>
+                  </taxonomicClassification>
+                </taxonomicClassification>
+              </taxonomicClassification>
+            </taxonomicClassification>
+          </taxonomicClassification>
+        </taxonomicClassification>
+      </taxonomicCoverage>
+    </coverage>
+    <maintenance>
+      <description>ongoing</description>
+      <maintenanceUpdateFrequency>annually</maintenanceUpdateFrequency>
+    </maintenance>
+    <contact>
+      <individualName>
+        <givenName>Moreno</givenName>
+        <surName>Gabriella</surName>
+      </individualName>
+      <organizationName>U.S. Fish and Wildlife Service</organizationName>
+      <electronicMailAddress>gabriella_moreno@fws.gov</electronicMailAddress>
+    </contact>
+    <methods>
+      <methodStep>
+        <description>
+          <section>
+            <title>Data Types</title>
+            <para>
+      Upstream passage
+    </para>
+            <para>
+      Redd
+    </para>
+          </section>
+          <section>
+            <title>Upstream Passage</title>
+            <para>
+              <emphasis>Objectives:</emphasis>
+            </para>
+            <para><emphasis>Type:</emphasis> Video monitoring and trap
+    </para>
+            <para><emphasis>Location:</emphasis> Coleman National Fish Hatchery
+      Barrier Weir
+    </para>
+            <para><emphasis>Times of operation:</emphasis> March-November
+    </para>
+            <para><emphasis>Consistency:</emphasis> Some years are not directly
+      comparable to others. Please contact staff associated with this
+      package for more information.
+    </para>
+            <para>
+      Battle Creek collects two types of adult upstream passage data:
+      trap and video monitoring data. The video system and trap are
+      located at the Coleman National Fish Hatchery Barrier Weir and are
+      operated between March and November.
+    </para>
+            <para>
+      Video footage is collected using a video vault and reviewed
+      manually by monitoring crews. Information collected includes date,
+      time, video condition, fish count, species, run, fin clip status,
+      passage direction, and occasional comments are associated with a
+      record. Chinook or rainbow trout footage is reviewed by a second,
+      more experienced, personnel for quality and accuracy. Total hours
+      of video footage and total hours of fish passage are recorded to
+      understand video efficiency. A Cormack Jolly-Seber (CJS) model is
+      applied to the video passage data. Run assignment of chinook
+      salmon is recorded based on date of passage observation. Some
+      limitations of the video system and passage estimates based on the
+      video system include turbidity visibility challenges, run
+      determination by date inaccuracies, video outages in high flow
+      years, and CJS model performance when there are low counts or
+      uneven daily counts. Monitoring crews conduct sampling in the
+      spawning building, where a false bottom trap is located at the top
+      of the fish ladder. This sampling occurs in two phases: from March
+      1st through April, the trap is sampled once per every 24 hour
+      period, five days a week. From April onward, the trap is sampled
+      once per every 24 hour period, seven days a week, until water
+      temperature limits are reached. Trapping is only conducted when
+      water temperatures are below 68 degrees, and the trap is checked
+      every 30 minutes during trapping. The following attributes are
+      collected for any fish caught in the trap: fork length, marks or
+      tags, sex, fish health, adipose fin status. Tags are removed from
+      any CWT hatchery fish to collect information on that fish. All
+      monitoring data is collected manually in the field and entered
+      into a digital format by hand.
+    </para>
+          </section>
+          <section>
+            <title>Redd</title>
+            <para><emphasis>Objectives:</emphasis> Estimate spawning population
+    </para>
+            <para><emphasis>Type:</emphasis> Multiple surveys per year
+    </para>
+            <para><emphasis>Location:</emphasis> 18.6 miles are sampled in each
+      survey. The survey starts at the upstream end of the reach and the
+      entire sample area of the creek is typically completed within a
+      week.
+    </para>
+            <para>
+              <emphasis>Times of operation:</emphasis>
+            </para>
+            <para><emphasis>Consistency:</emphasis> Some years did not survey all
+      reaches and thus are not directly comparable with other years.
+      Please contact staff associated with this package for more
+      information.
+    </para>
+            <para>
+      Snorkel surveys began in 2001 on Battle Creek. Usually three
+      snorkel surveys are performed each year. 18.6 miles are sampled in
+      each survey period: the sample area spans from the South Fork of
+      Battle Creek starting at Coleman Dam, North Fork of Battle Creek
+      starting at Trout Farm location (start of R1B) (historically
+      starting at Eagle Canyon Dam), the mainstem of Battle Creek from
+      the NF/SF confluence down to the confluence with the Sacramento
+      River (end of R7)(end of R6 is Coleman National Fish Hatchery).
+      The survey starts at the upstream end of the sample area and
+      surveying the entire sample area typically takes four days to a
+      week. Three snorkelers swim perpendicular to the flow and count
+      holding Chinook, carcasses and redds. Data displayed below are
+      filtered to Spring Run and reaches 6 &amp; 7 are excluded because
+      they primarily contain Fall or Late Fall Run populations. Holding
+      and carcass data are not currently available in this package.
+    </para>
+            <para>
+      When redds are encountered on a snorkel survey, crews collect
+      additional data on the redds: date, latitude, longitude, reach,
+      river mile, fish guarding, year, species, run, redd substrate
+      class, tail substrate class, and pre-redd substrate class. Less
+      consistently, Battle Creek also collects redd width and length as
+      well as velocity. Redd data is used to determine the spawning
+      window. Redd data is considered an accurate count of the spawning
+      population. Redd data most accurately counts total spawning
+      population in years with fewer redds and is a less reliable
+      measure in years with large spawning populations.
+    </para>
+            <para>
+      Redds are assigned a unique redd ID upon observation. If a redd is
+      observed more than once, it may be assigned an age, and that redd
+      ID may have multiple observations in a table.
+    </para>
+            <para>
+      Methods for measuring substrate size has varied over the years and
+      for this package, substrate class was standardized using the
+      Wentworth scale, created by W.C. Krumbein. This scale is what is
+      commonly used in the United States. When the size range fell into
+      two categories, they were rounded down. The scale, in descending
+      size order, is boulder (&gt;256mm), cobble (64-256mm), very coarse
+      gravel (32-64mm), coarse gravel (16-32mm), medium gravel (8-16mm),
+      fine gravel (4-8mm), very fine gravel (2-4mm), very coarse sand
+      (1-2mm), coarse sand (0.5-1mm), medium sand (0.25-0.5mm), fine
+      sand – clay (&lt;0.25mm).
+    </para>
+          </section>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>Monitoring adult spring-run Chinook salmon throughout the adult lifespan on Battle Creek</title>
+      <personnel>
+        <individualName>
+          <givenName>Moreno</givenName>
+          <surName>Gabriella</surName>
+        </individualName>
+        <organizationName>U.S. Fish and Wildlife Service</organizationName>
+        <electronicMailAddress>gabriella_moreno@fws.gov</electronicMailAddress>
+        <role>Project Lead</role>
+      </personnel>
+    </project>
+    <dataTable>
+      <entityName>battle_redd.csv</entityName>
+      <entityDescription>Daily repeated observation redd survey data</entityDescription>
+      <physical>
+        <objectName>battle_redd.csv</objectName>
+        <size unit="bytes">290937</size>
+        <authentication method="MD5">516c74abe14316d3f17139910ff7c0bd</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_redd.csv</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>date</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Date on which redd data was collected.</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">2001-09-18</minimum>
+                  <maximum exclusive="false">2024-10-28</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>redd_id</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Unique redd ID assigned to the redd being sampled. One redd may have been observed multiple times, resulting in multiple rows for one redd ID.</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Unique redd ID assigned to the redd being sampled. One redd may have been observed multiple times, resulting in multiple rows for one redd ID.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>reach</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Survey reach where redd was located. Levels =c("R2", "R3", "R7", "R1", "R4", "R5", "R6", "R1B")</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Survey reach where redd was located. Levels =c("R2", "R3", "R7", "R1", "R4", "R5", "R6", "R1B")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>fish_on_redd</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Whether or not a fish was observed on the redd being sampled. Levels = c("NA", "TRUE", "FALSE")</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Whether or not a fish was observed on the redd being sampled. Levels = c("NA", "TRUE", "FALSE")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>age</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Age of the redd at time of sampling</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>year</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>run</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Run of the fish on the redd. Levels = c("spring", NA)</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Run of the fish on the redd. Levels = c("spring", NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>redd_measured</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Whether or not the redd was measured at time of observation.</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Whether or not the redd was measured at time of observation.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>redd_width</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>The width of the redd measured in meters</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">206</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>redd_length</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>The length of the redd measured in meters</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">351</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>pre_redd_depth</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Pre-redd depth in inches.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>inch</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">36</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>redd_pit_depth</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Pit depth in inches.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>inch</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">39</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>redd_tail_depth</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Tailspill depth in inches.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>inch</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">0.93979999999999997</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>redd_substrate_class</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Size class determined by millimeter size of substrate, and standardized using the Wentworth scale (see Methods). Levels = c(NA, "very coarse sand", "very fine gravel", "coarse sand", &#13;
+"medium gravel", "fine gravel", "fine sand")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Size class determined by millimeter size of substrate, and standardized using the Wentworth scale (see Methods). Levels = c(NA, "very coarse sand", "very fine gravel", "coarse sand", &#13;
+"medium gravel", "fine gravel", "fine sand")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>tail_substrate_class</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Size class determined by millimeter size of substrate, and standardized using the Wentworth scale (see Methods). Levels = c(NA, "very fine gravel", "very coarse sand", "coarse sand", &#13;
+"fine gravel")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Size class determined by millimeter size of substrate, and standardized using the Wentworth scale (see Methods). Levels = c(NA, "very fine gravel", "very coarse sand", "coarse sand", &#13;
+"fine gravel")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>pre_redd_substrate_class</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Size class determined by millimeter size of substrate, and standardized using the Wentworth scale (see Methods). Levels = c(NA, "very coarse sand", "very fine gravel", "coarse sand", &#13;
+"medium gravel", "fine gravel", "fine sand")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Size class determined by millimeter size of substrate, and standardized using the Wentworth scale (see Methods). Levels = c(NA, "very coarse sand", "very fine gravel", "coarse sand", &#13;
+"medium gravel", "fine gravel", "fine sand")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>velocity</attributeName>
+          <attributeLabel>redd</attributeLabel>
+          <attributeDefinition>Stream velocity measured during sampling</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>feetPerSecond</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>2433</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>battle_redd_summary.csv</entityName>
+      <entityDescription>Annual redd summary</entityDescription>
+      <physical>
+        <objectName>battle_redd_summary.csv</objectName>
+        <size unit="bytes">14</size>
+        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_redd_summary.csv</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>year</attributeName>
+          <attributeLabel>redd_summary</attributeLabel>
+          <attributeDefinition>Year of redd survey</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>year</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">2001</minimum>
+                  <maximum exclusive="false">2024</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>total_annual_redd_count</attributeName>
+          <attributeLabel>redd_summary</attributeLabel>
+          <attributeDefinition>Total annual count of unique redds. Redd surveys are conducted as repeat observations where a given redd may be recorded multiple times. This field counts only unique redds.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>number of redds</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">3</minimum>
+                  <maximum exclusive="false">320</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>number_reaches_surveyed</attributeName>
+          <attributeLabel>redd_summary</attributeLabel>
+          <attributeDefinition>There are six survey reaches though not all reaches are surveyed every year due to resource constraints. This field summarizes the number of reaches surveyed.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>number of reaches</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">6</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>24</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>battle_upstream_passage_raw.csv</entityName>
+      <entityDescription>Daily upstream passage data, raw counts</entityDescription>
+      <physical>
+        <objectName>battle_upstream_passage_raw.csv</objectName>
+        <size unit="bytes">336247</size>
+        <authentication method="MD5">08eeadb0d84d7c1e6b19e12bf5252d01</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_upstream_passage_raw.csv</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>date</attributeName>
+          <attributeLabel>upstream_passage_raw</attributeLabel>
+          <attributeDefinition>Date the upstream passage data were recorded</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">1998-06-01</minimum>
+                  <maximum exclusive="false">2019-07-25</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>time</attributeName>
+          <attributeLabel>upstream_passage_raw</attributeLabel>
+          <attributeDefinition>Time of day the upstream passage count was recorded</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>hh:mm:ss</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">00:00:00</minimum>
+                  <maximum exclusive="false">23:59:55</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>count</attributeName>
+          <attributeLabel>upstream_passage_raw</attributeLabel>
+          <attributeDefinition>Number of fish counted.</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">7</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>run</attributeName>
+          <attributeLabel>upstream_passage_raw</attributeLabel>
+          <attributeDefinition>Assigned run of the fish viewed. Levels = c("spring", "unknown", "not recorded")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Assigned run of the fish viewed. Levels = c("spring", "unknown", "not recorded")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>adipose_clipped</attributeName>
+          <attributeLabel>upstream_passage_raw</attributeLabel>
+          <attributeDefinition>Whether or not the adipose fin was clipped. Levels = c(TRUE, FALSE, NA)</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Whether or not the adipose fin was clipped. Levels = c(TRUE, FALSE, NA)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>passage_direction</attributeName>
+          <attributeLabel>upstream_passage_raw</attributeLabel>
+          <attributeDefinition>Directionality of the fish passage. Levels = c("up", "down")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Directionality of the fish passage. Levels = c("up", "down")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>method</attributeName>
+          <attributeLabel>upstream_passage_raw</attributeLabel>
+          <attributeDefinition>Method by which the data were collected, either in the spawning building trap or by video system. Levels = c("video", "trap")</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Method by which the data were collected, either in the spawning building trap or by video system. Levels = c("video", "trap")</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>6488</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>battle_upstream_passage_estimates.csv</entityName>
+      <entityDescription>Yearly upstream passage data, interpolated estimates</entityDescription>
+      <physical>
+        <objectName>battle_upstream_passage_estimates.csv</objectName>
+        <size unit="bytes">688</size>
+        <authentication method="MD5">05d9f66ad771ed92ff24e590cc469561</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_upstream_passage_estimates.csv</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>year</attributeName>
+          <attributeLabel>upstream_passage_estimates</attributeLabel>
+          <attributeDefinition>Year for which annual total counts was calculated</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">1995</minimum>
+                  <maximum exclusive="false">2021</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>passage_estimate</attributeName>
+          <attributeLabel>upstream_passage_estimates</attributeLabel>
+          <attributeDefinition>Estimated total number of fish passing the weir with interpolated values for periods where video was unavailable or unreliable</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>count of fish</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>integer</numberType>
+                <bounds>
+                  <minimum exclusive="false">30</minimum>
+                  <maximum exclusive="false">799</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>run</attributeName>
+          <attributeLabel>upstream_passage_estimates</attributeLabel>
+          <attributeDefinition>Run type of the fish counted. Levels = "spring"</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Run type of the fish counted. Levels = "spring"</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>adipose_clipped</attributeName>
+          <attributeLabel>upstream_passage_estimates</attributeLabel>
+          <attributeDefinition>Whether or not the adipose fin was clipped. Levels = FALSE</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Whether or not the adipose fin was clipped. Levels = FALSE</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>27</numberOfRecords>
+    </dataTable>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <unitList>
+        <unit id="count of fish" name="count of fish" unitType="dimensionless">
+          <description>number of fish counted</description>
+        </unit>
+        <unit id="year" name="year" unitType="dimensionless">
+          <description>age of redd in years</description>
+        </unit>
+        <unit id="number of redds" name="number of redds" unitType="dimensionless">
+          <description>number of redds counted</description>
+        </unit>
+        <unit id="number of reaches" name="number of reaches" unitType="dimensionless">
+          <description>number of reaches</description>
+        </unit>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>

@@ -33,7 +33,7 @@ abstract_docx <- "data-raw/metadata/abstract.docx"
 methods_md <- "data-raw/metadata/methods.md"
 
 #edi_number <- reserve_edi_id(user_id = Sys.getenv("EDI_USER_ID"), password = Sys.getenv("EDI_PASSWORD"))
-edi_number <- "battle"
+edi_number <- "edi.1862.1"
 
 dataset <- list()  |>
   add_pub_date() |>
