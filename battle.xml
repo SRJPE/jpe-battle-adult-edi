@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2024-12-27</pubDate>
+    <pubDate>2025-01-21</pubDate>
     <abstract>
       <para>
     The U.S. Fish and Wildlife Service (USFWS) collects data on adult
@@ -84,7 +84,7 @@
             <calendarDate>1998-06-01</calendarDate>
           </beginDate>
           <endDate>
-            <calendarDate>2023-11-01</calendarDate>
+            <calendarDate>2024-10-28</calendarDate>
           </endDate>
         </rangeOfDates>
       </temporalCoverage>
@@ -313,7 +313,7 @@
               <dateTimeDomain>
                 <bounds>
                   <minimum exclusive="false">2001-09-18</minimum>
-                  <maximum exclusive="false">2022-11-04</maximum>
+                  <maximum exclusive="false">2024-10-28</maximum>
                 </bounds>
               </dateTimeDomain>
             </dateTime>
@@ -421,7 +421,7 @@
                 <numberType>real</numberType>
                 <bounds>
                   <minimum exclusive="false">0</minimum>
-                  <maximum exclusive="false">6.8579999999999997</maximum>
+                  <maximum exclusive="false">206</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -440,7 +440,7 @@
                 <numberType>real</numberType>
                 <bounds>
                   <minimum exclusive="false">0</minimum>
-                  <maximum exclusive="false">11.557</maximum>
+                  <maximum exclusive="false">351</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -459,7 +459,7 @@
                 <numberType>real</numberType>
                 <bounds>
                   <minimum exclusive="false">0</minimum>
-                  <maximum exclusive="false">1.27</maximum>
+                  <maximum exclusive="false">36</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -478,7 +478,7 @@
                 <numberType>real</numberType>
                 <bounds>
                   <minimum exclusive="false">0</minimum>
-                  <maximum exclusive="false">1.4224000000000001</maximum>
+                  <maximum exclusive="false">39</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -571,7 +571,7 @@
           </measurementScale>
         </attribute>
       </attributeList>
-      <numberOfRecords>2500</numberOfRecords>
+      <numberOfRecords>2433</numberOfRecords>
     </dataTable>
     <dataTable>
       <entityName>battle_redd_summary.csv</entityName>
@@ -610,7 +610,7 @@
                 <numberType>whole</numberType>
                 <bounds>
                   <minimum exclusive="false">2001</minimum>
-                  <maximum exclusive="false">2022</maximum>
+                  <maximum exclusive="false">2024</maximum>
                 </bounds>
               </numericDomain>
             </ratio>
@@ -628,7 +628,7 @@
               <numericDomain>
                 <numberType>whole</numberType>
                 <bounds>
-                  <minimum exclusive="false">5</minimum>
+                  <minimum exclusive="false">3</minimum>
                   <maximum exclusive="false">320</maximum>
                 </bounds>
               </numericDomain>
@@ -647,7 +647,7 @@
               <numericDomain>
                 <numberType>whole</numberType>
                 <bounds>
-                  <minimum exclusive="false">2</minimum>
+                  <minimum exclusive="false">1</minimum>
                   <maximum exclusive="false">6</maximum>
                 </bounds>
               </numericDomain>
@@ -655,7 +655,7 @@
           </measurementScale>
         </attribute>
       </attributeList>
-      <numberOfRecords>23</numberOfRecords>
+      <numberOfRecords>24</numberOfRecords>
     </dataTable>
     <dataTable>
       <entityName>battle_upstream_passage_raw.csv</entityName>
