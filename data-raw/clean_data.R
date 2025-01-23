@@ -473,6 +473,7 @@ redd_summary <- redd_summary |>
             reach_numbers = first(na.omit(reach_numbers)),
             total_annual_redd_count = first(na.omit(total_annual_redd_count)),
             .groups = "drop") |>
+  select(year, total_annual_redd_count, number_reaches_surveyed, reach_numbers) |>
   glimpse()
 
 ### NOTES
