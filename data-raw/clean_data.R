@@ -427,7 +427,7 @@ redd <- redd_2022_2024_data |>
          velocity = flow_fps)
 
 # the goal of this summary is that we show data without changing to pivot longer
-redd_summary <- redd |>
+redd_summary_earlier <- redd |>
   mutate(year = year(date)) |>
   group_by(year) |>
   distinct(redd_id, .keep_all = T) |>
@@ -435,6 +435,45 @@ redd_summary <- redd |>
   summarize(total_annual_redd_count = sum(redd_count),
             number_reaches_surveyed = length(unique(reach)))
 
+# redd summary for 2022-2024 was done using the environmentals tab in the excel
+redd_2022_environmentals <- readxl::read_excel("data-raw/2022_BC_flowwest data_new.xlsx", sheet = 1) |>
+  clean_names() |>
+  mutate(reach = case_when(
+    reach == "R1B" ~ "R1",
+    TRUE ~ reach),
+    year = year(date)) |>
+  group_by(year) |>
+  summarize(number_reaches_surveyed = n_distinct(reach),
+            reach_numbers = str_c(sort(unique(reach)), collapse = ", "))
+
+redd_2023_environmentals <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 1) |>
+  clean_names() |>
+  mutate(reach = case_when(
+    reach == "R2a" ~ "R2",
+    reach == "R2b" ~ "R2",
+    TRUE ~ reach),
+    year = year(date)) |>
+  group_by(year) |>
+  summarize(number_reaches_surveyed = n_distinct(reach),
+            reach_numbers = str_c(sort(unique(reach)), collapse = ", "))
+
+redd_2024_environmentals <- readxl::read_excel("data-raw/2024_BC_flowwest data.xlsx", sheet = 1) |>
+  clean_names() |>
+  mutate(year = year(date)) |>
+  group_by(year) |>
+  summarize(number_reaches_surveyed = n_distinct(reach),
+            reach_numbers = str_c(sort(unique(reach)), collapse = ", "))
+
+redd_summary <- bind_rows(redd_2022_environmentals, redd_2023_environmentals, redd_2024_environmentals, redd_summary_earlier)
+
+#clean the repetitive rows
+redd_summary <- redd_summary |>
+  group_by(year) |>
+  summarize(number_reaches_surveyed = max(number_reaches_surveyed, na.rm = TRUE),
+            reach_numbers = first(na.omit(reach_numbers)),
+            total_annual_redd_count = first(na.omit(total_annual_redd_count)),
+            .groups = "drop") |>
+  glimpse()
 
 ### NOTES
 # redd_width ranged from 0 - 6.68 (2001-2021 data), newer data from 2022 and 2023 introduced much higher values (>100), range is now 0-206
