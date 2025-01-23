@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2025-01-21</pubDate>
+    <pubDate>2025-01-23</pubDate>
     <abstract>
       <para>
     The U.S. Fish and Wildlife Service (USFWS) collects data on adult
@@ -284,8 +284,8 @@
       <entityDescription>Daily repeated observation redd survey data</entityDescription>
       <physical>
         <objectName>battle_redd.csv</objectName>
-        <size unit="bytes">290937</size>
-        <authentication method="MD5">516c74abe14316d3f17139910ff7c0bd</authentication>
+        <size unit="bytes">277831</size>
+        <authentication method="MD5">1644c9100e14b0d8c2f74de82ef384ed</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -298,7 +298,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_redd.csv</url>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/dec-2024-updates/data/battle_redd.csv</url>
           </online>
         </distribution>
       </physical>
@@ -578,8 +578,8 @@
       <entityDescription>Annual redd summary</entityDescription>
       <physical>
         <objectName>battle_redd_summary.csv</objectName>
-        <size unit="bytes">14</size>
-        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <size unit="bytes">296</size>
+        <authentication method="MD5">d8ab4f1c9d2eac97e174ca1fb011a84a</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -592,7 +592,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_redd_summary.csv</url>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/dec-2024-updates/data/battle_redd_summary.csv</url>
           </online>
         </distribution>
       </physical>
@@ -662,8 +662,8 @@
       <entityDescription>Daily upstream passage data, raw counts</entityDescription>
       <physical>
         <objectName>battle_upstream_passage_raw.csv</objectName>
-        <size unit="bytes">336247</size>
-        <authentication method="MD5">08eeadb0d84d7c1e6b19e12bf5252d01</authentication>
+        <size unit="bytes">288567</size>
+        <authentication method="MD5">04d7b2a20042c1a92958a801c91d1c4f</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -676,7 +676,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_upstream_passage_raw.csv</url>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/dec-2024-updates/data/battle_upstream_passage_raw.csv</url>
           </online>
         </distribution>
       </physical>
@@ -796,8 +796,8 @@
       <entityDescription>Yearly upstream passage data, interpolated estimates</entityDescription>
       <physical>
         <objectName>battle_upstream_passage_estimates.csv</objectName>
-        <size unit="bytes">688</size>
-        <authentication method="MD5">05d9f66ad771ed92ff24e590cc469561</authentication>
+        <size unit="bytes">626</size>
+        <authentication method="MD5">d0f241241aaa70dccce9007bf96b05f9</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -810,7 +810,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/battle_upstream_passage_estimates.csv</url>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/dec-2024-updates/data/battle_upstream_passage_estimates.csv</url>
           </online>
         </distribution>
       </physical>
