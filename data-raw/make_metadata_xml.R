@@ -17,7 +17,7 @@ datatable_metadata <-
                                           "Annual redd summary",
                                           "Daily upstream passage data, raw counts",
                                           "Yearly upstream passage data, interpolated estimates"),
-                datatable_url = paste0("https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/",
+                datatable_url = paste0("https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/dec-2024-updates/data/",
                                        c("battle_redd.csv",
                                          "battle_redd_summary.csv",
                                          "battle_upstream_passage_raw.csv",
