@@ -470,10 +470,11 @@ redd_summary <- bind_rows(redd_2022_environmentals, redd_2023_environmentals, re
 redd_summary <- redd_summary |>
   group_by(year) |>
   summarize(number_reaches_surveyed = max(number_reaches_surveyed, na.rm = TRUE),
-            reach_numbers = first(na.omit(reach_numbers)),
+            reach_numbers = str_c(sort(unique(na.omit(reach_numbers))), collapse = ", "),
             total_annual_redd_count = first(na.omit(total_annual_redd_count)),
             .groups = "drop") |>
   select(year, total_annual_redd_count, number_reaches_surveyed, reach_numbers) |>
+  mutate(reach_numbers = gsub(",", "/", reach_numbers)) |>
   glimpse()
 
 ### NOTES
@@ -501,6 +502,7 @@ write_csv(upstream_estimates, here::here("data", "battle_upstream_passage_estima
 
 
 # review ------------------------------------------------------------------
-# read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
+redd <- read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
+redd_summary <- read.csv(here::here("data", "battle_redd_summary.csv")) |> glimpse()
 # read.csv(here::here("data", "battle_upstream_passage_raw.csv")) |> glimpse()
 # read.csv(here::here("data", "battle_upstream_passage_estimates.csv")) |> glimpse()
