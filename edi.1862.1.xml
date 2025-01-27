@@ -578,8 +578,8 @@
       <entityDescription>Annual redd summary</entityDescription>
       <physical>
         <objectName>battle_redd_summary.csv</objectName>
-        <size unit="bytes">406</size>
-        <authentication method="MD5">2a2cccd2c7190457abeefe36a20f8b48</authentication>
+        <size unit="bytes">415</size>
+        <authentication method="MD5">d0b3a0d1aac0a42cdc2858e763062266</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
