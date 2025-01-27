@@ -474,9 +474,10 @@ redd_summary <- redd_summary |>
             total_annual_redd_count = first(na.omit(total_annual_redd_count)),
             .groups = "drop") |>
   select(year, total_annual_redd_count, number_reaches_surveyed, reach_numbers) |>
-  mutate(reach_numbers = gsub(",", "/", reach_numbers)) |>
+  mutate(reach_numbers = gsub(",", " &", reach_numbers)) |>
   glimpse()
 
+redd_summary$reach_numbers <- gsub("^'|\\s*'$", "", redd_summary$reach_numbers)
 ### NOTES
 # redd_width ranged from 0 - 6.68 (2001-2021 data), newer data from 2022 and 2023 introduced much higher values (>100), range is now 0-206
 # same with redd_length (0-351), pre_redd_depth (0-28), redd_pit_depth (0-39), we might just want to confirm that these values make sense
@@ -502,7 +503,7 @@ write_csv(upstream_estimates, here::here("data", "battle_upstream_passage_estima
 
 
 # review ------------------------------------------------------------------
-redd <- read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
-redd_summary <- read.csv(here::here("data", "battle_redd_summary.csv")) |> glimpse()
-# read.csv(here::here("data", "battle_upstream_passage_raw.csv")) |> glimpse()
-# read.csv(here::here("data", "battle_upstream_passage_estimates.csv")) |> glimpse()
+# redd <- read.csv(here::here("data", "battle_redd.csv")) |> glimpse()
+# redd_summary <- read.csv(here::here("data", "battle_redd_summary.csv")) |> glimpse()
+# upstream <- read.csv(here::here("data", "battle_upstream_passage_raw.csv")) |> glimpse()
+# upstream_estimates <- read.csv(here::here("data", "battle_upstream_passage_estimates.csv")) |> glimpse()
