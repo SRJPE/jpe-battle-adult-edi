@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2025-01-27</pubDate>
+    <pubDate>2025-01-30</pubDate>
     <abstract>
       <para>
     The U.S. Fish and Wildlife Service (USFWS) collects data on adult
@@ -84,7 +84,7 @@
             <calendarDate>1998-06-01</calendarDate>
           </beginDate>
           <endDate>
-            <calendarDate>2024-10-28</calendarDate>
+            <calendarDate>2023-11-01</calendarDate>
           </endDate>
         </rangeOfDates>
       </temporalCoverage>
@@ -810,8 +810,8 @@
       <entityDescription>Yearly upstream passage data, interpolated estimates</entityDescription>
       <physical>
         <objectName>battle_upstream_passage_estimates.csv</objectName>
-        <size unit="bytes">626</size>
-        <authentication method="MD5">d0f241241aaa70dccce9007bf96b05f9</authentication>
+        <size unit="bytes">698</size>
+        <authentication method="MD5">cc4a04d37da717e6f411faa4d23082f7</authentication>
         <dataFormat>
           <textFormat>
             <numHeaderLines>1</numHeaderLines>
@@ -839,7 +839,7 @@
               <dateTimeDomain>
                 <bounds>
                   <minimum exclusive="false">1995</minimum>
-                  <maximum exclusive="false">2021</maximum>
+                  <maximum exclusive="false">2024</maximum>
                 </bounds>
               </dateTimeDomain>
             </dateTime>
@@ -893,7 +893,7 @@
           </measurementScale>
         </attribute>
       </attributeList>
-      <numberOfRecords>27</numberOfRecords>
+      <numberOfRecords>30</numberOfRecords>
     </dataTable>
   </dataset>
   <additionalMetadata>
