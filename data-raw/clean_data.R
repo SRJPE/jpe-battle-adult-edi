@@ -490,8 +490,21 @@ upstream <- upstream_raw |>
   select(date, time, count, run, adipose_clipped, passage_direction, method) |>
   glimpse()
 
+# Gabby provided 2022-2024 manually through email...
 upstream_estimates <- upstream_estimates_raw |>  # all spring run
   select(-c(stream, lcl, ucl, confidence_interval, ladder)) |>
+  add_row(year = 2022,
+          passage_estimate = 152,
+          run = "not recorded",
+          adipose_clipped = NA) |>
+  add_row(year = 2023,
+          passage_estimate = 7,
+          run = "not recorded",
+          adipose_clipped = NA) |>
+  add_row(year = 2024,
+          passage_estimate = 30,
+          run = "not recorded",
+          adipose_clipped = NA) |>
   glimpse()
 
 
