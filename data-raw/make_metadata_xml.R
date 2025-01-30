@@ -6,16 +6,20 @@ library(EML)
 
 datatable_metadata <-
   dplyr::tibble(filepath = c("data/battle_redd.csv",
+                             "data/battle_redd_summary.csv",
                              "data/battle_upstream_passage_raw.csv",
                              "data/battle_upstream_passage_estimates.csv"),
                 attribute_info = c("data-raw/metadata/battle_redd_metadata.xlsx",
+                                   "data-raw/metadata/battle_redd_summary_metadata.xlsx",
                                    "data-raw/metadata/battle_upstream_passage_raw_metadata.xlsx",
                                    "data-raw/metadata/battle_upstream_passage_estimates_metadata.xlsx"),
-                datatable_description = c("Daily redd survey data",
+                datatable_description = c("Daily repeated observation redd survey data",
+                                          "Annual redd summary",
                                           "Daily upstream passage data, raw counts",
                                           "Yearly upstream passage data, interpolated estimates"),
-                datatable_url = paste0("https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/main/data/",
+                datatable_url = paste0("https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/dec-2024-updates/data/",
                                        c("battle_redd.csv",
+                                         "battle_redd_summary.csv",
                                          "battle_upstream_passage_raw.csv",
                                          "battle_upstream_passage_estimates.csv")))
 # save cleaned data to `data/`
@@ -29,7 +33,7 @@ abstract_docx <- "data-raw/metadata/abstract.docx"
 methods_md <- "data-raw/metadata/methods.md"
 
 #edi_number <- reserve_edi_id(user_id = Sys.getenv("EDI_USER_ID"), password = Sys.getenv("EDI_PASSWORD"))
-edi_number <- "battle"
+edi_number <- "edi.1862.1"
 
 dataset <- list()  |>
   add_pub_date() |>
@@ -46,11 +50,11 @@ dataset <- list()  |>
   add_datatable(datatable_metadata)
 
 # GO through and check on all units
-custom_units <- data.frame(id = c("count of fish", "year", "number of redds"),
-                           unitType = c("dimensionless", "dimensionless", "dimensionless"),
-                           parentSI = c(NA, NA, NA),
-                           multiplierToSI = c(NA, NA, NA),
-                           description = c("number of fish counted", "age of redd in years", "number of redds counted"))
+custom_units <- data.frame(id = c("count of fish", "year", "number of redds", "number of reaches"),
+                           unitType = c("dimensionless", "dimensionless", "dimensionless", "dimensionless"),
+                           parentSI = c(NA, NA, NA, NA),
+                           multiplierToSI = c(NA, NA, NA, NA),
+                           description = c("number of fish counted", "age of redd in years", "number of redds counted", "number of reaches"))
 
 unitList <- EML::set_unitList(custom_units)
 
