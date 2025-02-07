@@ -28,6 +28,8 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
                overwrite = TRUE)
 
 ### redd raw ### ----
+#  We originally converted 2001-2022 data to metric system to keep the units consistent across the central valley but
+# We now decided we are publishing this data in their original units (inches).
 redd_raw_2001_2022 <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |> # from last update
   glimpse()
 
@@ -222,10 +224,17 @@ redd_2023 <- redd_raw_2023_clean_2|>
     "fork", "age_index")) |>
   glimpse()
 
-# removing 2022 data from redd_raw_2001_2022
+# removing 2022 data from redd_raw_2001_2022 and changing units
 redd_2001_2021 <- redd_raw_2001_2022 |>
   filter(year(date) != 2022) |>
   glimpse()
+
+redd_2001_2021$pre_redd_depth <- redd_2001_2021$pre_redd_depth*39.3701
+redd_2001_2021$redd_pit_depth <- redd_2001_2021$redd_pit_depth*39.3701
+redd_2001_2021$redd_tail_depth <- redd_2001_2021$redd_tail_depth*39.3701
+redd_2001_2021$redd_length <- redd_2001_2021$redd_length*39.3701
+redd_2001_2021$redd_width <- redd_2001_2021$redd_width*39.3701
+
 
 #2024 data ----
 redd_raw_2024_clean_1 <- redd_raw_2024 |>
@@ -478,10 +487,6 @@ redd_summary <- redd_summary |>
   glimpse()
 
 redd_summary$reach_numbers <- gsub("^'|\\s*'$", "", redd_summary$reach_numbers)
-### NOTES
-# redd_width ranged from 0 - 6.68 (2001-2021 data), newer data from 2022 and 2023 introduced much higher values (>100), range is now 0-206
-# same with redd_length (0-351), pre_redd_depth (0-28), redd_pit_depth (0-39), we might just want to confirm that these values make sense
-# metadata was updated with these values
 
 # upstream passage --------------------------------------------------------
 upstream <- upstream_raw |>
