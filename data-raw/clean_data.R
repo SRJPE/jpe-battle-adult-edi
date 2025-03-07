@@ -435,58 +435,80 @@ redd <- redd_2022_2024_data |>
          redd_substrate_class, tail_substrate_class, pre_redd_substrate_class,
          velocity = flow_fps)
 
-# the goal of this summary is that we show data without changing to pivot longer
-redd_summary_earlier <- redd |>
+# # the goal of this summary is that we show data without changing to pivot longer
+# redd_summary_earlier <- redd |>
+#   mutate(year = year(date)) |>
+#   group_by(year) |>
+#   distinct(redd_id, .keep_all = T) |>
+#   mutate(redd_count = 1) |> # after selecting for distinct redd_id add redd_count
+#   summarize(total_annual_redd_count = sum(redd_count),
+#             number_reaches_surveyed = length(unique(reach)))
+#
+# # redd summary for 2022-2024 was done using the environmentals tab in the excel
+# redd_2022_environmentals <- readxl::read_excel("data-raw/2022_BC_flowwest data_new.xlsx", sheet = 1) |>
+#   clean_names() |>
+#   mutate(reach = case_when(
+#     reach == "R1B" ~ "R1",
+#     TRUE ~ reach),
+#     year = year(date)) |>
+#   group_by(year) |>
+#   summarize(number_reaches_surveyed = n_distinct(reach),
+#             reach_numbers = str_c(sort(unique(reach)), collapse = ", "))
+#
+# redd_2023_environmentals <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 1) |>
+#   clean_names() |>
+#   mutate(reach = case_when(
+#     reach == "R2a" ~ "R2",
+#     reach == "R2b" ~ "R2",
+#     TRUE ~ reach),
+#     year = year(date)) |>
+#   group_by(year) |>
+#   summarize(number_reaches_surveyed = n_distinct(reach),
+#             reach_numbers = str_c(sort(unique(reach)), collapse = ", "))
+#
+# redd_2024_environmentals <- readxl::read_excel("data-raw/2024_BC_flowwest data.xlsx", sheet = 1) |>
+#   clean_names() |>
+#   mutate(year = year(date)) |>
+#   group_by(year) |>
+#   summarize(number_reaches_surveyed = n_distinct(reach),
+#             reach_numbers = str_c(sort(unique(reach)), collapse = ", "))
+#
+# redd_summary <- bind_rows(redd_2022_environmentals, redd_2023_environmentals, redd_2024_environmentals, redd_summary_earlier)
+#
+# #clean the repetitive rows
+# redd_summary <- redd_summary |>
+#   group_by(year) |>
+#   summarize(number_reaches_surveyed = max(number_reaches_surveyed, na.rm = TRUE),
+#             reach_numbers = str_c(sort(unique(na.omit(reach_numbers))), collapse = ", "),
+#             total_annual_redd_count = first(na.omit(total_annual_redd_count)),
+#             .groups = "drop") |>
+#   select(year, total_annual_redd_count, number_reaches_surveyed, reach_numbers) |>
+#   mutate(reach_numbers = gsub(",", " &", reach_numbers)) |>
+#   glimpse()
+
+# redd_summary$reach_numbers <- gsub("^'|\\s*'$", "", redd_summary$reach_numbers)
+
+redd_count <- redd |>
   mutate(year = year(date)) |>
   group_by(year) |>
   distinct(redd_id, .keep_all = T) |>
-  mutate(redd_count = 1) |> # after selecting for distinct redd_id add redd_count
-  summarize(total_annual_redd_count = sum(redd_count),
-            number_reaches_surveyed = length(unique(reach)))
-
-# redd summary for 2022-2024 was done using the environmentals tab in the excel
-redd_2022_environmentals <- readxl::read_excel("data-raw/2022_BC_flowwest data_new.xlsx", sheet = 1) |>
-  clean_names() |>
-  mutate(reach = case_when(
-    reach == "R1B" ~ "R1",
-    TRUE ~ reach),
-    year = year(date)) |>
-  group_by(year) |>
-  summarize(number_reaches_surveyed = n_distinct(reach),
-            reach_numbers = str_c(sort(unique(reach)), collapse = ", "))
-
-redd_2023_environmentals <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 1) |>
-  clean_names() |>
-  mutate(reach = case_when(
-    reach == "R2a" ~ "R2",
-    reach == "R2b" ~ "R2",
-    TRUE ~ reach),
-    year = year(date)) |>
-  group_by(year) |>
-  summarize(number_reaches_surveyed = n_distinct(reach),
-            reach_numbers = str_c(sort(unique(reach)), collapse = ", "))
-
-redd_2024_environmentals <- readxl::read_excel("data-raw/2024_BC_flowwest data.xlsx", sheet = 1) |>
-  clean_names() |>
-  mutate(year = year(date)) |>
-  group_by(year) |>
-  summarize(number_reaches_surveyed = n_distinct(reach),
-            reach_numbers = str_c(sort(unique(reach)), collapse = ", "))
-
-redd_summary <- bind_rows(redd_2022_environmentals, redd_2023_environmentals, redd_2024_environmentals, redd_summary_earlier)
-
-#clean the repetitive rows
-redd_summary <- redd_summary |>
-  group_by(year) |>
-  summarize(number_reaches_surveyed = max(number_reaches_surveyed, na.rm = TRUE),
-            reach_numbers = str_c(sort(unique(na.omit(reach_numbers))), collapse = ", "),
-            total_annual_redd_count = first(na.omit(total_annual_redd_count)),
-            .groups = "drop") |>
-  select(year, total_annual_redd_count, number_reaches_surveyed, reach_numbers) |>
-  mutate(reach_numbers = gsub(",", " &", reach_numbers)) |>
+  mutate(redd_count = 1) |>
+  summarize(total_annual_redd_count = sum(redd_count)) |>
   glimpse()
 
-redd_summary$reach_numbers <- gsub("^'|\\s*'$", "", redd_summary$reach_numbers)
+redd_summary_draft <- readxl::read_excel("data-raw/Flowwest_summary table.xlsx") |> glimpse()
+
+redd_summary <- redd_summary_draft |>
+  clean_names() |>
+  left_join(redd_count) |>
+  mutate(number_reaches_surveyed = str_count(reaches_surveyed, ",") + 1,
+         reach_numbers = gsub(",", " & ", reaches_surveyed),
+         include_modeling = case_when(fws_call_to_include_data_in_modeling == "Yes" ~ TRUE,
+                                      TRUE ~ FALSE)) |>  # do we want to add total_complete_survey_periods?
+  select(year, total_annual_redd_count, number_reaches_surveyed, reach_numbers, include_modeling) |>
+  glimpse()
+
+
 
 # upstream passage --------------------------------------------------------
 upstream <- upstream_raw |>
