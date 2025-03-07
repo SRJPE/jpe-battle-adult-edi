@@ -68,6 +68,6 @@ edi_number
 EML::write_eml(eml, paste0(edi_number, ".xml"))
 EML::eml_validate(paste0(edi_number, ".xml"))
 
-# EMLaide::evaluate_edi_package(Sys.getenv("user_ID"), Sys.getenv("password"), "edi.1047.1.xml")
+EMLaide::evaluate_edi_package(Sys.getenv("edi_user_id"), Sys.getenv("edi_password"), "edi.1862.1.xml")
 # EMLaide::upload_edi_package(Sys.getenv("user_ID"), Sys.getenv("password"), "edi.1047.1.xml")
 
