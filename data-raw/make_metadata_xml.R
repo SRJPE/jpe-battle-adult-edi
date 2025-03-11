@@ -25,7 +25,7 @@ datatable_metadata <-
                                          "battle_redd_summary.csv",
                                          "battle_upstream_passage_raw.csv",
                                          "battle_upstream_passage_estimates.csv",
-                                         "data/battle_surveyed_reaches.csv")))
+                                         "battle_surveyed_reaches.csv")))
 # save cleaned data to `data/`
 excel_path <- "data-raw/metadata/battle_adult_metadata.xlsx"
 sheets <- readxl::excel_sheets(excel_path)
