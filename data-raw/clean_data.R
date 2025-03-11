@@ -537,6 +537,7 @@ environmentals_2006_2024 <- map_dfr(sheet_numbers_2, ~ read_excel("data-raw/flow
                               .id = "source") |>  select(-source)
 # bind all environmentals
 surveyed_reaches <- bind_rows(environmentals_2001_2004, environmentals_2005, environmentals_2006_2024) |>
+  mutate(reach = gsub(", ", "/", reach)) |>
   glimpse()
 
 # upstream passage --------------------------------------------------------
