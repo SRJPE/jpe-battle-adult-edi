@@ -30,7 +30,7 @@
       <electronicMailAddress>natasha_wingerter@fws.gov</electronicMailAddress>
       <role>principal investigator</role>
     </associatedParty>
-    <pubDate>2025-03-07</pubDate>
+    <pubDate>2025-03-11</pubDate>
     <abstract>
       <para>
     The U.S. Fish and Wildlife Service (USFWS) collects data on adult
@@ -908,6 +908,63 @@
         </attribute>
       </attributeList>
       <numberOfRecords>27</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>battle_surveyed_reaches.csv</entityName>
+      <entityDescription>Reaches surveyed in Battle Creek</entityDescription>
+      <physical>
+        <objectName>battle_surveyed_reaches.csv</objectName>
+        <size unit="bytes">14</size>
+        <authentication method="MD5">3be7b8b182ccd96e48989b4e57311193</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/dec-2024-updates/data/data/battle_surveyed_reaches.csv</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>date</attributeName>
+          <attributeLabel>surveyed_reaches</attributeLabel>
+          <attributeDefinition>Date when survey was conducted</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain>
+                <bounds>
+                  <minimum exclusive="false">08/20/2001</minimum>
+                  <maximum exclusive="false">10/30/2024</maximum>
+                </bounds>
+              </dateTimeDomain>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>reach</attributeName>
+          <attributeLabel>surveyed_reaches</attributeLabel>
+          <attributeDefinition>Survey reach where redd was located. Levels =c("R1", "R3", "R2", "R4", "R5", "R6", "R7", "R2A", "R2B", "R4A", "R4B", "R1A", "R1B", "R2b/4a", "R4b", "R2a", "R2B/4", "R6B", "R2b" )</attributeDefinition>
+          <measurementScale>
+            <ordinal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Survey reach where redd was located. Levels =c("R1", "R3", "R2", "R4", "R5", "R6", "R7", "R2A", "R2B", "R4A", "R4B", "R1A", "R1B", "R2b/4a", "R4b", "R2a", "R2B/4", "R6B", "R2b" )</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </ordinal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>585</numberOfRecords>
     </dataTable>
   </dataset>
   <additionalMetadata>
