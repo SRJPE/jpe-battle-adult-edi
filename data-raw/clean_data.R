@@ -1,6 +1,9 @@
 library(tidyverse)
 library(googleCloudStorageR)
 library(janitor)
+library(purrr)
+library(dplyr)
+library(readxl)
 
 # pull in data from google cloud ---------------------------------------------------
 # we are not reading carcass, environmental or adult data for now
@@ -508,7 +511,33 @@ redd_summary <- redd_summary_draft |>
   select(year, total_annual_redd_count, number_reaches_surveyed, reach_numbers, include_modeling) |>
   glimpse()
 
+# surveyed reaches ----------------------------------------
+sheet_numbers_1 <- 1:4
+environmentals_2001_2004 <- map_dfr(sheet_numbers_1, ~ read_excel("data-raw/flowwest_BC_environmentals.xlsx",
+                                                                sheet = .x, skip = 3) |>
+                                      clean_names() |>
+                                      select(date, reach) |>
+                                      mutate(date = as.Date(date),
+                                             reach = paste0("R", reach)),
+                                    .id = "source") |>  select(-source)
 
+environmentals_2005 <- readxl::read_excel("data-raw/flowwest_BC_environmentals.xlsx", sheet = 5, skip = 3) |>
+  clean_names() |>
+  select(date, reach) |>
+  mutate(date = as.Date(date))
+
+# 2006- 2024
+sheet_numbers_2 <- 6:24
+environmentals_2006_2024 <- map_dfr(sheet_numbers_2, ~ read_excel("data-raw/flowwest_BC_environmentals.xlsx",
+                                                          sheet = .x, skip = 2) |>
+                                clean_names() |>
+                                select(date, reach) |>
+                                mutate(date = as.Date(date),
+                                       reach = as.character(reach)),
+                              .id = "source") |>  select(-source)
+# bind all environmentals
+surveyed_reaches <- bind_rows(environmentals_2001_2004, environmentals_2005, environmentals_2006_2024) |>
+  glimpse()
 
 # upstream passage --------------------------------------------------------
 upstream <- upstream_raw |>
@@ -527,6 +556,7 @@ write_csv(redd, here::here("data", "battle_redd.csv"))
 write_csv(redd_summary, here::here("data", "battle_redd_summary.csv"))
 write_csv(upstream, here::here("data", "battle_upstream_passage_raw.csv"))
 write_csv(upstream_estimates, here::here("data", "battle_upstream_passage_estimates.csv"))
+write_csv(surveyed_reaches, here::here("data", "battle_surveyed_reaches.csv"))
 
 
 # review ------------------------------------------------------------------
