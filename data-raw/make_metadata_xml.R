@@ -9,23 +9,23 @@ datatable_metadata <-
                              "data/battle_redd_summary.csv",
                              "data/battle_upstream_passage_raw.csv",
                              "data/battle_upstream_passage_estimates.csv",
-                             "data/battle_surveyed_reaches.csv"),
+                             "data/battle_redd_surveyed_reaches.csv"),
                 attribute_info = c("data-raw/metadata/battle_redd_metadata.xlsx",
                                    "data-raw/metadata/battle_redd_summary_metadata.xlsx",
                                    "data-raw/metadata/battle_upstream_passage_raw_metadata.xlsx",
                                    "data-raw/metadata/battle_upstream_passage_estimates_metadata.xlsx",
-                                   "data-raw/metadata/battle_surveyed_reaches_metadata.xlsx"),
+                                   "data-raw/metadata/battle_redd_surveyed_reaches_metadata.xlsx"),
                 datatable_description = c("Daily repeated observation redd survey data",
                                           "Annual redd summary",
                                           "Daily upstream passage data, raw counts",
                                           "Yearly upstream passage data, interpolated estimates",
-                                          "Reaches surveyed in Battle Creek"),
+                                          "Reaches surveyed for redds in Battle Creek"),
                 datatable_url = paste0("https://raw.githubusercontent.com/SRJPE/jpe-battle-adult-edi/dec-2024-updates/data/",
                                        c("battle_redd.csv",
                                          "battle_redd_summary.csv",
                                          "battle_upstream_passage_raw.csv",
                                          "battle_upstream_passage_estimates.csv",
-                                         "battle_surveyed_reaches.csv")))
+                                         "battle_redd_surveyed_reaches.csv")))
 # save cleaned data to `data/`
 excel_path <- "data-raw/metadata/battle_adult_metadata.xlsx"
 sheets <- readxl::excel_sheets(excel_path)
