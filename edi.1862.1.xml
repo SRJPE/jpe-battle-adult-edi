@@ -415,7 +415,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <standardUnit>meter</standardUnit>
+                <standardUnit>inch</standardUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
@@ -434,7 +434,7 @@
           <measurementScale>
             <ratio>
               <unit>
-                <standardUnit>meter</standardUnit>
+                <standardUnit>inch</standardUnit>
               </unit>
               <numericDomain>
                 <numberType>real</numberType>
