@@ -34,22 +34,22 @@ gcs_get_object(object_name = "standard-format-data/standard_adult_passage_estima
 #  We originally converted 2001-2022 data to metric system to keep the units consistent across the central valley but
 # We now decided we are publishing this data in their original units (inches).
 redd_raw_2001_2022 <- read_csv(here::here("data-raw", "battle_daily_redd.csv")) |> # from last update
-  glimpse()
+  glimpse() # meters
 
 # redd_raw_2022 <- readxl::read_excel("data-raw/2022_BC_flowwest data.xlsx", sheet = 3) |> # this data was added previously but we got an updated version
 #   clean_names() |>
 #   glimpse()
 
 redd_raw_2022_new <- readxl::read_excel("data-raw/2022_BC_flowwest data_new.xlsx", sheet = 2) |> # this data was added for this update
-  clean_names() |>
+  clean_names() |> # inches
   glimpse()
 
 redd_raw_2023 <- readxl::read_excel("data-raw/2023_BC_flowwest data.xlsx", sheet = 4) |> # this data was added for this update
-  clean_names() |>
+  clean_names() |> # inches
   glimpse()
 
 redd_raw_2024 <- readxl::read_excel("data-raw/2024_BC_flowwest data.xlsx", sheet = 2) |> # this data was added for this update
-  clean_names() |>
+  clean_names() |> # inches
   glimpse()
 
 ### upstream estimates raw / upstream_raw ### ----
@@ -533,7 +533,8 @@ environmentals_2006_2024 <- map_dfr(sheet_numbers_2, ~ read_excel("data-raw/flow
                                 clean_names() |>
                                 select(date, reach) |>
                                 mutate(date = as.Date(date),
-                                       reach = as.character(reach)),
+                                       reach = as.character(reach),
+                                       reach = toupper(reach)),
                               .id = "source") |>  select(-source)
 # bind all environmentals
 surveyed_reaches <- bind_rows(environmentals_2001_2004, environmentals_2005, environmentals_2006_2024) |>
@@ -557,7 +558,7 @@ write_csv(redd, here::here("data", "battle_redd.csv"))
 write_csv(redd_summary, here::here("data", "battle_redd_summary.csv"))
 write_csv(upstream, here::here("data", "battle_upstream_passage_raw.csv"))
 write_csv(upstream_estimates, here::here("data", "battle_upstream_passage_estimates.csv"))
-write_csv(surveyed_reaches, here::here("data", "battle_surveyed_reaches.csv"))
+write_csv(surveyed_reaches, here::here("data", "battle_redd_surveyed_reaches.csv"))
 
 
 # review ------------------------------------------------------------------
